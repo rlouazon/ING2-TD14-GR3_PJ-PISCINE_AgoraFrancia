@@ -63,7 +63,7 @@ a:hover, a:focus, a:active {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour le style */
     z-index: 1000; /* Assurez-vous que le header reste au-dessus des autres éléments */
 }
-/*
+
 @media (max-width: 1200px) {
     .menu{
         font-size: 90%;
@@ -93,5 +93,3 @@ a:hover, a:focus, a:active {
         margin-left: auto;
     }
 }
-
-*/
