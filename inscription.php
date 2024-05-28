@@ -13,7 +13,7 @@
             <td><input type="number" min="0" name="in_stock"></td>
         </tr>
         <tr>
-            <td><label>Prix :</label></td>
+            <td><label>Prix :s</label></td>
             <td><input type="number" min="0" name="price" required></td>
         </tr>
         <tr>
