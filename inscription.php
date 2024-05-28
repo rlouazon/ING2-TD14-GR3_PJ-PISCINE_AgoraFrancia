@@ -5,7 +5,7 @@
     <form method="post">
         <table>
         <tr>
-            <td><label>Nom du produit :</label></td>
+            <td><label>Nom du produit:</label></td>
             <td><input type="text" name="product_name" required></td>²
         </tr>
         <tr>
