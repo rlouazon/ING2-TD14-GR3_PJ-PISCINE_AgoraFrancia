@@ -65,13 +65,5 @@
 
 <?php
 
-    if(isset($_POST['Inscription'])){
-
-        $condition = 0;
-        if(isset($_POST['mail'])){
-            if($_POST['mail'] != "" && )
-        }
-
-    }
 
 ?>
