@@ -29,8 +29,8 @@
     <title>Agora Francia</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/header.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
-</head>
-</head>
+    <link href="CSS/footer.css" rel="stylesheet">
+
 </head>
 <body>
     <div class = "header">
