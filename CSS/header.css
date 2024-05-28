@@ -1,4 +1,55 @@
-header {
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+
+*{
+    color: #3F4A54;
+}
+
+
+h2 {
+    margin-left: 1%;
+    margin-top: 0.5%;
+    font-size: 20px;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    margin: none;
+    padding: none;
+    outline: none;
+    border: none;
+    font-size: 1800%;
+    background-color:#0000001d;
+    color: #3f4a5493;
+
+    width: 150px;
+
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu{
+    display: flex;
+    background-color:#71343411;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.header {
     font-size: 1px;
     display: flex;
     align-items: center;
