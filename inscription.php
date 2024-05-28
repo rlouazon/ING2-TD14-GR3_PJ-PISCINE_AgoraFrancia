@@ -126,6 +126,13 @@
             $init_connexion_pass = sha1($_POST['password']);
             include("blocs/init_connexion.php");
 
+            if(isset($_GET["redir"])){
+                if($_GET["redir"] != ""){
+                    echo $_GET["redir"];
+                    echo "<script>setTimeout(() => window.location.replace(\"".base64_decode($_GET["redir"]."=")."\"), 3000);</script>";
+                }
+            }
+
         }
     }
 
