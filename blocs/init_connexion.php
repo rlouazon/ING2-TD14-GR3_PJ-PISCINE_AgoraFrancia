@@ -1,5 +1,7 @@
 <?php
 
+    echo $init_connexion_login."     ".$init_connexion_pass;
+
     $requete = "SELECT id FROM utilisateurs WHERE mail = \"" . $init_connexion_login . "\" and password = \"" . $init_connexion_pass . "\"";
     $result = mysqli_query($db_handle, $requete);
     $occ = 0;
