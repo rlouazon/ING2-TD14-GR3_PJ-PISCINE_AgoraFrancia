@@ -4,6 +4,11 @@
     color: #3F4A54;
 }
 
+body {
+    margin: 0;
+    font-family: 'Lexend', Arial, sans-serif;
+}
+
 h2 {
     margin-left: 1%;
     margin-top: 0.5%;
@@ -63,6 +68,22 @@ a:hover, a:focus, a:active {
     z-index: 1000;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px; /* pour laisser de l'espace pour le header fixe */
+    padding: 20px;
+}
+
+.col {
+    flex: 1;
+    margin: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
 @media (max-width: 1200px) {
     .menu {
         font-size: 90%;
@@ -82,27 +103,28 @@ a:hover, a:focus, a:active {
 }
 
 @media (max-width: 700px) {
-
-    .header{
-        flex-wrap: wrap; /* Permet au contenu de se replier sur plusieurs lignes si nécessaire */
+    .header {
+        flex-wrap: wrap;
     }
-
-    .panier{
+    .panier {
         display: none;
     }
-
-    .logo{
+    .logo {
         width: 30px;
         height: 30px;
         margin-bottom: 10px;
     }
     .menu {
-        
-        width: 100%; /* Assure que le menu occupe toute la largeur disponible */
-        text-align: center; /* Centre les éléments du menu */
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        text-align: center;
     }
     .droite {
         margin-left: auto;
-        margin-right:auto ;
+        margin-right: auto;
+    }
+    .container {
+        flex-direction: column;
     }
 }

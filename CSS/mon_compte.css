@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+
+* {
+    color: #3F4A54;
+}
+
+body {
+    font-family: 'Lexend', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding-top: 60px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+}
+
+.naming {
+    font-size: 15px;
+}
+
+.info {
+    font-size: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+}
+
+.titreMain {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    background-color: #edccb453;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: 50%; /* Centré en fonction du contenu */
+    font-size: 200%;
+}
+
+.nomPrenom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pp {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.col {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    background-color: #edccb453;
+    border-radius: 25px;
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.colD {
+    margin-left: 5%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px auto;
+    width: 80%;
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+    }
+    .panier {
+        display: none;
+    }
+    .logo {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+    .menu {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        text-align: center;
+    }
+    .droite {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .colD {
+        margin-left: 0;
+    }
+    .titreMain{
+        width: 80%;
+    }
+}
