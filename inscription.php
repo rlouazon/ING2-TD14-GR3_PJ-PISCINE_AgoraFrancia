@@ -1,6 +1,5 @@
 <?php include("blocs/header.php"); ?>
-    <link href="CSS/inscription.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
-</head>
+<link href="CSS/inscription.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 
 
 <div class="centre">

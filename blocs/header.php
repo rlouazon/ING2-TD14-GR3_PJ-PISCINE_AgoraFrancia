@@ -34,7 +34,6 @@
 </head>
 <body>
     <div class = "header">
->
             <img src="CSS/images/logo.png" alt="logo" class="logo">
             <h2>AGORA FRANCIA</h2>
 
