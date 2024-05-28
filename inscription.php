@@ -78,13 +78,72 @@
 </div>
 
 <?php
-if (isset($_POST['Inscription'])) {
-    $condition = 0;
-    if (isset($_POST['mail']) && $_POST['mail'] != "") {
-        // Validation du mail ou autres opérations
+    if(isset($_POST['Inscription'])){
+        $condition = 0;
+        if(isset($_POST['mail'])){
+            if($_POST['mail'] != "" && count(explode('@', $_POST['mail']))>1){
+                $requete = "SELECT * FROM utilisateurs WHERE mail = \"" . $_POST['mail'] . "\"";
+                $result = mysqli_query($db_handle, $requete);
+                $occ = 0;
+                while ($data = mysqli_fetch_assoc($result)) {
+                    $occ += 1;
+                }
+                if($occ == 0){
+                    $condition = 1;
+                }
+                else{
+                    $alert = "Adresse mail déjà inscrite";
+                }
+            }
+            else{
+                $alert = "Adresse mail incorrecte";
+            }
+        }
+        else{
+            $alert = "Adresse mail incorrecte inexistante";
+        }
+
+        if($condition == 1){
+            
+            $requete = "INSERT INTO utilisateurs VALUES ("
+                ."\"\","
+                ."\"".$_POST['nom']."\","
+                ."\"".$_POST['prenom']."\","
+                ."\"".$_POST['mail']."\","
+                ."\"".$_POST['bank_type']."\","
+                ."\"".$_POST['bank_carte']."\","
+                ."\"".$_POST['bank_nom']."\","
+                ."\"".$_POST['bank_date']."\","
+                ."\"".sha1($_POST['bank_code'])."\","
+                ."\"".sha1($_POST['password'])."\""
+                .")";
+            echo $requete;
+            $result = mysqli_query($db_handle, $requete);
+            $alert = "Compte créé";
+
+            $requete = "SELECT id FROM utilisateurs WHERE mail = \"" . $_POST['mail'] . "\"";
+            $result = mysqli_query($db_handle, $requete);
+            $occ = 0;
+            $id = 0;
+            while ($data = mysqli_fetch_assoc($result)) {
+                $occ += 1;
+                $id = (int)$data['id'];
+            }
+            echo "     PRE" . $id;
+            if($occ == 1){
+                echo "     PRO" . $id;
+                $_SESSION['id'] = $id;
+                echo "     SESS" . $_SESSION['id'];
+                $logged = $id;
+                echo "     LOGGED" . $logged;
+            }
+            else{
+                $alert = "Erreur de base de données : adresse mail ";
+            }
+
+        }
     }
-}
+
 ?>
 
-</body>
-</html>
+<?php include("blocs/footer.php") ?>
