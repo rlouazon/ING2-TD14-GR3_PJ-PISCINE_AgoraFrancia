@@ -10,9 +10,8 @@
     <link href="CSS/inscription.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 </head>
 <body>
-
 <div class="header">
-    <img src="CSS/images/logo.png" alt="logo" class="logo">
+      <img src="CSS/images/logo.png" alt="logo" class="logo">
     <h2>AGORA FRANCIA</h2>
 </div>
 

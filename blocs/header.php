@@ -33,8 +33,8 @@
 </head>
 <body>
     <header>
-        
-        agorafrancia
+        <img src="CSS/images/logo.png" alt="logo" class="logo">
+        <h2>AGORA FRANCIA</h2>
         <button><a href ="index.php">Accueil</a></button>
         <button><a href ="parcourir.php">Parcourir</a></button>
         <button><a href ="notification.php">Notifications</a></button>
