@@ -1,78 +1,77 @@
 <?php include("/blocs/header.php") ?>
 
-<h1>Inscription</h1>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+</head>
+
+<div class="container mt-5">
+    <h1 class="text-center">Inscription</h1>
     <form method="post">
-        <table>
-
-            <tr>
-                <td>Vos informations :</td>
-            </tr>
-            <tr>
-                <td><label>Nom :</label></td>
-                <td><input type="text"  name="nom"      maxlength="256" required></td>
-            </tr>
-            <tr>
-                <td><label>Prenom :</label></td>
-                <td><input type="text"  name="prenom"   maxlength="256" required></td>
-            </tr>
-            <tr>
-                <td><label>Mail :</label></td>
-                <td><input type="email" name="mail"     maxlength="256" required></td>
-            </tr>
-
-            <tr>
-                <td>Votre moyen de paiement :</td>
-            </tr>
-            <tr>
-                <td><label>Type de carte :</label></td>
-                <td>
-                    <label><input type="radio" name="bank_type" value="0"   checked>VISA</label>
-                    <label><input type="radio" name="bank_type" value="1">MasterCard</label>
-                    <label><input type="radio" name="bank_type" value="2">American Express</label>
-                    <label><input type="radio" name="bank_type" value="3">Paypal</label>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Numéro de carte bancaire :</label></td>
-                <td><input type="number" name="bank_carte" min="999999999999999" max="10000000000000000" required></td>
-            </tr>
-            <tr>
-                <td><label>Nom affilié a la carte :</label></td>
-                <td><input type="text" name="bank_nom" maxlength="256" required></td>
-            </tr>
-            <tr>
-                <td><label>Date d'expiration de la carte :</label></td>
-                <td><input type="month" name="bank_date" min="2024-01" required></td>
-            </tr>
-            <tr>
-                <td><label>Code confidentiel de la carte :</label></td>
-                <td><input type="number" name="bank_code" max="10000" required></td>
-            </tr>
-
-            <tr>
-                <td>Sécurité :</td>
-            </tr>
-            <tr>
-                <td><label>Mot de passe :</label></td>
-                <td><input type="password" name="password" required></td>
-            </tr>
-
-            <tr>
-                <td><input type="submit" name="Inscription" value="Inscription"></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <h4>Vos informations :</h4>
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" id="nom" name="nom" maxlength="256" required>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom :</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" maxlength="256" required>
+        </div>
+        <div class="form-group">
+            <label for="mail">Mail :</label>
+            <input type="email" class="form-control" id="mail" name="mail" maxlength="256" required>
+        </div>
+        <div class="form-group">
+            <h4>Votre moyen de paiement :</h4>
+            <label>Type de carte :</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bank_type" id="visa" value="0" checked>
+                <label class="form-check-label" for="visa">VISA</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bank_type" id="mastercard" value="1">
+                <label class="form-check-label" for="mastercard">MasterCard</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bank_type" id="amex" value="2">
+                <label class="form-check-label" for="amex">American Express</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bank_type" id="paypal" value="3">
+                <label class="form-check-label" for="paypal">Paypal</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bank_carte">Numéro de carte bancaire :</label>
+            <input type="number" class="form-control" id="bank_carte" name="bank_carte" min="999999999999999" max="10000000000000000" required>
+        </div>
+        <div class="form-group">
+            <label for="bank_nom">Nom affilié a la carte :</label>
+            <input type="text" class="form-control" id="bank_nom" name="bank_nom" maxlength="256" required>
+        </div>
+        <div class="form-group">
+            <label for="bank_date">Date d'expiration de la carte :</label>
+            <input type="month" class="form-control" id="bank_date" name="bank_date" min="2024-01" required>
+        </div>
+        <div class="form-group">
+            <label for="bank_code">Code confidentiel de la carte :</label>
+            <input type="number" class="form-control" id="bank_code" name="bank_code" max="10000" required>
+        </div>
+        <div class="form-group">
+            <h4>Sécurité :</h4>
+            <label for="password">Mot de passe :</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" name="Inscription" class="btn btn-primary">Inscription</button>
     </form>
+</div>
 
 <?php
-
     if(isset($_POST['Inscription'])){
-
         $condition = 0;
         if(isset($_POST['mail'])){
             if($_POST['mail'] != "" && 1){}
             # Pour Momo
         }
-
     }
-
 ?>
