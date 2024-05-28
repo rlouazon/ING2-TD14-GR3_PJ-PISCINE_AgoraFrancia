@@ -39,11 +39,14 @@
             <h2>AGORA FRANCIA</h2>
 
         <div class = "menu">
-            <button><a href ="index.php">Accueil</a></button>
+            <button><a href ="index.php">Accueil</a> </button>
             <button><a href ="parcourir.php">Parcourir</a></button>
             <button><a href ="notification.php">Notifications</a></button>
             <button><a href ="panier.php">Panier</a></button>
             <button><a href ="compte.php">Votre Compte</a></button>
+        </div>
+        <div class = "droite">
+        <img src="CSS/images/panier.png" alt="panier" class="panier">
         </div>
 
 
