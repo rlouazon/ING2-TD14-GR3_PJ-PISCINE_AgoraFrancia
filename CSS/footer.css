@@ -1,16 +1,28 @@
 
-.footer {
-    flex-direction: column;
-    align-items: center; /* Aligner les éléments au centre horizontalement */
-    justify-content: center; /* Centrer verticalement si nécessaire */
-    padding: 10px;
-    position: relative;
-    top:40px;
+
+.footer{
     width: 100%;
+    height: 80px;
+    text-align: center; /* Centrer le texte */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #e9d8ca;
     color: rgb(0, 0, 0);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    text-align: center; /* Centrer le texte */
+    margin:0;
 }
-
+.footer2 {
+    height: 80px;
+    text-align: center; /* Centrer le texte */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9d8ca;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin:0;
+}
