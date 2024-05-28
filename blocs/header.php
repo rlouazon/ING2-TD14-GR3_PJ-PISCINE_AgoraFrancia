@@ -33,14 +33,14 @@
 </head>
 <body>
     <header>
-        <?php $alert = "bonjour"?>
+        
         agorafrancia
         <button><a href ="index.php">Accueil</a></button>
-        <button><a href ="parcourir.php">Parcourir</button>
-        <button><a href ="notification.php">Notifications</button>
-        <button><a href ="panier.php">Panier</button>
-        <button><a href ="compte.php">Votre Compte</button>
-        <button><a href ="compte.php">NOM DE COMPTE</button>
+        <button><a href ="parcourir.php">Parcourir</a></button>
+        <button><a href ="notification.php">Notifications</a></button>
+        <button><a href ="panier.php">Panier</a></button>
+        <button><a href ="compte.php">Votre Compte</a></button>
+        <button><a href ="compte.php">NOM DE COMPTE</a></button>
 
     </header>
 
