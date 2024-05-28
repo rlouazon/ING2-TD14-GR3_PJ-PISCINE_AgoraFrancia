@@ -6,6 +6,10 @@
     <form method="post">
         <h1 class="text-center">Connexion</h1>
         <div class="form-group">
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" class="form-control" name="pseudo" maxlength="256" required>
+        </div>
+        <div class="form-group">
             <label for="mail">Mail :</label>
             <input type="email" class="form-control" id="mail" name="mail" maxlength="256" required>
         </div>
@@ -19,6 +23,7 @@
 
 <?php
     if(isset($_POST['Connexion'])){
+        $init_connexion_pseudo = $_POST['pseudo'];
         $init_connexion_login = $_POST['mail'];
         $init_connexion_pass = sha1($_POST['password']);
         include("blocs/init_connexion.php");

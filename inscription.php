@@ -3,11 +3,15 @@
 
 
 <div class="centre">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <h1 class="text-center">Inscription</h1>
 
         <div class="form-group">
             <h4>Vos informations :</h4>
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" class="form-control" name="pseudo" maxlength="256">
+        </div>
+        <div class="form-group">
             <label for="nom">Nom :</label>
             <input type="text" class="form-control" name="nom" maxlength="256" required>
         </div>
@@ -85,12 +89,12 @@
 
         <div class="form-group">
             <h4>Personnalisation :</h4>
-            <label for="nom">Photo :</label>
-            <input type="file" class="form-control" accept=".png,.jpg,.jpeg" name="photo" required>
+            <label for="photo">Photo :</label>
+            <input type="file" class="form-control" name="photo" required>
         </div>
         <div class="form-group">
-            <label for="nom">Arrière-plan :</label>
-            <input type="file" class="form-control" accept=".png,.jpg,.jpeg" name="background" required>
+            <label for="back">Arrière-plan :</label>
+            <input type="file" class="form-control" name="back" required>
         </div>
 
         <div class="form-group">
@@ -130,23 +134,37 @@
 
         if($condition == 1){
             
+            $path1 = "photo_user/".substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['photo']["type"])[1];
+            $path2 = "back_user/".substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['back']["type"])[1];
+            move_uploaded_file($_FILES['photo']['tmp_name'], $path1);
+            move_uploaded_file($_FILES['back']['tmp_name'], $path2);
+           
             $requete = "INSERT INTO utilisateurs VALUES ("
                 ."\"\","
+                ."\"".$_POST['pseudo']."\","
                 ."\"".$_POST['nom']."\","
                 ."\"".$_POST['prenom']."\","
                 ."\"".$_POST['mail']."\","
+                ."\"".$_POST['tel']."\","
                 ."\"".$_POST['bank_type']."\","
                 ."\"".$_POST['bank_carte']."\","
                 ."\"".$_POST['bank_nom']."\","
                 ."\"".$_POST['bank_date']."\","
-                ."\"".sha1($_POST['bank_code'])."\","
+                ."\"".$_POST['bank_code']."\","
+                ."\"".$_POST['addr1']."\","
+                ."\"".$_POST['addr2']."\","
+                ."\"".$_POST['ville']."\","
+                ."\"".$_POST['codepostal']."\","
+                ."\"".$_POST['pays']."\","
+                ."\"".$path1."\","
+                ."\"".$path2."\","
                 ."\"".sha1($_POST['password'])."\","
                 ."\"0\""
                 .")";
-            echo $requete;
             $result = mysqli_query($db_handle, $requete);
             $alert = "Compte créé";
 
+            $init_connexion_pseudo = $_POST['pseudo'];
             $init_connexion_login = $_POST['mail'];
             $init_connexion_pass = sha1($_POST['password']);
             include("blocs/init_connexion.php");
