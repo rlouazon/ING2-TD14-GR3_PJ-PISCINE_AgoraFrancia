@@ -69,7 +69,7 @@
 
         $condition = 0;
         if(isset($_POST['mail'])){
-            if($_POST['mail'] != "" && )
+            if($_POST['mail'] != "" && 1){}
             # Pour Momo
         }
 
