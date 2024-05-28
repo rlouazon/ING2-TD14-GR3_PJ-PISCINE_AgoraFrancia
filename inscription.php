@@ -1,4 +1,4 @@
-<?php include("blocs/header.php"); ?>
+<?php include("blocs/header.php"); ?>ss
 
 <!DOCTYPE html>
 <html lang="fr">
