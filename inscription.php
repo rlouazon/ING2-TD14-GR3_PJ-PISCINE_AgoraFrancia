@@ -1,9 +1,5 @@
-<?php include("blocs/header.php") ?>
-
-<head>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
-</head>
+<?php include("blocs/header.php"); ?>
+<link href="CSS/inscription.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 
 <div class="container mt-5">
     <h1 class="text-center">Inscription</h1>
@@ -104,35 +100,20 @@
                 ."\"".$_POST['bank_nom']."\","
                 ."\"".$_POST['bank_date']."\","
                 ."\"".sha1($_POST['bank_code'])."\","
-                ."\"".sha1($_POST['password'])."\""
+                ."\"".sha1($_POST['password'])."\","
+                ."\"0\""
                 .")";
             echo $requete;
             $result = mysqli_query($db_handle, $requete);
             $alert = "Compte créé";
 
-            $requete = "SELECT id FROM utilisateurs WHERE mail = \"" . $_POST['mail'] . "\"";
-            $result = mysqli_query($db_handle, $requete);
-            $occ = 0;
-            $id = 0;
-            while ($data = mysqli_fetch_assoc($result)) {
-                $occ += 1;
-                $id = (int)$data['id'];
-            }
-            echo "     PRE" . $id;
-            if($occ == 1){
-                echo "     PRO" . $id;
-                $_SESSION['id'] = $id;
-                echo "     SESS" . $_SESSION['id'];
-                $logged = $id;
-                echo "     LOGGED" . $logged;
-            }
-            else{
-                $alert = "Erreur de base de données : adresse mail ";
-            }
+            $init_connexion_login = $_POST['mail'];
+            $init_connexion_pass = sha1($_POST['password']);
+            include("blocs/init_connexion.php");
 
         }
     }
 
 ?>
 
-<?php include("blocs/footer.php") ?>
+<?php include("blocs/footer.php"); ?>

@@ -12,13 +12,10 @@
     # Connexion au compte utilisateur
     session_start();
     $logged = 0;
-    echo "BASE " . $logged;
     if(isset($_SESSION['id'])){
-        echo "EXIST BASE " . $logged;
         if($_SESSION['id'] != 0){
-            echo "BON BASE " . $logged;
             $logged = $_SESSION['id'];
-            echo "JHFIKVFOKJQFBGF : ".$logged;
+            echo "LOG CONFIRME : ".$_SESSION['id'];
         }
     }
 
@@ -30,6 +27,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agora Francia</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../CSS/styles.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+</head>
 </head>
 <body>
     <header>
