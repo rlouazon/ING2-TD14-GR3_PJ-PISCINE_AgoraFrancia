@@ -1,13 +1,24 @@
-<?php include("/blocs/header.php") ?>
+<?php include("blocs/header.php"); ?>
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+    <link href="CSS/inscription.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 </head>
+<body>
 
-<div class="container mt-5">
-    <h1 class="text-center">Inscription</h1>
+<div class="header">
+    <img src="CSS/images/logo.png" alt="logo" class="logo">
+    <h2>AGORA FRANCIA</h2>
+</div>
+
+<div class="centre">
     <form method="post">
+        <h1 class="text-center">Inscription</h1>
         <div class="form-group">
             <h4>Vos informations :</h4>
             <label for="nom">Nom :</label>
@@ -62,16 +73,18 @@
             <label for="password">Mot de passe :</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" name="Inscription" class="btn btn-primary">Inscription</button>
+        <button type="submit" name="Inscription" class="btn">Inscription    <img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
     </form>
 </div>
 
 <?php
-    if(isset($_POST['Inscription'])){
-        $condition = 0;
-        if(isset($_POST['mail'])){
-            if($_POST['mail'] != "" && 1){}
-            # Pour Momo
-        }
+if (isset($_POST['Inscription'])) {
+    $condition = 0;
+    if (isset($_POST['mail']) && $_POST['mail'] != "") {
+        // Validation du mail ou autres opérations
     }
+}
 ?>
+
+</body>
+</html>
