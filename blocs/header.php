@@ -29,6 +29,7 @@
     <title>Agora Francia</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/header.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+    <link href="CSS/footer.css" rel="stylesheet">
 </head>
 </head>
 </head>
@@ -38,11 +39,14 @@
             <h2>AGORA FRANCIA</h2>
 
         <div class = "menu">
-            <button><a href ="index.php">Accueil</a></button>
+            <button><a href ="index.php">Accueil</a> </button>
             <button><a href ="parcourir.php">Parcourir</a></button>
             <button><a href ="notification.php">Notifications</a></button>
             <button><a href ="panier.php">Panier</a></button>
             <button><a href ="compte.php">Votre Compte</a></button>
+        </div>
+        <div class = "droite">
+        <img src="CSS/images/panier.png" alt="panier" class="panier">
         </div>
 
 
