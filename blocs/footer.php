@@ -5,7 +5,7 @@
 
 
 </body>
-
+</html>
 <?php 
 
 if(isset($alert)){
@@ -14,4 +14,3 @@ if(isset($alert)){
 
 ?>
 
-</html>

@@ -16,8 +16,8 @@ h2 {
 }
 
 .panier {
-    width: 70px;
-    height: 70px;
+    width: 47px;
+    height: 47px;
     float: right;
 }
 
@@ -51,7 +51,7 @@ a:hover, a:focus, a:active {
 }
 
 .header {
-    max-height: 50px;
+    height: 70px;
     font-size: 1px;
     display: flex;
     align-items: center;
@@ -93,4 +93,3 @@ a:hover, a:focus, a:active {
         margin-left: auto;
     }
 }
-
