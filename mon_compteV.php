@@ -125,6 +125,26 @@ if($logged != 0){
         </div>
     </div>
 
+    <div class="article-colG col">
+        <div class="prodG">
+            <img src="CSS/images/produit.png" alt="Image produit" class="imgProd">
+            <h2>Nom du produit</h2>
+        </div>
+        <div class="infoProd">
+            <h2>Prix: $XX.XX</h2>
+                <div class="Prod">
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                </div>
+            <button class="delete-button">Supprimer l'article</button>
+        </div>
+    </div>
+
+    
+
 
 
 

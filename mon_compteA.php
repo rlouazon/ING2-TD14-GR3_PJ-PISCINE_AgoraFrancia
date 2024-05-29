@@ -164,9 +164,6 @@ if($logged != 0){
             <button class="delete-button"> Supprimer l'utilisateur</button>
         </div>
     </div>
-
-
-  
     
 </div>
 
