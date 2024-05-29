@@ -19,7 +19,7 @@
         </div>
         <button type="submit" name="Connexion" class="btn">Connexion    <img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
         <div class="form-group">
-            <label><a href="http://localhost/ING2-TD14-GR3_PJ-PISCINE_AgoraFrancia/inscription.php">Inscription</a></label>
+            <label><a href="inscription.php">Inscription</a></label>
         </div>
     </form>
 </div>

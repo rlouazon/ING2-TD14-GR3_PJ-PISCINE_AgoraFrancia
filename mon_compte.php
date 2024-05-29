@@ -115,7 +115,7 @@ if($logged != 0){
     }
 }
 else{
-    echo "<script>setTimeout(() => window.location.replace(\"http://localhost/ING2-TD14-GR3_PJ-PISCINE_AgoraFrancia/connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
+    echo "<script>setTimeout(() => window.location.replace(\"connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
 }
 
 ?>

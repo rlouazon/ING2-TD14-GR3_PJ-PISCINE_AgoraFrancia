@@ -12,9 +12,12 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('./images/fond.png'); /* Utilisez un chemin relatif */
-    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
+    
     filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
     z-index: -1; /* Placez l'image de fond floue derrière le contenu */
+
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 body {
@@ -23,6 +26,9 @@ body {
     padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
     padding-bottom: 60px;
     position: relative;
+
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .naming {
