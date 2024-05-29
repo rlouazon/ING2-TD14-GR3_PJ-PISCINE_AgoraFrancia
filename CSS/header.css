@@ -7,6 +7,7 @@
 body {
     margin: 0;
     font-family: 'Lexend', Arial, sans-serif;
+    min-height: 100vh;
 }
 
 h2 {
@@ -67,7 +68,9 @@ a:hover, a:focus, a:active {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
-
+.contenu{
+    min-height: 100%;
+}
 .container {
     display: flex;
     justify-content: space-between;
