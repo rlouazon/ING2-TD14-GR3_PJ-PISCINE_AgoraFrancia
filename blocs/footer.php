@@ -49,6 +49,7 @@
             $(window).resize(positionFooter);
         });
     </script>
+
 <footer class="footer text-white">
     <div class="footer2 text-center ">
     <h2>AGORIA  FRANCIA</h2>
@@ -58,7 +59,7 @@
 
 
 
-</body>
+    </body>
 </html>
 <?php 
 if(isset($alert)){

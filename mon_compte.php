@@ -38,7 +38,27 @@ if($logged != 0){
 
 
 
-<style>body::before{background: center / cover no-repeat url('<?php echo $back; ?>');}</style>
+<style>
+body::before{
+    background: center / cover no-repeat url('<?php echo $back; ?>');
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
+    z-index: -1; /* Placez l'image de fond floue derrière le contenu */
+}
+
+body {
+    font-family: 'Lexend', Arial, sans-serif;
+    margin: 0;
+    padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+    padding-bottom: 60px;
+    position: relative;
+}
+</style>
 
 <div class="personnal-info"> 
     <div class="titreMain">Informations Personnelles</div>
@@ -65,6 +85,11 @@ if($logged != 0){
             </div>
             <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
         </form>
+        <?php
+            if(isset($_POST['Deconnexion'])){
+                include('blocs/end_connexion.php');
+            }
+        ?>
     </div>
     <div class="col colD">
         <h2 class="text-center">Informations Bancaires</h2>
@@ -93,7 +118,7 @@ if($logged != 0){
         </div>
         <div class="info">
             <label class="naming">Adresse 2 :</label>
-            <label class="info"><?php echo $addr1; ?></label>
+            <label class="info"><?php echo $addr2; ?></label>
         </div>
         <div class="info">
             <label class="naming">Ville :</label>
