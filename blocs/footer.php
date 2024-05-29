@@ -45,9 +45,11 @@
                 }
             }
 
-            positionFooter();
-            $(window).resize(positionFooter);
-        });
+            //positionFooter();
+            $('.footer').css({
+                position: 'absolute',
+                top: (document.body.getBoundingClientRect().y + document.body.getBoundingClientRect().height).toString.concat(' px')
+            });
     </script>
 
 <footer class="footer text-white">
