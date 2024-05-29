@@ -97,8 +97,10 @@ h2 {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     background-color: #edccb4f1;
     border-radius: 25px;
-    width: 45%;
+    width: 90%;
     padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     box-sizing: border-box;
     overflow: hidden; /* Pour s'assurer que le contenu ne dépasse pas les bords arrondis */
 }
@@ -120,45 +122,6 @@ h2 {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-}
-
-
-@media (max-width: 900px) {
-    .header {
-        flex-wrap: wrap;
-    }
-    .panier {
-        display: none;
-    }
-    .logo {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 10px;
-    }
-    .menu {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        text-align: center;
-    }
-    .droite {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .col {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .colD {
-        margin-left: 0;
-    }
-    .titreMain {
-        width: 80%;
-    }
 }
 
 
@@ -299,4 +262,69 @@ h2 {
     white-space: nowrap; /* Empêche les retours à la ligne */
     overflow: hidden; /* Cache le débordement du texte */
     text-overflow: ellipsis; /* Ajoute des points de suspension pour indiquer du texte caché */
+}
+
+.colonneDroite {
+    float: right;
+    width: 50%;
+}
+
+.colonneGauche {
+    float: left;
+    width: 50%;
+}
+
+@media (max-width: 1100px) {
+    .header {
+        flex-wrap: wrap;
+    }
+    .panier {
+        display: none;
+    }
+    .logo {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+    .menu {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        text-align: center;
+    }
+    .droite {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .colD {
+        margin-left: 0;
+    }
+    .titreMain {
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .container {
+        flex-direction: column; /* Change la direction de la disposition en colonne */
+        align-items: center;
+    }
+    .col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .colonneDroite,
+    .colonneGauche {
+        width: 100%; /* Prend toute la largeur lorsqu'en colonne */
+    }
+
 }

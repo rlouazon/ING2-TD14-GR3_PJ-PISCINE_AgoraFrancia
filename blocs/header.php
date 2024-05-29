@@ -31,7 +31,7 @@
     <link href="CSS/header.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
     <link href="CSS/footer.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="CSS/mon_compteV.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+
 
 </head>
 
