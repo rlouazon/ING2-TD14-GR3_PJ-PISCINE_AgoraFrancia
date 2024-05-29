@@ -22,23 +22,10 @@ if ($db_found) {
                 echo '</div>';
 
                 
-                echo '<div class="row">';
             if (!empty($row["img1"])) {
                 echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img1"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
             }
-            if (!empty($row["img2"])) {
-                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img2"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
-            }
-            if (!empty($row["img3"])) {
-                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img3"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
-            }
-            if (!empty($row["img4"])) {
-                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img4"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
-            }
-            if (!empty($row["img5"])) {
-                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img5"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
-            }
-            echo '</div>'; # Close row
+            
             
                 echo '</div>';
                 
