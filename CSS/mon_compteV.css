@@ -133,7 +133,6 @@ h2 {
     justify-content: center; /* Centrez horizontalement les éléments enfants */
     align-items: center; /* Centrez verticalement les éléments enfants */
     padding: 20px; /* Ajoutez un peu d'espace autour des éléments */
-    padding-bottom: 0px;
     border-radius: 25px; /* Ajoutez des coins arrondis */
 }
 
@@ -149,11 +148,13 @@ h2 {
 }
 
 .infoProd {
-    /* Nouveaux styles */
 
+    /* Nouveaux styles */
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+
 }
 
 .descProd{
@@ -185,9 +186,7 @@ h2 {
     cursor: pointer; /* Changez le curseur au survol */
     transition: background-color 0.3s ease; /* Ajoutez une transition en douceur */
     font-size: 14px; /* Réduisez la taille de la police */
-    margin-top: 30px; /* Ajoutez un espacement au-dessus du bouton */
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 10px; /* Ajoutez un espacement au-dessus du bouton */
 }
 
 .delete-button:hover {
