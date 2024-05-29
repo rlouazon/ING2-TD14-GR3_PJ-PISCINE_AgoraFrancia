@@ -30,11 +30,12 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/header.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
     <link href="CSS/footer.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
-</head>
-</head>
+
 <body>
     <div class = "header">
+>
             <img src="CSS/images/logo.png" alt="logo" class="logo">
             <h2>AGORA FRANCIA</h2>
 
@@ -43,7 +44,7 @@
             <button><a href ="parcourir.php">Parcourir</a></button>
             <button><a href ="notification.php">Notifications</a></button>
             <button><a href ="panier.php">Panier</a></button>
-            <button><a href ="compte.php">Votre Compte</a></button>
+            <button><a href ="mon_compte.php">Votre Compte</a></button>
         </div>
         <div class = "droite">
         <img src="CSS/images/panier.png" alt="panier" class="panier">
@@ -52,5 +53,6 @@
 
 
 </div>
+<div class="contenu">
 
 

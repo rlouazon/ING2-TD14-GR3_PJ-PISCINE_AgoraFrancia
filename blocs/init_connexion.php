@@ -1,6 +1,6 @@
 <?php
 
-    $requete = "SELECT id FROM utilisateurs WHERE mail = \"" . $init_connexion_login . "\" and password = \"" . $init_connexion_pass . "\"";
+    $requete = "SELECT id FROM utilisateurs WHERE pseudo = \"" . $init_connexion_pseudo . "\" and mail = \"" . $init_connexion_login . "\" and password = \"" . $init_connexion_pass . "\"";
     $result = mysqli_query($db_handle, $requete);
     $occ = 0;
     $id = 0;
