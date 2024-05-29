@@ -38,7 +38,7 @@ if($logged != 0){
 
 
 
-<style>body::before{background: url('<?php echo $back; ?>');}</style>
+<style>body::before{background: center / cover no-repeat url('<?php echo $back; ?>');}</style>
 
 <div class="personnal-info"> 
     <div class="titreMain">Informations Personnelles</div>
@@ -63,6 +63,7 @@ if($logged != 0){
                 <label class="naming">Téléphone :</label>
                 <label class="info"><?php echo $tel; ?></label>
             </div>
+            <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
         </form>
     </div>
     <div class="col colD">

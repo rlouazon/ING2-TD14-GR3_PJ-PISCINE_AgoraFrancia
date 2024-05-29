@@ -17,7 +17,7 @@
             <label for="password">Mot de passe :</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" name="Connexion" class="btn">Connexion    <img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
+        <button type="submit" name="Connexion" class="btn">Connexion<img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
         <div class="form-group">
             <label><a href="inscription.php">Inscription</a></label>
         </div>
