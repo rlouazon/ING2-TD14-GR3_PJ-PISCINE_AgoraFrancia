@@ -1,5 +1,4 @@
 <?php include("blocs/header.php"); ?>
-<link href="CSS/mon_compteV.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 
 <?php
 if($logged != 0){
@@ -44,7 +43,7 @@ if($logged != 0){
 <div class="container">
     <div class="col colG">
         <form method="post">
-            <img src="CSS/images/pp.png" alt="photo de profil" class="pp">
+            <img src="photo_user/762cd08c62b6d4.png" alt="photo de profil" class="pp">
             <div class="nomPrenom"> 
                 <h2> Stéphane HARDEL</h2>
             </div>
@@ -105,7 +104,7 @@ if($logged != 0){
     </div>
 </div>
 
-<div class="article-col col">
+<div class="article-colG col">
     <div class="prodG">
         <img src="CSS/images/produit.png" alt="Image produit" class="imgProd">
         <h2>Nom du produit</h2>
@@ -121,6 +120,20 @@ if($logged != 0){
         <button class="delete-button">Supprimer l'article</button>
     </div>
 </div>
+
+<div class="article-colD col">
+    <div class="prodG">
+        <img src="CSS/images/produit.png" alt="Image client" class="imgClient">
+        <h2>Jéremy Clément</h2>
+    </div>
+    <div class="infoProd">
+        <label class="naming">Pseudonyme :</label>
+        <label class="info"> Greg</label>
+        <button class="delete-button">Supprimer l'article</button>
+    </div>
+</div>
+
+
 
 
 <?php include("blocs/footer.php"); ?>
