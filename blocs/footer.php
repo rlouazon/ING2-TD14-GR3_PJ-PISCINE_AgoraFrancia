@@ -18,7 +18,7 @@
                     console.log("windowHeight:", windowHeight); // Affiche la hauteur de la fenêtre
 
                     if (lastElementOffset) {
-                        var footerTop = lastElementOffset.top  + 20;
+                        var footerTop = lastElementOffset.top  +lastElementHeight+ 20;
                         console.log("footerTop:", footerTop); // Log avec la valeur de footerTop
 
                         if (footerTop  < windowHeight) {
