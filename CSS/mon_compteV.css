@@ -135,3 +135,80 @@ h2 {
         width: 80%;
     }
 }
+
+.article-col {
+    width: 50%; /* Ajustez la largeur pour qu'elle occupe toute la largeur du conteneur parent */
+    display: flex; /* Utilisez flexbox pour aligner l'image et le contenu sur la même ligne */
+}
+
+.prodG {
+    min-width: 30%;
+    max-width: 50%;
+    display: flex; /* Utilisez flexbox pour aligner les éléments en colonne */
+    flex-direction: column; /* Placez les éléments en colonne */
+    justify-content: center; /* Centrez horizontalement les éléments enfants */
+    align-items: center; /* Centrez verticalement les éléments enfants */
+    padding: 20px; /* Ajoutez un peu d'espace autour des éléments */
+    border-radius: 25px; /* Ajoutez des coins arrondis */
+}
+
+.imgProd {
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 10px; /* Ajoutez un peu d'espace en bas de l'image */
+}
+
+.article-col h2, .article-col p {
+    /* Nouveaux styles */
+    margin: 5px 0; /* Ajoutez un peu d'espace autour du texte */
+}
+
+.infoProd {
+    /* Nouveaux styles */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.delete-button {
+
+    background-color: #ff634767; /* Couleur de fond rouge */
+    color: white; /* Couleur du texte blanc */
+    padding: 8px 16px; /* Réduisez légèrement le rembourrage */
+    border: none; /* Supprimez la bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    cursor: pointer; /* Changez le curseur au survol */
+    transition: background-color 0.3s ease; /* Ajoutez une transition en douceur */
+    font-size: 14px; /* Réduisez la taille de la police */
+    margin-top: 10px; /* Ajoutez un espacement au-dessus du bouton */
+}
+
+.delete-button:hover {
+    /* Styles existants */
+    background-color: #CC4E44; /* Assombrissez légèrement la couleur de fond */
+}
+
+.article-col h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.article-col p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.article-colD {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    background-color: #edccb4f1;
+    border-radius: 25px;
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: auto;
+    float: right;
+}
