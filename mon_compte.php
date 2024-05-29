@@ -33,13 +33,12 @@ if($logged != 0){
         #IMAGES
         $photo =        $data['photo'];
         $back =         $data['back'];
-    }
-}
-else{
-    echo "<script>setTimeout(() => window.location.replace(\"http://localhost/ING2-TD14-GR3_PJ-PISCINE_AgoraFrancia/connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
-}
 
-?>
+        ?>
+
+
+
+<style>body::before{background: url('<?php echo $back; ?>');}</style>
 
 <div class="personnal-info"> 
     <div class="titreMain">Informations Personnelles</div>
@@ -48,21 +47,21 @@ else{
 <div class="container">
     <div class="col colG">
         <form method="post">
-            <img src="CSS/images/pp.png" alt="photo de profil" class="pp">
+            <img src="<?php echo $photo; ?>" alt="photo de profil" class="pp">
             <div class="nomPrenom"> 
-                <h2> Stéphane HARDEL</h2>
+                <h2><?php echo $prenom . " " . $nom; ?></h2>
             </div>
             <div class="info">
                 <label class="naming">Pseudonyme :</label>
-                <label class="info"> Greg</label>
+                <label class="info"><?php echo $pseudo; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Adresse mail :</label>
-                <label class="info"> miamlecaca@gmail.com</label>
+                <label class="info"><?php echo $mail; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Téléphone :</label>
-                <label class="info"> 06 65 98 35 92</label>
+                <label class="info"><?php echo $tel; ?></label>
             </div>
         </form>
     </div>
@@ -70,43 +69,55 @@ else{
         <h2 class="text-center">Informations Bancaires</h2>
         <div class="info">
             <label class="naming">Type de carte :</label>
-            <label class="info"> Visa</label>
+            
+            <label class="info"><?php echo (intval($bank_type) < 2) ? ((intval($bank_type) == 0) ? "VISA" : "Mastercard") : ((intval($bank_type) == 2) ? "American Express" : "Paypal"); ?></label>
         </div>
         <div class="info">
             <label class="naming">Numéro de carte :</label>
-            <label class="info"> 0123456789012345 </label>
+            <label class="info"><?php echo $bank_carte; ?></label>
         </div>
         <div class="info">
             <label class="naming">Nom du titulaire :</label>
-            <label class="info"> Greg le mec du meme</label>
+            <label class="info"><?php echo $bank_nom; ?></label>
         </div>
         <div class="info">
-            <label class="naming">Date d'éxpiration :</label>
-            <label class="info"> 09/28</label>
+            <label class="naming">Date d'expiration :</label>
+            <label class="info"><?php echo $bank_date; ?></label>
         </div>
 
         <h2 class="text-center">Adresse de livraison</h2>
         <div class="info">
             <label class="naming">Adresse 1 :</label>
-            <label class="info"> 32 Chemin du Queric</label>
+            <label class="info"><?php echo $addr1; ?></label>
         </div>
         <div class="info">
             <label class="naming">Adresse 2 :</label>
-            <label class="info"></label>
+            <label class="info"><?php echo $addr1; ?></label>
         </div>
         <div class="info">
             <label class="naming">Ville :</label>
-            <label class="info"> La Trinité-sur-Mer</label>
+            <label class="info"><?php echo $ville; ?></label>
         </div>
         <div class="info">
             <label class="naming">Code Postal :</label>
-            <label class="info"> 56400</label>
+            <label class="info"><?php echo $codepostal; ?></label>
         </div>
         <div class="info">
             <label class="naming">Pays :</label>
-            <label class="info"> FRANCE</label>
+            <label class="info"><?php echo $pays; ?></label>
         </div>
     </div>
 </div>
+
+
+<?php
+
+    }
+}
+else{
+    echo "<script>setTimeout(() => window.location.replace(\"http://localhost/ING2-TD14-GR3_PJ-PISCINE_AgoraFrancia/connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
+}
+
+?>
 
 <?php include("blocs/footer.php"); ?>
