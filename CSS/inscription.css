@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
 
-*{
+* {
     color: #3F4A54;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./images/fond.png') no-repeat center center fixed; /* Utilisez un chemin relatif */
+    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la fenêtre */
+    filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
+    z-index: -1; /* Placez l'image de fond floue derrière le contenu */
 }
 
 body {
     font-family: 'Lexend', Arial, sans-serif;
-    background-color: #ffffff;
     margin: 0;
-    padding-top: 60px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+    padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+    position: relative;
 }
 
 h1 {
@@ -26,13 +39,15 @@ h4 {
     margin-bottom: 20px;
 }
 
-
-
-input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="month"] {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="month"] {
     width: 100%;
 }
 
-input[type="file"]{
+input[type="file"] {
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -50,7 +65,7 @@ input[type="file"]{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #edccb453;
+    background-color: #edccb4e6;
 }
 
 h4 {
@@ -59,16 +74,13 @@ h4 {
     margin-left: 10%;
 }
 
-
-
-.imgInscription{
+.imgInscription {
     width: 20px;
     height: 20px;
     margin-left: 5px;
-
 }
 
-.btn{
+.btn {
     margin-top: 50px;
     margin-bottom: 30px;
     margin-left: auto;
@@ -82,28 +94,26 @@ h4 {
     border: solid #3f4a54 2px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     border-radius: 14px;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    }
-
-    .btn:hover{
-        transition : 1000ms;
-        padding-left: 20px;
-        transform : translateZ(-0px);
-        background-color: #fff0dd;
-        }
-
-    .btn:active{
-        background-color: #3f4a54;
-    }
+}
 
     label{
         word-wrap: break-word;
         max-width: 400px;
         
     }
+.btn:hover {
+    transition: 1000ms;
+    padding-left: 20px;
+    transform: translateZ(-0px);
+    background-color: #fff0dd;
+}
 
+.btn:active {
+    background-color: #3f4a54;
+}
