@@ -101,4 +101,9 @@ h4 {
         background-color: #3f4a54;
     }
 
+    label{
+        word-wrap: break-word;
+        max-width: 400px;
+        
+    }
 

@@ -103,6 +103,12 @@
             <input type="password" class="form-control" name="password" required>
         </div>
 
+        <div class="form-group">
+            <h4>Conditions d'utilisation :</h4>
+            <label style="text-align: center;margin: auto;" for="conditions">J'accepte les conditions d'utilisation et consent a être dans l'obligation d'acheter un article pour lequel j'ai émis une offre.</label>
+            <input type="checkbox" class="form-control" name="conditions" required>
+        </div>
+
         <button type="submit" name="Inscription" class="btn">Inscription    <img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
     </form>
 </div>
@@ -169,12 +175,8 @@
             $init_connexion_pass = sha1($_POST['password']);
             include("blocs/init_connexion.php");
 
-            if(isset($_GET["redir"])){
-                if($_GET["redir"] != ""){
-                    echo $_GET["redir"];
-                    echo "<script>setTimeout(() => window.location.replace(\"".base64_decode($_GET["redir"])."\"), 3000);</script>";
-                }
-            }
+            $delay = 3000;
+            include("blocs/redir.php");
 
         }
     }

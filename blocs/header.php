@@ -43,7 +43,7 @@
             <button><a href ="parcourir.php">Parcourir</a></button>
             <button><a href ="notification.php">Notifications</a></button>
             <button><a href ="panier.php">Panier</a></button>
-            <button><a href ="compte.php">Votre Compte</a></button>
+            <button><a href ="mon_compte.php">Votre Compte</a></button>
         </div>
         <div class = "droite">
         <img src="CSS/images/panier.png" alt="panier" class="panier">
