@@ -13,28 +13,28 @@
             <label for="mail">Mail :</label>
             <input type="email" class="form-control" id="mail" name="mail" maxlength="256" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Mot de passe :</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" name="Connexion" class="btn">Connexion    <img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
+        <button type="submit" name="Connexion" class="btn">Connexion<img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
+        <div class="form-group">
+            <label><a href="inscription.php">Inscription</a></label>
+        </div>
     </form>
 </div>
 
+
 <?php
+
     if(isset($_POST['Connexion'])){
         $init_connexion_pseudo = $_POST['pseudo'];
         $init_connexion_login = $_POST['mail'];
         $init_connexion_pass = sha1($_POST['password']);
         include("blocs/init_connexion.php");
 
-        if(isset($_GET["redir"])){
-            if($_GET["redir"] != ""){
-                echo $_GET["redir"];
-                echo "<script>setTimeout(() => window.location.replace(\"".base64_decode($_GET["redir"])."\"), 3000);</script>";
-            }
-        }
-
+        $delay = 0;
+        include("blocs/redir.php");
     }
 
 ?>

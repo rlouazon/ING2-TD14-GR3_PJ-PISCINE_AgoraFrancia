@@ -9,8 +9,10 @@
     }
     if($occ == 1){
         $_SESSION['id'] = $id;
+        $success = 1;
     }
     else{
         $alert = "Adresse-mail ou mot de passe incorrect";
+        $success = 0;
     }
 ?>

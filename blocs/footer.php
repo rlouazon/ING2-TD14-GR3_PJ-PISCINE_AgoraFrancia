@@ -21,7 +21,8 @@
                         var footerTop = lastElementOffset.top  + 20;
                         console.log("footerTop:", footerTop); // Log avec la valeur de footerTop
 
-                        if (footerTop + footerHeight < windowHeight) {
+                        if (footerTop  < windowHeight) {
+                            
                             $('.footer').css({
                                 position: 'absolute',
                                 bottom: '0px'

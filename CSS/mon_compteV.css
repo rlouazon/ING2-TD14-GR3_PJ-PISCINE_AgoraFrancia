@@ -11,6 +11,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 95%;
+    background: url('./images/fond.png'); /* Utilisez un chemin relatif */
+    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
     filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
     z-index: -1; /* Placez l'image de fond floue derrière le contenu */
 }
@@ -20,8 +22,8 @@ body {
     margin: 0;
     padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
     padding-bottom: 60px;
+    min-height: 100vh;
     position: relative;
-    min-height:100vh;
 }
 
 .naming {
@@ -74,6 +76,14 @@ h2 {
     border-radius: 50%;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px auto;
+    width: 80%;
+}
+
 .col {
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -85,16 +95,15 @@ h2 {
     overflow: hidden; /* Pour s'assurer que le contenu ne dépasse pas les bords arrondis */
 }
 
-.colD {
-    margin-left: 5%;
+.article-colG {
+    display: flex;
+    float: left; /* Utilisez flexbox pour aligner l'image et le contenu sur la même ligne */
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 20px auto;
-    width: 80%;
+.article-colD {
+  
+    display: flex; /* Utilisez flexbox pour aligner l'image et le contenu sur la même ligne */
+    float: right;
 }
 
 @media (max-width: 900px) {
@@ -135,10 +144,6 @@ h2 {
     }
 }
 
-.article-col {
-    width: 50%; /* Ajustez la largeur pour qu'elle occupe toute la largeur du conteneur parent */
-    display: flex; /* Utilisez flexbox pour aligner l'image et le contenu sur la même ligne */
-}
 
 .prodG {
     min-width: 30%;
@@ -168,7 +173,6 @@ h2 {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 100%;
 }
 
 .delete-button {
@@ -197,17 +201,4 @@ h2 {
 .article-col p {
     font-size: 16px;
     margin-bottom: 5px;
-}
-
-.article-colD {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-    background-color: #edccb4f1;
-    border-radius: 25px;
-    width: 45%;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-    margin-top: 20px;
-    margin-bottom: auto;
-    float: right;
 }
