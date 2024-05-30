@@ -143,8 +143,8 @@ if(isset($_POST['ajout_du_produit'])){
         . "'" . mysqli_real_escape_string($db_handle, $path4) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $path5) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $_POST['categorie']) . "',"
-        . "'" . mysqli_real_escape_string($db_handle, $_POST['etat_du_produit']) . "')",
-        . "'" . 0 . "')";
+        . "'" . mysqli_real_escape_string($db_handle, $_POST['etat_du_produit']) . "',"
+        . 0 . ")";
     $result = mysqli_query($db_handle, $requete);
 
     if ($result) {
