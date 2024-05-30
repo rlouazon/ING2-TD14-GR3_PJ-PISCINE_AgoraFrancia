@@ -39,9 +39,9 @@ if($logged != 0){
 <link href="CSS/mon_compteA.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 
 <div class="personnal-info"> 
-    <div class="titreMain">Informations Personnelles</div>
+    <div class="titreMain">Informations Personnelles
     <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
-</div>
+</div></div>
 
 <div class="container">
     <div class="col colG">
