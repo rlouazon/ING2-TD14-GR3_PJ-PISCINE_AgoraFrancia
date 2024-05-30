@@ -88,8 +88,8 @@ body {
             </div>            
         </div>
         <div class = "col">
-                <button class="bouttonAjouter">Ajouter une annonce</button>
-            </div>
+                <button class="bouttonAjouter"><a href="ajouter_produit.php">Ajouter une annonce</a></button>
+        </div>
     </div>
     
     <div class="col colD">
