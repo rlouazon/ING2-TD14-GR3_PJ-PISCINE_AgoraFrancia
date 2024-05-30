@@ -105,7 +105,7 @@
 
         <div class="form-group">
             <h4>Conditions d'utilisation :</h4>
-            <label style="text-align: center;margin: auto;" for="conditions">J'accepte les conditions d'utilisation et consent a être dans l'obligation d'acheter un article pour lequel j'ai émis une offre.</label>
+            <label style="text-align: center;" for="conditions">J'accepte les conditions d'utilisation et consent a être dans l'obligation d'acheter un article pour lequel j'ai émis une offre.</label>
             <input type="checkbox" class="form-control" name="conditions" required>
         </div>
 

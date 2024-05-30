@@ -2,6 +2,7 @@
 <link href="CSS/mon_compteA.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 
 <?php
+$type_compte = 0;
 if($logged != 0){
     $requete = "SELECT * FROM utilisateurs WHERE id = " . $logged;
     $result = mysqli_query($db_handle, $requete);
@@ -9,6 +10,7 @@ if($logged != 0){
         #ID
         $id =           $data['id'];
         $type =         $data['type'];
+        $type_compte = $type;
 
         #INFO PERSO
         $pseudo =       $data['pseudo'];
@@ -34,28 +36,28 @@ if($logged != 0){
         $photo =        $data['photo'];
         $back =         $data['back'];
 
-        ?>
+?>
 
 
 
 <style>
-body::before{
-    background: center / cover no-repeat url('<?php echo $back; ?>');
+body::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 95%;
-    filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
+    background: url('<?php echo $back; ?>'); /* Utilisez un chemin relatif */
+    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
+    filter: blur(50px); /* Ajustez le niveau de flou selon vos besoins */
     z-index: -1; /* Placez l'image de fond floue derrière le contenu */
 }
-
 body {
     font-family: 'Lexend', Arial, sans-serif;
     margin: 0;
     padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
-    padding-bottom: 60px;
+    min-height: 100vh;
     position: relative;
 }
 </style>
@@ -83,12 +85,12 @@ body {
                 <label class="naming">Téléphone :</label>
                 <label class="info"><?php echo $tel; ?></label>
             </div>
-            <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
+            <!-- <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button> -->
         </form>
         <?php
-            if(isset($_POST['Deconnexion'])){
-                include('blocs/end_connexion.php');
-            }
+            //if(isset($_POST['Deconnexion'])){
+            //    include('blocs/end_connexion.php');
+            //}
         ?>
     </div>
     <div class="col colD">
@@ -135,14 +137,221 @@ body {
     </div>
 </div>
 
+<?php
+
+    if($type_compte == 1 || $type_compte == 2){
+
+        if($type_compte == 2){
+            ?> <div class="colonneGauche"> <?php ;
+            $requete = "SELECT * FROM articles";
+        }
+        else{
+            $requete = "SELECT * FROM articles WHERE vendeur = " . intval($id);
+        }
+        $result = mysqli_query($db_handle, $requete);
+        while ($data = mysqli_fetch_assoc($result)) {
+            #ID VENDEUR
+            $id_article =       $data['id'];
+            $vendeur =          $data['vendeur'];
+
+            #INFOS
+            $titre =            $data['titre'];
+            $prix =             $data['prix'];
+            $description =      $data['description'];
+            $categorie =        $data['categorie'];
+            $etat =             $data['etat'];
+
+            #TYPES
+            $type_vd =          $data['type_vd'];
+            $type_nego =        $data['type_nego'];
+            $type_enchere =     $data['type_enchere'];
+
+            #IMG
+            $img1 =             $data['img1'];
+            $img2 =             $data['img2'];
+            $img3 =             $data['img3'];
+            $img4 =             $data['img4'];
+            $img5 =             $data['img5'];
+
+            #FIN
+            $fin =              $data['fin'];
+
+            $types = [$type_vd, $type_nego, $type_enchere];
+            $types_string = ["Vente directe", "Negociation", "Enchere"];
+
+            for($i = 0; $i < count($types); $i++){
+                if(intval($types[$i]) == 1){
+                    ?>
+                
+                        <form class="article-colG col" method="post">
+                            <div class="prodG">
+                                <img src="<?php echo $img1 ?>" alt="Image produit" class="imgProd">
+                                <h2><?php echo $titre . " (" . $types_string[$i] . ")" ?></h2>
+                            </div>
+                            <div class="infoProd">
+                                <h2>Prix : <?php echo $prix ?>€</h2>
+                                    <div class="Prod">
+                                        <?php echo $description ?>
+                                    </div>
+                                <input type="hidden" name="id-type_article" value="<?php echo $id_article."-".$i; ?>" />
+                                <button type="submit" name="Suppression_article" class="delete-button">Supprimer l'article</button>
+                            </div>
+                        </form>
+                
+                    <?php
+                }
+            }
+        }
+        if($type_compte == 2){?> </div> <?php ;}
+
+    }
+    
+    if($type_compte == 2){
+
+        ?> <div class="colonneDroite"> <?php
+        $requete = "SELECT * FROM utilisateurs";
+        $result = mysqli_query($db_handle, $requete);
+        while ($data = mysqli_fetch_assoc($result)) {
+            #ID
+            $id =           $data['id'];
+            $type =         $data['type'];
+
+            #INFO PERSO
+            $pseudo =       $data['pseudo'];
+            $nom =          $data['nom'];
+            $prenom =       $data['prenom'];
+            $mail =         $data['mail'];
+            $tel =          $data['tel'];
+
+            #BANQUE
+            $bank_type =    $data['bank_type'];
+            $bank_carte =   $data['bank_carte'];
+            $bank_nom =     $data['bank_nom'];
+            $bank_date =    $data['bank_date'];
+
+            #ADDRESSE
+            $addr1 =        $data['addr1'];
+            $addr2 =        $data['addr2'];
+            $ville =        $data['ville'];
+            $codepostal =   $data['codepostal'];
+            $pays =         $data['pays'];
+
+            #IMAGES
+            $photo =        $data['photo'];
+            $back =         $data['back'];
+
+                ?>
+                
+                    <form class="article-colD col" method="post">
+                        <div class="prodG">
+                            <img src="<?php echo $photo; ?>" alt="Image client" class="imgClient">
+                            <h2><?php echo $prenom . " " . $nom; ?></h2>
+                        </div>
+                        
+                        <div class="infoClient-actions">
+
+                            <div class="infoClient">
+                                <label class="namingC">Pseudonyme :</label>
+                                <label class="infoC"><?php echo $pseudo; ?></label>
+
+                                <label class="namingC">Adresse mail :</label>
+                                <label class="infoC"><?php echo $mail; ?></label>
+
+                                <label class="namingC">Téléphone :</label>
+                                <label class="infoC"><?php echo $tel; ?></label>
+                            </div>
+                            <input type="hidden" name="id_utilisateur" value="<?php echo $id; ?>" />
+                            <div class = "role">
+                                <select name="perms_utilisateur">
+                                    <option value="0" <?php if($type == 0){echo "selected";} ?>>Acheteur</option>
+                                    <option value="1" <?php if($type == 1){echo "selected";} ?>>Vendeur</option>
+                                    <option value="2" <?php if($type == 2){echo "selected";} ?>>Administrateur</option>
+                                </select>
+                                <button type="submit" name="Modifier_utilisateur" class="bouttonRole"><label class="namingC">Modifier le rôle</label></button>
+                            </div>
+                            <button type="submit" name="Supprimer_utilisateur" class="delete-button">Supprimer l'utilisateur</button>
+                        </div>
+                    </form>
+                
+                <?php
+            }
+        }
+        ?> </div> <?php
+    }
+
+?>
+
 
 <?php
 
-    }
 }
 else{
     echo "<script>setTimeout(() => window.location.replace(\"connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
 }
+
+
+if(isset($_POST['Suppression_article'])){
+    $donnees = explode('-', $_POST['id-type_article']);
+    if(count($donnees) == 2){
+        $occ = 0;
+        $requete = "SELECT * FROM articles WHERE id = " . $donnees[0] . (($type_compte != 2) ? (" AND vendeur = " . $logged) : "");
+        $result = mysqli_query($db_handle, $requete);
+        while ($data = mysqli_fetch_assoc($result)) {
+            $occ += 1;
+        }
+        if($occ == 1){
+            $cols = ['type_vd', 'type_nego', 'type_enchere'];
+            $requete = "UPDATE articles SET " . $cols[intval($donnees[1])] . " = 0 WHERE id = " . $donnees[0] . (($type_compte != 2) ? (" AND vendeur = " . $logged) : "");
+            $result = mysqli_query($db_handle, $requete);
+
+            $requete = "SELECT * FROM articles WHERE id = " . $donnees[0] . (($type_compte != 2) ? (" AND vendeur = " . $logged) : "");
+            $result = mysqli_query($db_handle, $requete);
+            $sum = 0;
+            $occ = 0;
+            while ($data = mysqli_fetch_assoc($result)) {
+                $sum = intval($data[$cols[0]]) + intval($data[$cols[1]]) + intval($data[$cols[2]]);
+                $occ += 1;
+            }
+            if($occ == 1 && $sum == 0){
+                $requete = "DELETE FROM articles WHERE id = " . $donnees[0] . (($type_compte != 2) ? (" AND vendeur = " . $logged) : "");
+                $result = mysqli_query($db_handle, $requete);
+            }
+            echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+        }
+    }
+}
+
+if(isset($_POST['Supprimer_utilisateur'])){
+    $donnees = $_POST['id_utilisateur'];
+    $requete = "SELECT * FROM utilisateurs WHERE id = " . $donnees;
+    $result = mysqli_query($db_handle, $requete);
+    $occ = 0;
+    while ($data = mysqli_fetch_assoc($result)) {
+        $occ += 1;
+    }
+    if($occ == 1){
+        $requete = "DELETE FROM utilisateurs WHERE id = " . $donnees;
+        $result = mysqli_query($db_handle, $requete);
+    }
+    echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+}
+
+if(isset($_POST['Modifier_utilisateur'])){
+    $donnees = $_POST['id_utilisateur'];
+    $modif_type = $_POST['perms_utilisateur'];
+    $requete = "SELECT * FROM utilisateurs WHERE id = " . $donnees;
+    $result = mysqli_query($db_handle, $requete);
+    $occ = 0;
+    while ($data = mysqli_fetch_assoc($result)) {
+        $occ += 1;
+    }
+    if($occ == 1){
+        $requete = "UPDATE utilisateurs SET type = " . $modif_type ." WHERE id = " . $donnees;
+        $result = mysqli_query($db_handle, $requete);
+    }
+    echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+}
+
 
 ?>
 
