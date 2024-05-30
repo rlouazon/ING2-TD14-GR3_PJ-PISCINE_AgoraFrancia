@@ -55,7 +55,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 #  - Si pas de type indiqué (empeche de gerer le multi type)
 #  - Si le type ne correspond pas a un de ceux de la bdd (modif manuelle de l'utilisateur ~ triche)
 #  - Si l'annonce est échue
-if($occ != 1   ||   $$type_article == -1   ||   ((($$type_article == 0) == intval($type_vd)) || (($$type_article == 1) == intval($type_nego)) || (($$type_article == 2) == intval($type_enchere))) == 0   ||   $fin == 1){
+if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval($type_vd)) || (($type_article == 1) == intval($type_nego)) || (($type_article == 2) == intval($type_enchere))) == 0   ||   $fin == 1){
     echo "<script>setTimeout(() => window.location.replace(\"index.php\"), 0);</script>";
 }
 
@@ -78,13 +78,15 @@ if($occ != 1   ||   $$type_article == -1   ||   ((($$type_article == 0) == intva
 <?php
 
     include('blocs/panier_utilitaire.php');
-    if(recherche_panier($article, $type_article)){
+    if(!recherche_panier($article, $type_article)){
         ?>
-            <form method="post" enctype="multipart/form-data">
-                <button type="submit" name="Inscription" class="btn">Inscription    <img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
+            <form method="post">
+                <button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier    <img src="CSS/images/inscription.png" alt="logo"></button>
             </form>
         <?php
     }
+
+    
 
 ?>
 
