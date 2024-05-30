@@ -2,20 +2,39 @@
 <link href="CSS/parcourir.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclusion de jQuery -->
 
-<div class="content">
-    <form id="categorieForm">
-        <label for="categorie">Choisissez une catégorie :</label>
-        <select id="categorie" name="categorie">
-            <option value="rares">Rares</option>
-            <option value="haut de gamme">Haut de gamme</option>
-            <option value="regulier">Régulier</option>
-            <option value="tout">Tout</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Soumettre">
+<?php $affichage="Tout"; ?>
+<div class="content col pl-3" >
+    <div class="row">
+    <div class="col-auto ">
+    <form id="categorieForm" class="row">
+        <div class="col-auto mb-3">
+                <label for="categorie" class="row">Choisissez une catégorie :</label>  
+                <select id="categorie" class="form-control row" name="categorie" style="width: 200px;">
+                    <option value="0">Rares</option>
+                    <option value="1">Haut de gamme</option>
+                    <option value="2">Régulier</option>
+                    <option value="tout">Tout</option>
+                </select>
+        </div>
+        <div class="col-auto mb-3 mt-3"style="padding-top: 5px;">
+            <input type="submit" value="Soumettre"class="form-control col"style="width: 200px;">
+        </div>   
     </form>
-
-    <div id="results"></div> <!-- Div pour afficher les résultats -->
+    </div> 
+    <?php
+    if(isset($_GET['categorie'])){
+    if($_GET['categorie']==0){
+        $affichage="Rares";
+    }elseif($_GET['categorie']==1){
+        $affichage="Haut de gamme";
+    }elseif($_GET['categorie']==2){
+        $affichage="Régulier";
+    }elseif($_GET['categorie']=="tout"){
+        $affichage="Tout";
+    }}
+    ?>
+    <div id="results" class="col-auto mt-1 ml-5"style="padding-top: 35px;width:200px;"><h2><?php echo htmlspecialchars($affichage); ?></h2></div> <!-- Div pour afficher les résultats -->
+    </div>
 </div>
 
 
@@ -23,7 +42,7 @@
 <?php
 function trier_les_element_parcourir($type_de_rarete, $db_handle) {
     // Requête pour récupérer les produits filtrés par etat
-    $sql = "SELECT titre, prix, etat, description, img5 FROM articles WHERE etat = ?";
+    $sql = "SELECT titre, prix, categorie, description, img1 FROM articles WHERE categorie = ?";
     $stmt = mysqli_prepare($db_handle, $sql);
     mysqli_stmt_bind_param($stmt, 's', $type_de_rarete);
     mysqli_stmt_execute($stmt);
@@ -40,15 +59,13 @@ function trier_les_element_parcourir($type_de_rarete, $db_handle) {
             echo '<p class="row auto">Description: ' . htmlspecialchars($row["description"]) . '</p>';
             echo '</div>';
 
-            if (!empty($row["img5"])) {
-                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img5"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
+            if (!empty($row["img1"])) {
+                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img1"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
             }
             echo '</div>';
             echo '</a>';
         }
-    } else {
-        echo "0 résultats pour " . htmlspecialchars($type_de_rarete);
-    }
+    } 
     
     mysqli_stmt_close($stmt);
 }
@@ -60,13 +77,16 @@ if ($db_found) {
         if ($categorie != "tout"){
             trier_les_element_parcourir($categorie, $db_handle);
         } else {
-            trier_les_element_parcourir("rares", $db_handle);
-            trier_les_element_parcourir("haut de gamme", $db_handle);
-            trier_les_element_parcourir("regulier", $db_handle); 
+            trier_les_element_parcourir("0", $db_handle);
+            trier_les_element_parcourir("1", $db_handle);
+            trier_les_element_parcourir("2", $db_handle); 
         }
         echo '</div>';
     } else {
-        echo '<div id="results">Veuillez choisir une catégorie.</div>';
+        $affichage="tout";
+        trier_les_element_parcourir("0", $db_handle);
+        trier_les_element_parcourir("1", $db_handle);
+        trier_les_element_parcourir("2", $db_handle); 
     }
 
     // Fermeture de la connexion à la base de données
