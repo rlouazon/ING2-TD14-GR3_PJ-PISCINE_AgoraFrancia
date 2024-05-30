@@ -40,8 +40,7 @@
     <link href="CSS/header.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
     <link href="CSS/footer.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
+    <link rel="icon" href="CSS/images/logo.ico" type="image/x-icon">
 </head>
 
 <body>

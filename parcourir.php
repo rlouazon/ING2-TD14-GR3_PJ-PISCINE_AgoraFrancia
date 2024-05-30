@@ -1,5 +1,5 @@
 <?php include("blocs/header.php"); ?>
-<link href="CSS/panier.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+<link href="CSS/parcourir.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclusion de jQuery -->
 
 <div class="content">
