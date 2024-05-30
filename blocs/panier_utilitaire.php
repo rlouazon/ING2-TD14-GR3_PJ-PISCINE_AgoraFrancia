@@ -55,7 +55,35 @@ function supprimer_element_panier($id_produit, $type_vente) {
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit();
 }
+function recherche_panier(){
+    $panier = isset($_COOKIE['mon_panier']) ? unserialize($_COOKIE['mon_panier']) : array();
+    
+    for($i = 0; $i < count($panier); $i++){
+        if(intval($panier[$i]) == $article){
+            for($j = 1; $j < count($panier[$i]); $j++){
+                if($panier[$i] == $type_compte){
+                    return 1;
 
+                }
+            }
+        }
+    }
+    return 0;
+}
+    $panier = isset($_COOKIE['mon_panier']) ? unserialize($_COOKIE['mon_panier']) : array();
+    
+    for($i = 0; $i < count($panier); $i++){
+        if(intval($panier[$i]) == $article){
+            for($j = 1; $j < count($panier[$i]); $j++){
+                if($panier[$i] == $type_compte){
+                    return 1;
+
+                }
+            }
+        }
+    }
+    return 0;
+}
 
 
 ?>
