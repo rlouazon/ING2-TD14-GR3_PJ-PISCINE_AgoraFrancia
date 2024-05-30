@@ -63,7 +63,8 @@ body {
 </style>
 
 <div class="personnal-info"> 
-    <div class="titreMain">Informations Personnelles</div>
+    <div class="titreMain">Informations Personnelles    </div>
+    <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
 </div>
 
 <div class="container">
@@ -85,12 +86,12 @@ body {
                 <label class="naming">Téléphone :</label>
                 <label class="info"><?php echo $tel; ?></label>
             </div>
-            <!-- <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button> -->
+            <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
         </form>
         <?php
-            //if(isset($_POST['Deconnexion'])){
-            //    include('blocs/end_connexion.php');
-            //}
+            if(isset($_POST['Deconnexion'])){
+                include('blocs/end_connexion.php');
+            }
         ?>
     </div>
     <div class="col colD">

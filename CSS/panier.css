@@ -5,6 +5,27 @@
     color: #3F4A54;
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    background: url('./images/fond.png'); /* Utilisez un chemin relatif */
+    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
+    filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
+    z-index: -1; /* Placez l'image de fond floue derrière le contenu */
+}
+
+body {
+    font-family: 'Lexend', Arial, sans-serif;
+    margin: 0;
+    padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+    min-height: 100vh;
+    position: relative;
+}
+
 .naming {
     font-size: 15px;
 }
@@ -172,47 +193,22 @@ h2 {
 
 .delete-button {
     background-color: #ff634767; /* Couleur de fond rouge */
-    color: #3F4A54;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 20px;
-    margin-top: 30px;
+    color: #3F4A54; /* Couleur du texte blanc */
+    padding: 8px 16px; /* Réduisez légèrement le rembourrage */
+    border: none; /* Supprimez la bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    cursor: pointer; /* Changez le curseur au survol */
+    transition: background-color 0.3s ease; /* Ajoutez une transition en douceur */
+    font-size: 14px; /* Réduisez la taille de la police */
+    margin-top: 30px; /* Ajoutez un espacement au-dessus du bouton */
     margin-left: auto;
     margin-right: auto;
-    display: block; /* Add this line to make the button a block element */
-    width: fit-content; /* Add this line to make the width fit the content */
 }
 
 .delete-button:hover {
     /* Styles existants */
     background-color: #CC4E44; /* Assombrissez légèrement la couleur de fond */
 }
-
-.validation-button {
-    background-color: #10bb1e67;
-    color: #3F4A54;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block; /* Add this line to make the button a block element */
-    width: fit-content; /* Add this line to make the width fit the content */
-}
-
-.validation-button:hover {
-    /* Styles existants */
-    background-color: #0b9216dd; /* Assombrissez légèrement la couleur de fond */
-}
-
-
 
 .bouttonRole {
     background-color: #3f4a5400; /* Couleur de fond rouge */
