@@ -1,14 +1,16 @@
 <?php include("blocs/header.php"); ?>
 <link href="CSS/index.css" rel="stylesheet">
 <body>
-    <p>
-        
+    <p>  
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada rhoncus leo id porttitor. Curabitur quis massa odio. Cras pulvinar leo quis sagittis maximus. Aenean sed purus arcu. Phasellus sit amet venenatis arcu. Phasellus at tortor dui. 
     <br>Donec convallis magna quis arcu cursus euismod. Cras tristique ipsum vel massa efficitur, ac mattis diam suscipit. Phasellus laoreet lobortis tortor, et vehicula nunc fermentum pellentesque. Sed rutrum volutpat neque eget aliquet. 
     <br>Pellentesque finibus leo id mauris blandit sollicitudin. Nam malesuada efficitur purus, ut tincidunt ante. Fusce bibendum, orci sed sagittis ultrices, tortor arcu vehicula arcu, ornare consequat tortor ipsum sit amet libero. 
     <br>Nam tempor viverra nunc ut tristique. Vestibulum dignissim augue venenatis magna viverra, in aliquet eros pharetra. Curabitur non lectus condimentum nulla dapibus venenatis.
     <br>Nam semper nulla at est pharetra ultrices. Etiam condimentum sollicitudin libero sed sollicitudin. Vivamus porta nisl vel sapien dapibus porta. Mauris venenatis, nibh condimentum mollis luctus, lectus mi tristique risus, a laoreet nisi magna id ex. 
     <br>Nullam et dolor bibendum, consectetur nisl ac, convallis est. Morbi sagittis. 
+    </p>
+    <p>
+        
     </p>
     <div class="personnal-info" id = "une"> 
         <div class="titreMain">A la une !</div>
