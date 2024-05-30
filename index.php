@@ -2,7 +2,10 @@
 <link href="CSS/index.css" rel="stylesheet">
 <body>
     <p>
-          
+        Bienvenue sur Agora Francia ! 
+        <br> Ce site est pour vente d'objet de particuliers à particuliers. 
+        <br>Vous trouverez certainement ce qu'il vous faut ici et si ce n'est pas le cas, vous pouvez contacter l'administrateur.
+        <br><br>Soyez également vendeur ! Rejoignez des centaines de membres qui font activement vivre ce site et cette communautée. 
     </p>
     
     <div class="personnal-info" id = "une"> 
