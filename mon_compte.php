@@ -69,30 +69,37 @@ body {
 <?php
     if(isset($_POST['Deconnexion'])){
         include('blocs/end_connexion.php');
+        
     }
 ?>
 
 <div class="container">
-    <div class="col colG">
-        <div>
-            <img src="<?php echo $photo; ?>" alt="photo de profil" class="pp">
-            <div class="nomPrenom"> 
-                <h2><?php echo $prenom . " " . $nom; ?></h2>
-            </div>
-            <div class="info">
-                <label class="naming">Pseudonyme :</label>
-                <label class="info"><?php echo $pseudo; ?></label>
-            </div>
-            <div class="info">
-                <label class="naming">Adresse mail :</label>
-                <label class="info"><?php echo $mail; ?></label>
-            </div>
-            <div class="info">
-                <label class="naming">Téléphone :</label>
-                <label class="info"><?php echo $tel; ?></label>
-            </div>
+    <div class="colonnesG">
+        <div class="col colG">
+            <div>
+                <img src="<?php echo $photo; ?>" alt="photo de profil" class="pp">
+                <div class="nomPrenom"> 
+                    <h2><?php echo $prenom . " " . $nom; ?></h2>
+                </div>
+                <div class="info">
+                    <label class="naming">Pseudonyme :</label>
+                    <label class="info"><?php echo $pseudo; ?></label>
+                </div>
+                <div class="info">
+                    <label class="naming">Adresse mail :</label>
+                    <label class="info"><?php echo $mail; ?></label>
+                </div>
+                <div class="info">
+                    <label class="naming">Téléphone :</label>
+                    <label class="info"><?php echo $tel; ?></label>
+                </div>
+            </div>            
         </div>
+        <div class = "col">
+                <button class="bouttonAjouter">Ajouter une annonce</button>
+            </div>
     </div>
+    
     <div class="col colD">
         <h2 class="text-center">Informations Bancaires</h2>
         <div class="info">
@@ -136,6 +143,7 @@ body {
         </div>
     </div>
 </div>
+
 
 <?php
 
@@ -197,7 +205,7 @@ body {
                                 <button type="submit" name="Suppression_article" class="delete-button">Supprimer l'article</button>
                             </div>
                         </form>
-                
+                                       
                     <?php
                 }
             }
@@ -205,6 +213,7 @@ body {
         if($type_compte == 2){?> </div> <?php ;}
 
     }
+
     
     if($type_compte == 2){
 
