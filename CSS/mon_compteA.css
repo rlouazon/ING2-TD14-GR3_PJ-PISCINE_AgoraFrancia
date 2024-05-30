@@ -193,16 +193,18 @@ h2 {
 
 .delete-button {
     background-color: #ff634767; /* Couleur de fond rouge */
-    color: #3F4A54; /* Couleur du texte blanc */
-    padding: 8px 16px; /* Réduisez légèrement le rembourrage */
-    border: none; /* Supprimez la bordure */
-    border-radius: 5px; /* Ajoutez des coins arrondis */
-    cursor: pointer; /* Changez le curseur au survol */
-    transition: background-color 0.3s ease; /* Ajoutez une transition en douceur */
-    font-size: 14px; /* Réduisez la taille de la police */
-    margin-top: 30px; /* Ajoutez un espacement au-dessus du bouton */
+    color: #3F4A54;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    display: block; /* Add this line to make the button a block element */
+    width: fit-content; /* Add this line to make the width fit the content */
 }
 
 .delete-button:hover {
@@ -228,7 +230,7 @@ h2 {
 
 .validation-button:hover {
     /* Styles existants */
-    background-color: #10bb1edd; /* Assombrissez légèrement la couleur de fond */
+    background-color: #0b9216dd; /* Assombrissez légèrement la couleur de fond */
 }
 
 
