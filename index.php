@@ -2,6 +2,10 @@
 <link href="CSS/index.css" rel="stylesheet">
 
 <body>
+
+    <div class="personnal-info" id = "une"> 
+        <div class="titreMain">A la une !</div>
+    </div> 
     <div class="carousel">
         <div class="carousel-inner">
             <?php
@@ -14,13 +18,13 @@
                     "description" => "Description du produit 1"
                 ],
                 [
-                    "image" => "CSS/images/produit.png",
+                    "image" => "CSS/images/produit2.png",
                     "name" => "Nom du produit 2",
                     "price" => "0000",
                     "description" => "Description du produit 2"
                 ],
                 [
-                    "image" => "CSS/images/produit.png",
+                    "image" => "CSS/images/produit3.png",
                     "name" => "Nom du produit 3",
                     "price" => "0000",
                     "description" => "Description du produit 3"
@@ -34,9 +38,9 @@
                 echo '<div class="article-colG col">';
                 echo '    <div class="prodG">';
                 echo '        <img src="' . $product["image"] . '" alt="Image produit" class="imgProd">';
-                echo '        <h2>' . $product["name"] . '</h2>';
                 echo '    </div>';
                 echo '    <div class="infoProd">';
+                echo '        <h2>' . $product["name"] . '</h2>';
                 echo '        <h2>Prix: ' . $product["price"] . ' €</h2>';
                 echo '        <div class="Prod">';
                 echo '            ' . $product["description"];
@@ -49,8 +53,8 @@
             }
             ?>
         </div>
-        <button class="prev" onclick="moveCarousel(-1)">&#10094;</button>
-        <button class="next" onclick="moveCarousel(1)">&#10095;</button>
+        <button class="prev" onclick="moveCarousel(-1)"><</button>
+        <button class="next" onclick="moveCarousel(1)">></button>
     </div>
 
     <script>
