@@ -62,14 +62,19 @@ body {
 }
 </style>
 
-<div class="personnal-info"> 
+<form method="post" class="personnal-info"> 
     <div class="titreMain">Informations Personnelles    </div>
     <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
-</div>
+</form>
+<?php
+    if(isset($_POST['Deconnexion'])){
+        include('blocs/end_connexion.php');
+    }
+?>
 
 <div class="container">
     <div class="col colG">
-        <form method="post">
+        <div>
             <img src="<?php echo $photo; ?>" alt="photo de profil" class="pp">
             <div class="nomPrenom"> 
                 <h2><?php echo $prenom . " " . $nom; ?></h2>
@@ -86,13 +91,7 @@ body {
                 <label class="naming">Téléphone :</label>
                 <label class="info"><?php echo $tel; ?></label>
             </div>
-            <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
-        </form>
-        <?php
-            if(isset($_POST['Deconnexion'])){
-                include('blocs/end_connexion.php');
-            }
-        ?>
+        </div>
     </div>
     <div class="col colD">
         <h2 class="text-center">Informations Bancaires</h2>
