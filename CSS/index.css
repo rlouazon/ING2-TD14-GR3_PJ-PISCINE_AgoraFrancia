@@ -404,10 +404,12 @@ h2 {
 
 
 button.prev {
+    border: none;
     left: 10px;
 }
 
 button.next {
+    border: none;
     right: 70px;
 }
 
@@ -425,7 +427,7 @@ button.next {
 
 button.prev,
 button.next {
-
+    border: none;
     font-size: 40px; /* Réduire la taille de la police */
 }
 
@@ -433,6 +435,11 @@ button.next {
 button.prev:hover,
 button.next:hover {
     color:#815f47 ;
+}
+
+button.prev:active,
+button.next:active {
+    outline: none;
 }
 
 #une{

@@ -57,6 +57,8 @@
         <button class="next" onclick="moveCarousel(1)">></button>
     </div>
 
+    <iframe width="425" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=2.286642193794251%2C48.85065355186168%2C2.289466559886933%2C48.852146684017626&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/48.85140/2.28805">Afficher une carte plus grande</a></small>
+
     <script>
         let currentIndex = 0;
         const items = document.querySelectorAll('.carousel-item');
