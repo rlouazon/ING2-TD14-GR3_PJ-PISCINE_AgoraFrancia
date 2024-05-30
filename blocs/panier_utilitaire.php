@@ -23,7 +23,7 @@ function ajouter_element_panier($id_produit, $type_vente) {
     }
 
     // Définir le cookie avec le nouveau panier
-    setcookie('mon_panier', serialize($panier), time() + 36000); // Cookie valide pour 1 heure
+    setcookie('mon_panier', serialize($panier), time() + 36000000000); // Cookie valide pour 1 heure
 
     // Rediriger vers la page d'origine après l'ajout
     header('Location: ' . $_SERVER['PHP_SELF']);
@@ -49,11 +49,22 @@ function supprimer_element_panier($id_produit, $type_vente) {
     
 
     // Définir le cookie avec le nouveau panier
-    setcookie('mon_panier', serialize($panier), time() + 3600); // Cookie valide pour 1 heure
+    setcookie('mon_panier', serialize($panier), time() + 36000000000); // Cookie valide pour 1 heure
 
     // Rediriger vers la page d'origine après la suppression
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit();
+}
+
+function recherche_panier($article, $type_article){
+    $panier = isset($_COOKIE['mon_panier']) ? unserialize($_COOKIE['mon_panier']) : array();
+    
+    for($i = 0; $i < count($panier); $i++){
+        if(intval($panier[$i][0]) == $article && intval($panier[$i][1]) == $type_article){
+            return 1;
+        }
+    }
+    return 0;
 }
 
 
