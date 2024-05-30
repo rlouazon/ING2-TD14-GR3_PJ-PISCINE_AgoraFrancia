@@ -106,16 +106,14 @@ if($logged != 0){
     </div>
 </div>
 
-<div class="colonneGauche">
-
 
     <div class="article-colG col">
         <div class="prodG">
             <img src="CSS/images/produit.png" alt="Image produit" class="imgProd">
             <h2>Nom du produit</h2>
-            <p>Prix: $XX.XX</p>
         </div>
         <div class="infoProd">
+            <h2>Prix: $XX.XX</h2>
                 <div class="Prod">
                     Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
                     Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
@@ -127,43 +125,33 @@ if($logged != 0){
         </div>
     </div>
 
-
-</div>
-
-
-<div class="colonneDroite">
-
-
-    <div class="article-colD col">
+    <div class="article-colG col">
         <div class="prodG">
-            <img src="photo_user/762cd08c62b6d4.png" alt="Image client" class="imgClient">
-            <h2>Jéremy Clément</h2>
+            <img src="CSS/images/produit.png" alt="Image produit" class="imgProd">
+            <h2>Nom du produit</h2>
         </div>
-        
-        <div class="infoClient-actions">
-
-            <div class="infoClient">
-                <label class="namingC">Pseudonyme :</label>
-                <label class="infoC"> Greg</label>
-
-                <label class="namingC">Adresse mail :</label>
-                <label class="infoC"> miamlecaca@gmail.com</label>
-
-                <label class="namingC">Téléphone :</label>
-                <label class="infoC"> 06 65 98 35 92</label>
-            </div>
-            
-            <div class = "role">
-                <select name="choice">
-                    <option value="client">Client</option>
-                    <option value="vendeur">Vendeur</option>
-                    <option value="administrateur">Administrateur</option>
-                </select>
-                <button class="bouttonRole"><label class="namingC">Modifier le rôle</label></button>
-            </div>
-            <button class="delete-button"> Supprimer l'utilisateur</button>
+        <div class="infoProd">
+            <h2>Prix: $XX.XX</h2>
+                <div class="Prod">
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                    Miam le Caca c'est délicieux, je vous la garanti, MIAM MIAM j'ADORE le KK !!
+                </div>
+            <button class="delete-button">Supprimer l'article</button>
         </div>
     </div>
+
+    
+
+
+
+
+
+
+
+  
     
 </div>
 

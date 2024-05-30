@@ -1,5 +1,5 @@
 <?php include("blocs/header.php"); ?>
-<link href="CSS/mon_compte.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+<link href="CSS/mon_compteA.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 
 <?php
 if($logged != 0){
