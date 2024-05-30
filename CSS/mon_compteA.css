@@ -210,6 +210,29 @@ h2 {
     background-color: #CC4E44; /* Assombrissez légèrement la couleur de fond */
 }
 
+.validation-button {
+    background-color: #10bb1e67;
+    color: #3F4A54;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Add this line to make the button a block element */
+    width: fit-content; /* Add this line to make the width fit the content */
+}
+
+.validation-button:hover {
+    /* Styles existants */
+    background-color: #10bb1edd; /* Assombrissez légèrement la couleur de fond */
+}
+
+
+
 .bouttonRole {
     background-color: #3f4a5400; /* Couleur de fond rouge */
     color: rgb(0, 0, 0); /* Couleur du texte blanc */

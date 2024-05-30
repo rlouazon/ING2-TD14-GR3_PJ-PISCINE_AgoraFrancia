@@ -81,11 +81,14 @@ if($logged != 0){
         <label class="info"> 2200.98€</label>  
     </div>
 
+    <button class="validation-button">Passer à la caisse</button>
 
     </div>
 
 
+
     <div class="col colD">
+
         <h2 class="text-center">Informations Bancaires</h2>
         <div class="info">
             <label class="naming">Type de carte :</label>
@@ -127,9 +130,15 @@ if($logged != 0){
         </div>
     </div>
 </div>
-
+        
+    <div class="personnal-info"> 
+        <div class="titreMain">Mes articles</div>
+    </div>  
 
     <div class="article-colG col">
+
+
+
         <div class="prodG">
             <img src="CSS/images/produit.png" alt="Image produit" class="imgProd">
             <h2>Nom du produit</h2>
