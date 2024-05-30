@@ -47,8 +47,7 @@ while ($data = mysqli_fetch_assoc($result)) {
     $occ += 1;
 }
 
-#Quisque varius sem non finibus sollicitudin. Donec sit amet lectus a orci hendrerit sollicitudin. Vivamus odio massa, lobortis posuere eros ut, viverra facilisis tortor. Vestibulum tempor nisi quis nibh bibendum elementum. Donec elit elit, malesuada eget convallis non, porta sit amet nibh. In hac habitasse platea dictumst.
-#Aliquam erat volutpat. Ut aliquet venenatis ante, quis sollicitudin lorem. Ut ac enim non libero gravida malesuada quis eget tellus. Etiam nec ullamcorper tellus. Donec vehicula mauris in mi accumsan, eget ultricies ligula viverra. Curabitur consectetur feugiat arcu a accumsan. 
+#gravida malesuada quis eget tellus. Etiam nec ullamcorper tellus. Donec vehicula mauris in mi accumsan, eget ultricies ligula viverra. Curabitur consectetur feugiat arcu a accumsan. 
 
 # Si :
 #  - Pas dans la bdd ou plusieurs (bug)
