@@ -77,4 +77,6 @@ if($occ != 1   ||   $type == -1   ||   ((($type == 0) == intval($type_vd)) || ((
 
 
 
+
+
 <?php include("blocs/footer.php"); ?>
