@@ -1,9 +1,26 @@
 <?php include("blocs/header.php"); ?>
-<link href="CSS/parcourir.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+<link href="CSS/panier.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclusion de jQuery -->
 
 <div class="content">
-<?php 
+    <form id="categorieForm">
+        <label for="categorie">Choisissez une catégorie :</label>
+        <select id="categorie" name="categorie">
+            <option value="rares">Rares</option>
+            <option value="haut de gamme">Haut de gamme</option>
+            <option value="regulier">Régulier</option>
+            <option value="tou">Tout</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Soumettre">
+    </form>
 
+    <div id="results"></div> <!-- Div pour afficher les résultats -->
+</div>
+
+
+
+<?php
 function trier_les_element_parcourir($type_de_rarete, $db_found, $db_handle) {
     if ($db_found) {
         // Requête pour récupérer les produits
@@ -39,9 +56,22 @@ function trier_les_element_parcourir($type_de_rarete, $db_found, $db_handle) {
         echo "Base de données introuvable";
     }
 }
-trier_les_element_parcourir("rares",$db_found,$db_handle)
 
+if (isset($_GET['categorie'])) {
+    echo '<div id="results">';
+    $categorie = htmlspecialchars($_GET['categorie']);
+    if ($categorie != "tout"){
+    trier_les_element_parcourir($categorie, $db_found, $db_handle);
+    }else{
+        trier_les_element_parcourir("rares", $db_found, $db_handle);
+        trier_les_element_parcourir("haut de gamme", $db_found, $db_handle);
+        trier_les_element_parcourir("regulier", $db_found, $db_handle); 
+    }
+    echo '</div>';
+} else {
+    echo '<div id="results">Veuillez choisir une catégorie.</div>';
+}
 ?>
 
-</div>
+
 <?php include("blocs/footer.php"); ?>
