@@ -40,6 +40,7 @@ if($logged != 0){
 
 <div class="personnal-info"> 
     <div class="titreMain">Informations Personnelles</div>
+    <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
 </div>
 
 <div class="container">

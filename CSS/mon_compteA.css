@@ -53,17 +53,6 @@ h2 {
     height: 35px;
 }
 
-.titreMain {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-    background-color: #edccb4e6;
-    border-radius: 25px;
-    padding: 10px;
-    text-align: center;
-    margin: 20px auto;
-    width: 50%; /* Centré en fonction du contenu */
-    font-size: 200%;
-}
-
 .nomPrenom {
     display: flex;
     justify-content: center;
@@ -122,6 +111,32 @@ h2 {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+}
+
+.titreMain {
+    margin: 0px;
+}
+
+
+.personnal-info{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    background-color: #edccb4e6;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: 50%; /* Centré en fonction du contenu */
+    font-size: 200%;
+
+}
+
+.btn{
+    margin-left: 50px;
+    margin-right: 0px;
+}
+
+.imgInscription{
+    width: 20%;
 }
 
 
