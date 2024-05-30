@@ -41,23 +41,15 @@ if($logged != 0){
 
 
 <style>
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 95%;
-    background: url('<?php echo $back; ?>'); /* Utilisez un chemin relatif */
-    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
-    filter: blur(50px); /* Ajustez le niveau de flou selon vos besoins */
-    z-index: -1; /* Placez l'image de fond floue derrière le contenu */
-}
 body {
+    background: url('<?php echo $back; ?>'); /* Utilisez un chemin relatif */
+    background-size: 100% 100%;
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
     font-family: 'Lexend', Arial, sans-serif;
     margin: 0;
+
     padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
-    min-height: 100vh;
     position: relative;
 }
 </style>

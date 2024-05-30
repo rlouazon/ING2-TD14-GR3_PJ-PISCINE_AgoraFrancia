@@ -10,8 +10,6 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 95%;
     background: url('./images/fond.png'); /* Utilisez un chemin relatif */
     background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
     filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
@@ -22,7 +20,6 @@ body {
     font-family: 'Lexend', Arial, sans-serif;
     margin: 0;
     padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
-    min-height: 100vh;
     position: relative;
 }
 
