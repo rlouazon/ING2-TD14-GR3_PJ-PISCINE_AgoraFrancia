@@ -13,7 +13,7 @@
                     <option value="0">Rares</option>
                     <option value="1">Haut de gamme</option>
                     <option value="2">Régulier</option>
-                    <option value="tout">Tout</option>
+                    <option value="3">Tout</option>
                 </select>
         </div>
         <div class="col-auto mb-3 mt-3"style="padding-top: 5px;">
@@ -29,7 +29,7 @@
         $affichage="Haut de gamme";
     }elseif($_GET['categorie']==2){
         $affichage="Régulier";
-    }elseif($_GET['categorie']=="tout"){
+    }else{
         $affichage="Tout";
     }}
     ?>
@@ -74,7 +74,7 @@ if ($db_found) {
     if (isset($_GET['categorie'])) {
         echo '<div id="results">';
         $categorie = htmlspecialchars($_GET['categorie']);
-        if ($categorie != "tout"){
+        if ($categorie != 3){
             trier_les_element_parcourir($categorie, $db_handle);
         } else {
             trier_les_element_parcourir("0", $db_handle);
@@ -83,7 +83,7 @@ if ($db_found) {
         }
         echo '</div>';
     } else {
-        $affichage="tout";
+        $affichage=3;
         trier_les_element_parcourir("0", $db_handle);
         trier_les_element_parcourir("1", $db_handle);
         trier_les_element_parcourir("2", $db_handle); 
