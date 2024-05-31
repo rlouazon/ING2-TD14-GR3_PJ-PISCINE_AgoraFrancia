@@ -9,6 +9,11 @@
     <title>Agora Francia</title>
 </head>
 <body>
+<div class="bandeau"> 
+<img src="./CSS/images/bandeau.jpg" alt="Image description" id="banniere">
+        <div class="txtBaniere"> Les ventes flash de Noël sont là ! </div>
+    </div>
+
 
     <div class="personnal-info" id = "une"> 
         <div class="titreMain">A la une !</div>
