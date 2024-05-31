@@ -68,85 +68,10 @@ if($logged != 0 && $type_compte != 0){
 <form method="post" enctype="multipart/form-data">
 <h1 class="text-center">Ajout de produit</h1>
 
-<<<<<<< HEAD
 <div class="form-group">
     <h4>Informations du produit :</h4>
     <label for="titre">Titre* :</label>
     <input type="text" class="form-control" name="titre" maxlength="256" required>
-=======
-                <div class="form-group">
-                    <h4>Informations du produit :</h4>
-                    <label for="titre">Titre* :</label>
-                    <input type="text" class="form-control" name="titre" maxlength="256" required>
-                </div>
-                <div class="form-group">
-            <label for="type_de_vente">Type de vente* :</label>
-                <select class="form-control" name="type_de_vente" required>
-                    <option value="vd">Vente directe</option>
-                    <option value="nego">Vente par négociation</option>
-                    <option value="enchere">Vente par enchère</option>
-                </select>
-            </div>
-        <div class="form-group">
-            <label for="limite_de_temps">Limite de temps :</label>
-            <input type="number" class="form-control" name="limite_de_temps" min="1" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="prix">Prix* :</label>
-            <input type="number" class="form-control" name="prix" required>
-        </div>
-        <div class="form-group">
-            <label for="description">Description* :</label>
-            <textarea class="form-control" name="description" maxlength="2560" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <h4>Images du produit :</h4>
-            <label for="image1">Image 1* :</label>
-            <input type="file" class="form-control" name="image1" required>
-        </div>
-        <div class="form-group">
-            <label for="image2">Image 2 :</label>
-            <input type="file" class="form-control" name="image2">
-        </div>
-        <div class="form-group">
-            <label for="image3">Image 3 :</label>
-            <input type="file" class="form-control" name="image3">
-        </div>
-        <div class="form-group">
-            <label for="image4">Image 4 :</label>
-            <input type="file" class="form-control" name="image4">
-        </div>
-        <div class="form-group">
-            <label for="image5">Image 5 :</label>
-            <input type="file" class="form-control" name="image5">
-        </div>
-        
-        <label for="categorie">Catégorie* :</label>
-        <select class="form-control" name="categorie" required>
-            <option value="1">Articles Hauts de Gamme</option>
-            <option selected value="2">Articles Réguliers</option>
-            <option value="0">Articles Rares</option>
-        </select>
-        <label for="etat_du_produit">État du produit* :</label>
-        <select class="form-control" name="etat_du_produit" required>
-            <option value="n">Neuf</option>
-            <option value="cn">Comme Neuf</option>
-            <option selected value="be">Bon Etat</option>
-            <option value="abe">Assez Bon Etat</option>
-        </select>
-
-       
-
-
-
-
-        
-
-        <button type="submit" name="ajout_du_produit" class="btn">Ajouter le produit</button>
-    </form>
->>>>>>> 065a8468f8ae063817f73476bc7ff021b667b9b9
 </div>
 
 <div class="form-group">
@@ -253,9 +178,9 @@ if(isset($_POST['ajout_du_produit'])){
         move_uploaded_file($_FILES['image5']['tmp_name'], $path5);
     }
 
-    $vd="";
-    $nego="";
-    $enchere="";
+    $vd=0;
+    $nego=0;
+    $enchere=0;
     $type_de_vente=$_POST['type_de_vente'];
     if($type_de_vente=="vd"){
         $vd=1;
