@@ -55,16 +55,16 @@
 <?php
 function trier_les_element_parcourir($type_de_rarete, $db_handle) {
     // Requête pour récupérer les produits filtrés par etat
-    $sql = "SELECT titre, prix, categorie, id, description, img1 FROM articles WHERE categorie = ?";
+    $sql = "SELECT * FROM articles WHERE categorie = ?";
     
     if ($type_de_rarete == 4) {
-        $sql = "SELECT titre, prix, categorie, id, type_enchere, description, img1 FROM articles WHERE type_enchere = ?";
+        $sql = "SELECT * FROM articles WHERE type_enchere = ?";
         $param = "1";
     } elseif ($type_de_rarete == 5) {
-        $sql = "SELECT titre, prix, categorie, id, type_nego, description, img1 FROM articles WHERE type_nego = ?";
+        $sql = "SELECT * FROM articles WHERE type_nego = ?";
         $param = "1";
     } elseif ($type_de_rarete == 6) {
-        $sql = "SELECT titre, prix, categorie, id, type_vd, description, img1 FROM articles WHERE type_vd = ?";
+        $sql = "SELECT * FROM articles WHERE type_vd = ?";
         $param = "1";
     } else {
         $param = $type_de_rarete;

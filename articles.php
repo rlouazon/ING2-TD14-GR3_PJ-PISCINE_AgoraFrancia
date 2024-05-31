@@ -1,4 +1,5 @@
 <?php include("blocs/header.php"); ?>
+<link href="CSS/page_objet.css" rel="stylesheet">
 
 <?php
 
@@ -26,13 +27,13 @@ while ($data = mysqli_fetch_assoc($result)) {
     $titre =            $data['titre'];
     $prix =             $data['prix'];
     $description =      $data['description'];
-    $categorie =        $data['categorie'];
+    $categorie =        intval($data['categorie']);
     $etat =             $data['etat'];
 
     #TYPES
-    $type_vd =          $data['type_vd'];
-    $type_nego =        $data['type_nego'];
-    $type_enchere =     $data['type_enchere'];
+    $type_vd =          intval($data['type_vd']);
+    $type_nego =        intval($data['type_nego']);
+    $type_enchere =     intval($data['type_enchere']);
 
     #IMG
     $img1 =             $data['img1'];
@@ -43,6 +44,10 @@ while ($data = mysqli_fetch_assoc($result)) {
 
     #FIN
     $fin =              $data['fin'];
+
+    #LIMITES
+    $limite_tps =       $data['limite_tps'];
+    $limite_op =        $data['limite_op'];
 
     $occ += 1;
 }
@@ -60,17 +65,75 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 ?>
 
 
-<p><?php echo $vendeur ?></p>
-<p><?php echo $titre ?></p>
-<p><?php echo $prix ?></p>
-<p><?php echo $description ?></p>
-<p><?php echo $categorie ?></p>
-<p><?php echo $etat ?></p>
-<?php echo ($img1 != "") ? "<img src=\"".$img1."\">" : ""; ?>
-<?php echo ($img2 != "") ? "<img src=\"".$img2."\">" : ""; ?>
-<?php echo ($img3 != "") ? "<img src=\"".$img3."\">" : ""; ?>
-<?php echo ($img4 != "") ? "<img src=\"".$img4."\">" : ""; ?>
-<?php echo ($img5 != "") ? "<img src=\"".$img5."\">" : ""; ?>
+<div class="personnal-info" id = "une"> 
+        <div class="titreMain"><?php echo $titre ?></div>
+    </div>
+    
+    <div class="carousel">
+        <div class="carousel-inner">
+            <?php
+
+            $products = [];
+            if($img1 != ""){$products[] = ["image" => $img1];}
+            if($img2 != ""){$products[] = ["image" => $img2];}
+            if($img3 != ""){$products[] = ["image" => $img3];}
+            if($img4 != ""){$products[] = ["image" => $img4];}
+            if($img5 != ""){$products[] = ["image" => $img5];}
+
+            foreach ($products as $index => $product) {
+                echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '">';
+                echo '        <img src="' . $product["image"] . '" alt="Image produit" class="imgProd">';
+                echo '</div>';
+            }
+
+            $categorie_article = "";
+            if($categorie == 0){$categorie_article = "Rare";}
+            if($categorie == 1){$categorie_article = "Haut de Gamme";}
+            if($categorie == 2){$categorie_article = "Régulier";}
+
+            $etat_article = "";
+            if($etat == 'n'){$etat_article = "Neuf";}
+            if($etat == 'cn'){$etat_article = "Comme Neuf";}
+            if($etat == 'be'){$etat_article = "Bon Etat";}
+            if($etat == 'abe'){$etat_article = "Assez Bon Etat";}
+
+            $type_affichage_article = "";
+            if($type_vd == 1){$type_affichage_article = "Vente Directe";}
+            if($type_nego == 1){$type_affichage_article = "Vente par Négociation";}
+            if($type_enchere == 1){$type_affichage_article = "Vente par Enchere";}
+            ?>
+            <div class = "descriptionProd">
+                <h1><?php echo $titre ?></h1>
+                <h3>Description : <?php echo $description ?></h3>
+                <h5>Prix : <?php echo $prix ?>€</h5>
+                <h5>Date de temps : <?php echo $limite_tps ?></h5>
+                <h6>Etat : <?php echo $etat_article ?> </h6>
+                <h6>Catégorie : <?php echo $categorie_article ?> </h6>
+                <h6>Type de vente : <?php echo $type_affichage_article ?> </h6>
+            </div>
+        </div>
+        <button class="prev" onclick="moveCarousel(-1)"><</button>
+        <button class="next" onclick="moveCarousel(1)">></button>
+    </div>
+
+
+    <script>
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        const interval = 5000;
+
+        function moveCarousel(direction) {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+            items[currentIndex].classList.add('active');
+        }
+
+        setInterval(() => {
+            moveCarousel(1);
+        }, interval);
+    </script>s
+
 
 
 <?php
@@ -110,14 +173,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 
 
         if($type_article == 0){
-            $requete = "INSERT INTO op_vd VALUES (" .
-            "''," . 
-            "'" . $article . "'," .
-            "'" . $logged . "'," .
-            "0" . 
-            ")";
-            $result = mysqli_query($db_handle, $requete);
-            echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+            
         }
         else if($type_article == 2){
             $message = "";
