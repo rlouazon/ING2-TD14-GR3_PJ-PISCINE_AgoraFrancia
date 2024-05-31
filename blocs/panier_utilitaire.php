@@ -1,4 +1,6 @@
 <?php
+
+
 function definirCookieAvecTableau($nomCookie, $tableau, $duree) {
     // Sérialiser le tableau
     $array_serialized = serialize($tableau);

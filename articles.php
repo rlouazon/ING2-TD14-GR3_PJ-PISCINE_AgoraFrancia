@@ -48,8 +48,6 @@ while ($data = mysqli_fetch_assoc($result)) {
 }
 
 
-
-
 # Si :
 #  - Pas dans la bdd ou plusieurs (bug)
 #  - Si pas de type indiqué (empeche de gerer le multi type)
@@ -77,16 +75,57 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 
 <?php
 
-    include('blocs/panier_utilitaire.php');
-    if(!recherche_panier($article, $type_article)){
+    $condition = 0;
+    if($logged != 0){
+        $requete = "SELECT * FROM panier WHERE acheteur = " . $logged . " AND article = " . $article . " AND type = " . $type_article;
+        $result = mysqli_query($db_handle, $requete);
+        $occ = 0;
+        $id_panier = 0;
+        while ($data = mysqli_fetch_assoc($result)) {
+            $occ += 1;
+            $id_panier = (int)$data['id'];
+        }
+        if($occ == 1){
+            $condition = 1;
+        }
+    }
+
+    if($condition != 1){
         ?>
             <form method="post">
-                <button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier    <img src="CSS/images/inscription.png" alt="logo"></button>
+                <button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier</button>
             </form>
         <?php
     }
+    else{
 
-    
+
+        
+
+
+    }
+
+
+?>
+
+
+<?php
+
+    if(isset($_POST['AjouterPanier'])){
+        if($logged != 0){
+            $requete = "INSERT INTO panier VALUES (" .
+            "''," . 
+            "'" . $logged . "'," .
+            "'" . $article . "'," .
+            "'" . $type_article . "'" . 
+            ")";
+            $result = mysqli_query($db_handle, $requete);
+            echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+        }
+        else{
+            echo "<script>setTimeout(() => window.location.replace(\"connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
+        }
+    }
 
 ?>
 
