@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclusion de jQuery -->
 
 
-<?php $affichage="Tout"; ?>
+<?php $affichage="Tout";$affichage_payement="Tout"; ?>
 <div class="centre">
     <div class="content col pl-3">
         <div class="row">
@@ -15,31 +15,40 @@
                             <option value="0">Rares</option>
                             <option value="1">Haut de gamme</option>
                             <option value="2">Régulier</option>
+                            <option value="3">Tout</option>
+                        </select>
+                    </div>
+                    <div class="col-auto mb-3">
+                        <label for="type_achat" class="row">Choisissez un type d achat :</label>  
+                        <select id="type_achat" class="form-control row" name="type_achat">
                             <option value="4">Enchere</option>
                             <option value="5">Negociation</option>
                             <option value="6">Achat immédiat</option>
                             <option value="3">Tout</option>
-                        </select>
-                    </div>
+                    </select>
                     <div class="col-auto mb-3 mt-3" style="padding-top: 5px;">
                         <input type="submit" value="Soumettre" class="form-control col">
                     </div>
+                    </div>
                     <?php
-                    if(isset($_GET['categorie'])){
+                    if(isset($_GET['categorie']) && isset($_GET['type_achat']) ){
                         if($_GET['categorie']==0){
                             $affichage="Rares";
                         } elseif($_GET['categorie']==1){
                             $affichage="Haut de gamme";
                         } elseif($_GET['categorie']==2){
                             $affichage="Régulier";
-                        } elseif($_GET['categorie']==4){
-                            $affichage="Enchere";
-                        } elseif($_GET['categorie']==5){
-                            $affichage="Negociation";
-                        } elseif($_GET['categorie']==6){
-                            $affichage="Achat immédiat";
-                        } else {
+                        }else {
                             $affichage="Tout";
+                        }
+                        if($_GET['type_achat']==4){
+                            $affichage_payement="Enchere";
+                        } elseif($_GET['type_achat']==5){
+                            $affichage_payement="Negociation";
+                        } elseif($_GET['type_achat']==6){
+                            $affichage_payement="Achat immédiat";
+                        } else {
+                            $affichage_payement="Tout";
                         }
                     }
                     ?>
