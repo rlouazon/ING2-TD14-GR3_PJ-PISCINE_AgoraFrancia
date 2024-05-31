@@ -56,13 +56,12 @@ strong {
     border-radius: 25px;
     width: 90%;
     padding: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+
     box-sizing: border-box;
     overflow: hidden;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
 }
 
 
@@ -79,7 +78,7 @@ strong {
 }
 
 .imgProd {
-    max-width: 500px;
+    max-width: 90%;
     max-height: 400px;
     border-radius: 25px;
     margin-bottom: 10px;
@@ -130,6 +129,7 @@ strong {
     transition: transform 0.5s ease;
 }
 
+
 .carousel-item.active {
     opacity: 1;
     position: relative;
@@ -145,12 +145,12 @@ button.prev, button.next {
     top: 50%;
     border: none;
     cursor: pointer;
-    color: white;
+    color: #ab8e76;
     font-size: 40px;
 }
 
 button.prev {
-    left: 10px;
+    left: 0px;
 }
 
 button.next {
@@ -158,7 +158,7 @@ button.next {
 }
 
 button.prev:hover, button.next:hover {
-    color: #815f47;
+    color: #5b5047;
 }
 
 button.prev:active, button.next:active {
@@ -245,3 +245,7 @@ button.prev:active, button.next:active {
     background-color:#c8af9b;
 }
 
+p{
+    font-size: 18px;
+    font-weight: 400;
+}
