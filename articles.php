@@ -76,11 +76,11 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 <?php
 
     $condition = 0;
+    $id_panier = 0;
     if($logged != 0){
         $requete = "SELECT * FROM panier WHERE acheteur = " . $logged . " AND article = " . $article . " AND type = " . $type_article;
         $result = mysqli_query($db_handle, $requete);
         $occ = 0;
-        $id_panier = 0;
         while ($data = mysqli_fetch_assoc($result)) {
             $occ += 1;
             $id_panier = (int)$data['id'];
@@ -88,21 +88,100 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
         if($occ == 1){
             $condition = 1;
         }
+        $requete = "SELECT * FROM articles WHERE id = " . $article . " AND vendeur = " . $logged;
+        $result = mysqli_query($db_handle, $requete);
+        $occ = 0;
+        while ($data = mysqli_fetch_assoc($result)) {
+            $occ += 1;
+        }
+        if($occ == 1){
+            $condition = 2;
+        }
     }
-
-    if($condition != 1){
+    echo $condition;
+    if($condition == 0){
         ?>
             <form method="post">
                 <button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier</button>
             </form>
         <?php
     }
-    else{
+    else if($condition == 1){
 
 
-        
+        if($type_article == 0){
+            $requete = "INSERT INTO op_vd VALUES (" .
+            "''," . 
+            "'" . $article . "'," .
+            "'" . $logged . "'," .
+            "0" . 
+            ")";
+            $result = mysqli_query($db_handle, $requete);
+            echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+        }
+        else if($type_article == 2){
+            $message = "";
+            $condition = 0;
+
+            $requete = "SELECT * FROM op_enchere WHERE article = " . $article . " AND acheteur = " . $logged;
+            $result = mysqli_query($db_handle, $requete);
+            $occ = 0;
+            $prix = 0;
+            while ($data = mysqli_fetch_assoc($result)) {
+                $prix = $data['prix'];
+                $occ += 1;
+            }
+            if($occ == 1){
+                $message = "Enchere déposée (" . $prix . "€)";
+            }
+            else{
+                $requete = "SELECT * FROM articles WHERE id = " . $article;
+                $result = mysqli_query($db_handle, $requete);
+                $occ = 0;
+                $datelimite = "";
+                while ($data = mysqli_fetch_assoc($result)) {
+                    $datelimite = date('Y-m-d H:i:s', strtotime($data['limite_tps']));
+                    $occ += 1;
+                }
+                if($occ == 1){
+                    if(date("Y-m-d H:i:s") < $datelimite){
+                        $message = "Encherir";
+                        $condition = 1;
+                    }
+                    else{
+                        $message = "Date de fin d'enchere dépassée";
+                    }
+                }
+                else{
+                    $message = "Date de fin d'enchere non trouvée";
+                }
+            }
+            ?>
+                <form method="post">
+                    <input type="number" name="prix" <?php if($condition == 0){echo "disabled";} ?>> 
+                    <button type="submit" name="Encherir" class="btn" <?php if($condition == 0){echo "disabled";} ?>><?php echo $message ?></button>
+                </form>
+            <?php 
+        }
 
 
+    }
+    else if($condition == 2){
+        if($type_article == 2){
+            $str = "";
+            $requete = "SELECT * FROM op_enchere WHERE article = " . $article;
+            $result = mysqli_query($db_handle, $requete);
+            $prix = 0;
+            while ($data = mysqli_fetch_assoc($result)) {
+                echo $str = $str . $data["prix"].", \r\n";
+            }
+            ?>
+                <form method="post">
+                    <input type="text" name="prix" readonly value="<?php echo $str; ?>">
+                    <button type="submit" name="Encherir" class="btn" disabled ?>>Encherir</button>
+                </form>
+            <?php 
+        }
     }
 
 
@@ -118,6 +197,22 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             "'" . $logged . "'," .
             "'" . $article . "'," .
             "'" . $type_article . "'" . 
+            ")";
+            $result = mysqli_query($db_handle, $requete);
+            echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+        }
+        else{
+            echo "<script>setTimeout(() => window.location.replace(\"connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
+        }
+    }
+
+    if(isset($_POST['Encherir'])){
+        if($logged != 0){
+            $requete = "INSERT INTO op_enchere VALUES (" .
+            "''," . 
+            "'" . $article . "'," .
+            "'" . $logged . "'," .
+            "" . $_POST['prix'] . "" . 
             ")";
             $result = mysqli_query($db_handle, $requete);
             echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";

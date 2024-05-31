@@ -7,15 +7,15 @@
         <h1 class="text-center">Connexion</h1>
         <div class="form-group">
             <label for="pseudo">Pseudo :</label>
-            <input type="text" class="form-control" name="pseudo" maxlength="256" required>
+            <input type="text" class="form-control" name="pseudo" maxlength="256" autocomplete required>
         </div>
         <div class="form-group">
             <label for="mail">Mail :</label>
-            <input type="email" class="form-control" id="mail" name="mail" maxlength="256" required>
+            <input type="email" class="form-control" id="mail" name="mail" maxlength="256" autocomplete required>
         </div>
         <div class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" id="password" name="password" autocomplete required>
         </div>
         <button type="submit" name="Connexion" class="btn">Connexion<img src="CSS/images/inscription.png" alt="logo" class="imgInscription"></button>
         <div class="form-group">

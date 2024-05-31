@@ -87,9 +87,15 @@ body {
                 </div>
             </div>            
         </div>
-        <div class = "col">
-                <button class="bouttonAjouter"><a href="ajouter_produit.php">Ajouter une annonce</a></button>
-        </div>
+        <?php
+            if($type_compte != 0){
+                ?>
+                    <div class = "col">
+                            <button class="bouttonAjouter"><a href="ajouter_produit.php?redir=<?php echo base64_encode($_SERVER['REQUEST_URI']) ?>">Ajouter une annonce</a></button>
+                    </div>
+                <?php
+            }
+        ?>
     </div>
     
     <div class="col colD">
