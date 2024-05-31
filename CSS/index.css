@@ -193,3 +193,51 @@ button.prev:active, button.next:active {
     font-family: 'Lexend', sans-serif;
     font-weight: 700;
 }
+
+
+.selection {
+    justify-content: center; /* Aligns items horizontally at the center */
+    align-items: center;
+    font-size: 200%;
+    font-weight: 500;
+    margin-top: 70px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    background-color: #edccb4f1;
+    border-radius: 25px;
+    width: 100%;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* Pour s'assurer que le contenu ne dépasse pas les bords arrondis */
+    display: flex;
+    flex-direction: row; /* Ajouté pour aligner les éléments enfants horizontalement */
+    flex-wrap: wrap; /* Ajouté pour permettre aux éléments de passer à la ligne suivante si nécessaire */
+}
+
+.titreSelection{
+    justify-content: center; /* Aligns items horizontally at the center */
+    align-items: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.choix { 
+    font-size: 70%;
+    display: flex;
+    margin-top: 20px; /* Ajouté pour un espacement vertical entre les lignes d'éléments */
+    background-color:#e1cdbd;
+    border-radius: 25px;
+    width: 30%; /* Ajusté pour donner plus d'espace aux éléments */
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden; /* Pour s'assurer que le contenu ne dépasse pas les bords arrondis */
+    border: 2px solid #2c3e50; /* Ajouté pour ajouter une bordure */
+}
+
+.choix:hover{
+    background-color:#c8af9b;
+}

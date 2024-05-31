@@ -9,15 +9,31 @@
     <title>Agora Francia</title>
 </head>
 <body>
-<div class="bandeau"> 
+
+<!--<div class="bandeau"> 
 <img src="./CSS/images/bandeau.jpg" alt="Image description" id="banniere">
         <div class="txtBaniere"> Les ventes flash de Noël sont là ! </div>
-    </div>
+    </div>-->
 
+    <div class="selection">
+        
+        <div class="titreSelection">Nos catégories</div>
+        
+        <div class="choix">
+        Mode achat immédiat
+        </div>
+        <div class="choix">
+            Mode négociation
+        </div>
+        <div class="choix">
+            Mode enchère
+        </div>
+        </div>
 
-    <div class="personnal-info" id = "une"> 
+        <div class="personnal-info" id = "une"> 
         <div class="titreMain">A la une !</div>
     </div>
+
     
     <div class="carousel">
         <div class="carousel-inner">
