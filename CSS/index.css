@@ -46,6 +46,7 @@ strong {
     margin: 20px auto;
     width: 50%;
     font-size: 200%;
+    font-weight: 500;
 }
 
 .col {
@@ -120,7 +121,7 @@ strong {
 
 .carousel-inner {
     height: 500px;;
-    background-color: #a5a5a510;
+    background-color: #a5a5a53b;
     border-radius: 25px;
     display: flex;
     transition: transform 0.5s ease;
@@ -168,4 +169,27 @@ button.prev:active, button.next:active {
 
 #une {
     margin-top: 80px;
+}
+
+
+.bandeau{
+
+    background-color: #edccb4e6;
+    margin-top: 46px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+#banniere{
+    width: 100%;
+    height: 200px;
+}
+
+.txtBaniere{
+    margin-top: 10px;
+    text-align: center;
+    color: #2c3e50;
+    font-size: 40px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
 }

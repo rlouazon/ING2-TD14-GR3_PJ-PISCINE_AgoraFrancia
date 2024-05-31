@@ -184,7 +184,7 @@ body::before {
                         <form class="article-colG col" method="post">
                             <div class="prodG">
                                 <img src="<?php echo $img1 ?>" alt="Image produit" class="imgProd">
-                                <h2><?php echo $titre . "<br>" . " (" . $types_string[$i] . ")" ?></h2>
+                                <h2><a href="<?php echo 'articles.php?article='.$id_article.'&type='.$i;?>"><?php echo $titre . "<br>" . " (" . $types_string[$i] . ")" ?></a></h2>
                             </div>
                             <div class="infoProd">
                                 <h2>Prix : <?php echo $prix ?>€</h2>
