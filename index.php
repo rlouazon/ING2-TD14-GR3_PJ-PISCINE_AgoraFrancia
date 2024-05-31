@@ -3,9 +3,22 @@
 <body>
     <p>
         Bienvenue sur Agora Francia ! 
-        <br> Ce site est pour vente d'objet de particuliers à particuliers. 
-        <br>Vous trouverez certainement ce qu'il vous faut ici et si ce n'est pas le cas, vous pouvez contacter l'administrateur.
-        <br><br>Soyez également vendeur ! Rejoignez des centaines de membres qui font activement vivre ce site et cette communautée. 
+        <br>Ce site est une platforme de vente d'objet de particuliers à particuliers.
+        <br>3 types de ventes sont disponibles : 
+        <br>
+        <ul>
+            <li>
+                Vente directe : obtenez immédiatement les articles rares ou recherchés sans trop de blabla !
+            </li>
+            <li>
+                Négociation : Proposez un nouveaux prix au vendeur pour son article, dans la limite de 5 essais par objets
+            </li>
+            <li>
+                Enchères : Participez aux enchères sur un produit convoité ! Saisissez le montant maximal que vous souhaitez payer 
+                et nous nous chargeons du reste.
+            </li>
+        </ul>
+        <br>Pourquoi ne pas également être vendeur ! Rejoignez des centaines de membres qui font activement vivre ce site et cette communautée. 
     </p>
     
     <div class="personnal-info" id = "une"> 
