@@ -34,6 +34,7 @@
                 <h3>Description : blablablablablablablablablablabla bla naldqd</h3>
                 <h5>Prix : 0000 €</h5>
                 <h5>Limite de temps : 3j3h6min.</h5>
+                <h6> Vendeur : Greg </h6>
                 <h6> Etat : Très bon état </h6>
                 <h6> Catégorie : Occasion </h6>
                 <h6> Type de vente : Enchère </h6>
@@ -41,6 +42,10 @@
         </div>
         <button class="prev" onclick="moveCarousel(-1)"><</button>
         <button class="next" onclick="moveCarousel(1)">></button>
+    </div>
+
+    <div class="col">
+       dq
     </div>
 
 
