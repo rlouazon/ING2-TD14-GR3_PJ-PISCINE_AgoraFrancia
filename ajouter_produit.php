@@ -125,16 +125,16 @@ if($logged != 0 && $type_compte != 0){
         
         <label for="categorie">Catégorie* :</label>
         <select class="form-control" name="categorie" required>
-            <option value="1">Articles hautes de gamme</option>
-            <option selected value="2">Articles réguliers</option>
-            <option value="0">Articles rares</option>
+            <option value="1">Articles Hauts de Gamme</option>
+            <option selected value="2">Articles Réguliers</option>
+            <option value="0">Articles Rares</option>
         </select>
         <label for="etat_du_produit">État du produit* :</label>
         <select class="form-control" name="etat_du_produit" required>
             <option value="n">Neuf</option>
-            <option value="cn">Comme neuf</option>
-            <option selected value="be">Bon etat</option>
-            <option value="abe">Assez bon etat</option>
+            <option value="cn">Comme Neuf</option>
+            <option selected value="be">Bon Etat</option>
+            <option value="abe">Assez Bon Etat</option>
         </select>
 
        
@@ -232,26 +232,27 @@ if (this.value === 'enchere') {
 if(isset($_POST['ajout_du_produit'])){
     $path1 = $path2 = $path3 = $path4 = $path5 = "";
     
-    if(isset($_FILES['image1'])){
+    if (!($_FILES['image1']['error'] == 4 || ($_FILES['image1']['size'] == 0 && $_FILES['image1']['error'] == 0))){
         $path1 = "photo_produit/".substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image1']["type"])[1];
         move_uploaded_file($_FILES['image1']['tmp_name'], $path1);
     }
-    if(isset($_FILES['image2']) ){
-        $path2 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image1']["type"])[1];
+    if (!($_FILES['image2']['error'] == 4 || ($_FILES['image2']['size'] == 0 && $_FILES['image2']['error'] == 0))){
+        $path2 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image2']["type"])[1];
         move_uploaded_file($_FILES['image2']['tmp_name'], $path2);
     }
-    if(isset($_FILES['image3']) ){
-        $path3 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image1']["type"])[1];
+    if (!($_FILES['image3']['error'] == 4 || ($_FILES['image3']['size'] == 0 && $_FILES['image3']['error'] == 0))){
+        $path3 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image3']["type"])[1];
         move_uploaded_file($_FILES['image3']['tmp_name'], $path3);
     }
-    if(isset($_FILES['image4']) ){
-        $path4 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image1']["type"])[1];
+    if (!($_FILES['image4']['error'] == 4 || ($_FILES['image4']['size'] == 0 && $_FILES['image4']['error'] == 0))){
+        $path4 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image4']["type"])[1];
         move_uploaded_file($_FILES['image4']['tmp_name'], $path4);
     }
-    if(isset($_FILES['image5']) ){
-        $path5 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image1']["type"])[1];
+    if (!($_FILES['image5']['error'] == 4 || ($_FILES['image5']['size'] == 0 && $_FILES['image5']['error'] == 0))){
+        $path5 = "photo_produit/" .substr(md5(microtime()),rand(0,26),50).".".explode("/", $_FILES['image5']["type"])[1];
         move_uploaded_file($_FILES['image5']['tmp_name'], $path5);
     }
+
     $vd="";
     $nego="";
     $enchere="";

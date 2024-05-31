@@ -51,6 +51,20 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var selectElement = document.getElementById('categorie');
+    var selectedValue = 3; // Replace this with the value you want to set as selected
+
+    var options = selectElement.options;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value == selectedValue) {
+            options[i].selected = true;
+            break;
+        }
+    }
+});
+</script>
 
 <?php
 function trier_les_element_parcourir($type_de_rarete, $db_handle) {
