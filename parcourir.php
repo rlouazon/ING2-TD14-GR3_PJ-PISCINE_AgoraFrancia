@@ -42,7 +42,7 @@
 <?php
 function trier_les_element_parcourir($type_de_rarete, $db_handle) {
     // Requête pour récupérer les produits filtrés par etat
-    $sql = "SELECT titre, prix, categorie, description, img1 FROM articles WHERE categorie = ?";
+    $sql = "SELECT * FROM articles WHERE categorie = ?";
     $stmt = mysqli_prepare($db_handle, $sql);
     mysqli_stmt_bind_param($stmt, 's', $type_de_rarete);
     mysqli_stmt_execute($stmt);
@@ -51,7 +51,11 @@ function trier_les_element_parcourir($type_de_rarete, $db_handle) {
     if (mysqli_num_rows($result) > 0) {
         // Afficher les données de chaque ligne
         while ($row = mysqli_fetch_assoc($result)) {
-            echo '<a href="parcourir.php">';
+            $type_article = -1;
+            if((intval($row["type_vd"])) == 1){$type_article = 0;}
+            if((intval($row["type_nego"])) == 1){$type_article = 1;}
+            if((intval($row["type_enchere"])) == 1){$type_article = 2;}
+            echo '<a href="articles.php?article='.$row["id"].'&type='.$type_article.'">';
             echo '<div class="product">';
             echo '<div class="col">';
             echo '<h2 class="row auto">' . htmlspecialchars($row["titre"]) . '</h2>';

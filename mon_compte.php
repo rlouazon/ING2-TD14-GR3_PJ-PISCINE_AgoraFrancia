@@ -41,16 +41,8 @@ if($logged != 0){
 
 
 <style>
-body {
+body::before {
     background: url('<?php echo $back; ?>'); /* Utilisez un chemin relatif */
-    background-size: 100% 100%;
-    /*background-size: cover;*/
-    background-repeat: no-repeat;
-    font-family: 'Lexend', Arial, sans-serif;
-    margin: 0;
-
-    padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
-    position: relative;
 }
 </style>
 
@@ -91,7 +83,7 @@ body {
             if($type_compte != 0){
                 ?>
                     <div class = "col">
-                            <button class="bouttonAjouter"><a href="ajouter_produit.php?redir=<?php echo base64_encode($_SERVER['REQUEST_URI']) ?>">Ajouter une annonce</a></button>
+                            <div class="bouttonAjouter"><a href="ajouter_produit.php?redir=<?php echo base64_encode($_SERVER['REQUEST_URI']) ?>">Ajouter une annonce</a></div>
                     </div>
                 <?php
             }

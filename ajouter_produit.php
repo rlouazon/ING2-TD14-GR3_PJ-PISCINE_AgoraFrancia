@@ -71,13 +71,13 @@ if($logged != 0 && $type_compte != 0){
             <label for="type_de_vente">Type de vente* :</label>
                 <select class="form-control" name="type_de_vente" required>
                     <option value="vd">Vente directe</option>
-                    <option value="enchere">Enchère</option>
-                    <option value="nego">Vente négociation</option>
+                    <option value="nego">Vente par négociation</option>
+                    <option value="enchere">Vente par enchère</option>
                 </select>
             </div>
         <div class="form-group">
             <label for="limite_de_temps">Limite de temps :</label>
-            <input type="day" class="form-control" name="limite_de_temps" min="2024-01" required>
+            <input type="number" class="form-control" name="limite_de_temps" min="1" required>
         </div>
         
         <div class="form-group">
@@ -114,14 +114,14 @@ if($logged != 0 && $type_compte != 0){
         <label for="categorie">Catégorie* :</label>
         <select class="form-control" name="categorie" required>
             <option value="1">Articles hautes de gamme</option>
-            <option value="2">Articles réguliers</option>
+            <option selected value="2">Articles réguliers</option>
             <option value="0">Articles rares</option>
         </select>
         <label for="etat_du_produit">État du produit* :</label>
         <select class="form-control" name="etat_du_produit" required>
             <option value="n">Neuf</option>
             <option value="cn">Comme neuf</option>
-            <option value="be">Bon etat</option>
+            <option selected value="be">Bon etat</option>
             <option value="abe">Assez bon etat</option>
         </select>
 
@@ -177,7 +177,7 @@ if(isset($_POST['ajout_du_produit'])){
         . "'" . $vd . "',"  
         . "'" . $nego . "',"  
         . "'" . $enchere . "',"  
-        . "'" . mysqli_real_escape_string($db_handle, $_POST['limite_de_temps']) . "',"
+        . "" . "DATE_ADD(CURDATE(), INTERVAL ". $_POST['limite_de_temps'] ." DAY)" . ","
         . "'" . mysqli_real_escape_string($db_handle, $_POST['prix']) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $_POST['description']) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $path1) . "',"
@@ -189,7 +189,7 @@ if(isset($_POST['ajout_du_produit'])){
         . "'" . mysqli_real_escape_string($db_handle, $_POST['etat_du_produit']) . "',"
         . 0 . ")";
     $result = mysqli_query($db_handle, $requete);
-
+    echo $requete;
     if ($result) {
         $alert = "Produit ajouté avec succès";
         $success = 1;
