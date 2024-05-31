@@ -4,62 +4,53 @@
 
 
 <?php $affichage="Tout"; ?>
-    <div class="centre">
-        <div class="content col pl-3" >
-            <div class="row">
-                <div class="col-auto ">
-                    <form id="categorieForm" class="row">
-                        <div class="col-auto mb-3">
-                                <label for="categorie" class="row">Choisissez une catégorie :</label>  
-                                <select id="categorie" class="form-control row" name="categorie" >
-                                    <option value="0">Rares</option>
-                                    <option value="1">Haut de gamme</option>
-                                    <option value="2">Régulier</option>
-                                    <option value="4">Enchere</option>
-                                    <option value="5">Negociation</option>
-                                    <option value="6">Achat immédiat</option>
-                                    <option value="3">Tout</option>
-                                </select>
-                                
-                        </div>
-                        <div class="col-auto mb-3 mt-3"style="padding-top: 5px;">
-                            <input type="submit" value="Soumettre"class="form-control col">
-                        </div>
-                        <?php
-                        if(isset($_GET['categorie'])){
+<div class="centre">
+    <div class="content col pl-3">
+        <div class="row">
+            <div class="col-auto">
+                <form id="categorieForm" class="row">
+                    <div class="col-auto mb-3">
+                        <label for="categorie" class="row">Choisissez une catégorie :</label>  
+                        <select id="categorie" class="form-control row" name="categorie">
+                            <option value="0">Rares</option>
+                            <option value="1">Haut de gamme</option>
+                            <option value="2">Régulier</option>
+                            <option value="4">Enchere</option>
+                            <option value="5">Negociation</option>
+                            <option value="6">Achat immédiat</option>
+                            <option value="3">Tout</option>
+                        </select>
+                    </div>
+                    <div class="col-auto mb-3 mt-3" style="padding-top: 5px;">
+                        <input type="submit" value="Soumettre" class="form-control col">
+                    </div>
+                    <?php
+                    if(isset($_GET['categorie'])){
                         if($_GET['categorie']==0){
                             $affichage="Rares";
-                        }elseif($_GET['categorie']==1){
+                        } elseif($_GET['categorie']==1){
                             $affichage="Haut de gamme";
-                        }elseif($_GET['categorie']==2){
+                        } elseif($_GET['categorie']==2){
                             $affichage="Régulier";
-                        }
-                        elseif($_GET['categorie']==4){
+                        } elseif($_GET['categorie']==4){
                             $affichage="Enchere";
-                        }elseif($_GET['categorie']==5){
+                        } elseif($_GET['categorie']==5){
                             $affichage="Negociation";
-                        }elseif($_GET['categorie']==6){
+                        } elseif($_GET['categorie']==6){
                             $affichage="Achat immédiat";
-                        }else{
+                        } else {
                             $affichage="Tout";
-                        }}
-                        ?>
-                        
-                        
-
-                        <div id="results" class="col-auto mb-3 mt-4"style="padding-top: 5px;"><h2><?php echo htmlspecialchars($affichage); ?></h2></div> <!-- Div pour afficher les résultats -->
-                        </div>
-                                            
-                    </form>
-                </div>
-            </div> 
-        </div> 
-    </div> 
-   
-    
+                        }
+                    }
+                    ?>
+                    <div id="results" class="col-auto mb-3 mt-4" style="padding-top: 5px;">
+                        <h2><?php echo htmlspecialchars($affichage); ?></h2>
+                    </div> <!-- Div pour afficher les résultats -->
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 
 <?php
 function trier_les_element_parcourir($type_de_rarete, $db_handle) {
@@ -89,16 +80,15 @@ function trier_les_element_parcourir($type_de_rarete, $db_handle) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<a href="parcourir.php">';
             echo '<div class="product">';
+            if (!empty($row["img1"])) {
+                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img1"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
+            }
             echo '<div class="col">';
             echo '<h2 class="row auto">' . htmlspecialchars($row["titre"]) . '</h2>';
             echo '<h2 class="row auto">id: '. htmlspecialchars($row["id"]) . '</h2>';
             echo '<p class="price row auto">Prix: ' . htmlspecialchars($row["prix"]) . '€</p>';
             echo '<p class="row auto">Description: ' . htmlspecialchars($row["description"]) . '</p>';
             echo '</div>';
-
-            if (!empty($row["img1"])) {
-                echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img1"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';
-            }
             echo '</div>';
             echo '</a>';
         }
@@ -132,7 +122,5 @@ if ($db_found) {
     echo "Base de données introuvable";
 }
 ?>
-
-
 
 <?php include("blocs/footer.php"); ?>
