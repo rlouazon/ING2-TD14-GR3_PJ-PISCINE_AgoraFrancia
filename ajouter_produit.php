@@ -160,7 +160,7 @@ if($logged != 0 && $type_compte != 0){
 
 <div class="form-group hidden" id="limite_de_temps_div">
     <label for="limite_de_temps">Limite de temps :</label>
-    <input type="number" class="form-control" name="limite_de_temps" id="limite_de_temps"  required>
+    <input type="number" class="form-control" name="limite_de_temps" id="limite_de_temps">
 </div>
 
 <div class="form-group">
@@ -215,19 +215,21 @@ if($logged != 0 && $type_compte != 0){
 </div>
 
 <button type="submit" name="ajout_du_produit" class="btn">Ajouter le produit</button>
-</form>
-</div>
 
 <script>
 document.getElementById('type_de_vente').addEventListener('change', function () {
-var limiteDeTempsDiv = document.getElementById('limite_de_temps_div');
-if (this.value === 'enchere') {
-    limiteDeTempsDiv.classList.remove('hidden');
-} else {
-    limiteDeTempsDiv.classList.add('hidden');
-}
+    var limiteDeTempsDiv = document.getElementById('limite_de_temps_div');
+    var limiteDeTempsinput = document.getElementById('limite_de_temps');
+    if (this.value === 'enchere') {
+        limiteDeTempsDiv.classList.remove('hidden');
+        limiteDeTempsinput.removeAttribute('required');
+    } else {
+        limiteDeTempsDiv.classList.add('hidden');
+        limiteDeTempsinput.setAttribute('required', 'required');
+    }
 });
 </script>
+
 <?php
 if(isset($_POST['ajout_du_produit'])){
     $path1 = $path2 = $path3 = $path4 = $path5 = "";
@@ -264,13 +266,17 @@ if(isset($_POST['ajout_du_produit'])){
     }else{
         $enchere=1;
     }
+    $limite_tps=$_POST['limite_de_temps'];
+    if($limite_tps == ""){
+        $limite_tps=0;
+    }
     $requete = "INSERT INTO articles (vendeur,titre, type_vd,type_nego,type_enchere, limite_tps, prix, description, img1, img2, img3, img4, img5, categorie, etat,fin) VALUES ("
         . "'" . $logged . "',"  
         . "'" . mysqli_real_escape_string($db_handle, $_POST['titre']) . "',"
         . "'" . $vd . "',"  
         . "'" . $nego . "',"  
         . "'" . $enchere . "',"  
-        . "" . "DATE_ADD(CURDATE(), INTERVAL ". $_POST['limite_de_temps'] ." DAY)" . ","
+        . "" . "DATE_ADD(CURDATE(), INTERVAL ". $limite_tps ." DAY)" . ","
         . "'" . mysqli_real_escape_string($db_handle, $_POST['prix']) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $_POST['description']) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $path1) . "',"
