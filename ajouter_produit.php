@@ -35,7 +35,7 @@
             </div>
         <div class="form-group">
             <label for="limite_de_temps">Limite de temps :</label>
-            <input type="month" class="form-control" name="limite_de_temps" min="2024-01" required>
+            <input type="day" class="form-control" name="limite_de_temps" min="2024-01" required>
         </div>
         
         <div class="form-group">
