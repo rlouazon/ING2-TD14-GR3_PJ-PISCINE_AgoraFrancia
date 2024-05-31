@@ -2,6 +2,7 @@
 <link href="CSS/parcourir.css" rel="stylesheet"> <!-- Inclusion du fichier CSS personnalisé -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclusion de jQuery -->
 
+
 <?php $affichage="Tout"; ?>
     <div class="centre">
         <div class="content col pl-3" >
