@@ -17,7 +17,7 @@
 
     <div class="selection">
         
-        <div class="titreSelection">Nos catégories</div>
+        <div class="titreSelection">Découvrez nos catégories</div>
         
         <div class="choix">
         Mode achat immédiat
@@ -30,12 +30,13 @@
         </div>
         </div>
 
-        <div class="personnal-info" id = "une"> 
-        <div class="titreMain">A la une !</div>
-    </div>
 
     
     <div class="carousel">
+
+    <div class="personnal-info" id = "une"> 
+            <div class="titreMain">A la une !</div>
+        </div>
         <div class="carousel-inner">
             <?php
             $products = [

@@ -60,13 +60,11 @@ strong {
     margin-right: 10px;
     box-sizing: border-box;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
 
-.article-colG {
-    margin-left: 50px;
-    display: flex;
-    float: left;
-}
 
 .prodG {
     min-width: 30%;
@@ -94,7 +92,7 @@ strong {
 }
 
 .validation-button {
-    background-color: #205c2537;
+    background-color: #0cc11b37;
     color: #3F4A54;
     padding: 8px 16px;
     border: none;
@@ -110,19 +108,24 @@ strong {
 }
 
 .validation-button:hover {
-    background-color: #0b921684;
+    background-color: #04be1484;
 }
 
+
 .carousel {
+    margin: 20px;
+    margin-bottom: 40px;
+    border-radius: 25px;
+    background-color: #e1cdbdf1;
     margin-top: 20px;
     position: relative;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
 }
 
 .carousel-inner {
     height: 500px;;
-    background-color: #a5a5a53b;
-    border-radius: 25px;
     display: flex;
     transition: transform 0.5s ease;
 }
@@ -139,7 +142,7 @@ strong {
 
 button.prev, button.next {
     position: absolute;
-    top: 40%;
+    top: 50%;
     border: none;
     cursor: pointer;
     color: white;
@@ -205,7 +208,7 @@ button.prev:active, button.next:active {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     background-color: #edccb4f1;
     border-radius: 25px;
-    width: 100%;
+    width: 95%;
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -241,3 +244,4 @@ button.prev:active, button.next:active {
 .choix:hover{
     background-color:#c8af9b;
 }
+
