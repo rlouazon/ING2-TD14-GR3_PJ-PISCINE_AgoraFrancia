@@ -5,7 +5,6 @@
         Bienvenue sur Agora Francia ! 
         <br>Ce site est une platforme de vente d'objet de particuliers à particuliers.
         <br>3 types de ventes sont disponibles : 
-        <br>
         <ul>
             <li>
                 Vente directe : obtenez immédiatement les articles rares ou recherchés sans trop de blabla !
@@ -19,6 +18,7 @@
             </li>
         </ul>
         <br>Pourquoi ne pas également être vendeur ! Rejoignez des centaines de membres qui font activement vivre ce site et cette communautée. 
+        <br>Pour cela, contactez l'administrateur et mettez en vente vos premiers articles ! 
     </p>
     
     <div class="personnal-info" id = "une"> 
