@@ -78,7 +78,11 @@ function trier_les_element_parcourir($type_de_rarete, $db_handle) {
     if (mysqli_num_rows($result) > 0) {
         // Afficher les données de chaque ligne
         while ($row = mysqli_fetch_assoc($result)) {
-            echo '<a href="parcourir.php">';
+            $type_article = -1;
+            if((intval($row["type_vd"])) == 1){$type_article = 0;}
+            if((intval($row["type_nego"])) == 1){$type_article = 1;}
+            if((intval($row["type_enchere"])) == 1){$type_article = 2;}
+            echo '<a href="articles.php?article='.$row["id"].'&type='.$type_article.'">';
             echo '<div class="product">';
             if (!empty($row["img1"])) {
                 echo '<div class="col-auto"><img src="' . htmlspecialchars($row["img1"]) . '" alt="' . htmlspecialchars($row["titre"]) . '"></div>';

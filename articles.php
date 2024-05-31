@@ -53,7 +53,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 #  - Si pas de type indiqué (empeche de gerer le multi type)
 #  - Si le type ne correspond pas a un de ceux de la bdd (modif manuelle de l'utilisateur ~ triche)
 #  - Si l'annonce est échue
-if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval($type_vd)) || (($type_article == 1) == intval($type_nego)) || (($type_article == 2) == intval($type_enchere))) == 0   ||   $fin == 1){
+if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval($type_vd)) && (($type_article == 1) == intval($type_nego)) && (($type_article == 2) == intval($type_enchere))) == 0   ||   $fin == 1){
     echo "<script>setTimeout(() => window.location.replace(\"index.php\"), 0);</script>";
 }
 
@@ -121,6 +121,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
         }
         else if($type_article == 2){
             $message = "";
+            $prixmin = 0;
             $condition = 0;
 
             $requete = "SELECT * FROM op_enchere WHERE article = " . $article . " AND acheteur = " . $logged;
@@ -141,6 +142,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 $datelimite = "";
                 while ($data = mysqli_fetch_assoc($result)) {
                     $datelimite = date('Y-m-d H:i:s', strtotime($data['limite_tps']));
+                    $prixmin = $data['prix'];
                     $occ += 1;
                 }
                 if($occ == 1){
@@ -158,7 +160,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             }
             ?>
                 <form method="post">
-                    <input type="number" name="prix" <?php if($condition == 0){echo "disabled";} ?>> 
+                    <input type="number" name="prix" min="<?php echo $prixmin ?>" <?php if($condition == 0){echo "disabled";} ?>> 
                     <button type="submit" name="Encherir" class="btn" <?php if($condition == 0){echo "disabled";} ?>><?php echo $message ?></button>
                 </form>
             <?php 
@@ -178,7 +180,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             ?>
                 <form method="post">
                     <input type="text" name="prix" readonly value="<?php echo $str; ?>">
-                    <button type="submit" name="Encherir" class="btn" disabled ?>>Encherir</button>
+                    <button type="submit" name="Encherir" class="btn" disabled ?>Encheres effectuées</button>
                 </form>
             <?php 
         }
