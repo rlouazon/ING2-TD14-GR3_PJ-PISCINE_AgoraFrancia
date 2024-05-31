@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Type de vente - Vente négociation : " . $nego . "<br>";
     echo "Prix bas : " . $prix_bas . "<br>";
     echo "Prix haut : " . $prix_haut . "<br>";
-    $sql = "UPDATE utilisateurs SET notification = (SELECT id FROM article WHERE titre = '$titre' AND (categorie ='$rare' OR categorie ='$haut_de_gamme' OR categorie= '$reguliers')AND(type_vd='$vd' OR type_nego='$nego' OR type_enchere='$enchere')AND (prix>'$prix_bas' AND prix<'$prix_haut')) WHERE id = ';
+    $sql = "UPDATE utilisateurs SET notification = (SELECT id FROM article WHERE titre = '$titre' AND (categorie ='$rare' OR categorie ='$haut_de_gamme' OR categorie= '$reguliers')AND(type_vd='$vd' OR type_nego='$nego' OR type_enchere='$enchere')AND (prix>'$prix_bas' AND prix<'$prix_haut')) WHERE id = '";
 
 
 }
