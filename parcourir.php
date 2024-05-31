@@ -13,6 +13,9 @@
                     <option value="0">Rares</option>
                     <option value="1">Haut de gamme</option>
                     <option value="2">Régulier</option>
+                    <option value="4">Enchere</option>
+                    <option value="5">Negociation</option>
+                    <option value="6">Achat immédiat</option>
                     <option value="3">Tout</option>
                 </select>
         </div>
@@ -29,6 +32,13 @@
         $affichage="Haut de gamme";
     }elseif($_GET['categorie']==2){
         $affichage="Régulier";
+    }
+    elseif($_GET['categorie']==4){
+        $affichage="Enchere";
+    }elseif($_GET['categorie']==5){
+        $affichage="Negociation";
+    }elseif($_GET['categorie']==6){
+        $affichage="Achat immédiat";
     }else{
         $affichage="Tout";
     }}
@@ -42,7 +52,7 @@
 <?php
 function trier_les_element_parcourir($type_de_rarete, $db_handle) {
     // Requête pour récupérer les produits filtrés par etat
-    $sql = "SELECT titre, prix, categorie, description, img1 FROM articles WHERE categorie = ?";
+    $sql = "SELECT titre, prix, categorie, id, description, img1 FROM articles WHERE categorie = ?";
     $stmt = mysqli_prepare($db_handle, $sql);
     mysqli_stmt_bind_param($stmt, 's', $type_de_rarete);
     mysqli_stmt_execute($stmt);
@@ -55,6 +65,7 @@ function trier_les_element_parcourir($type_de_rarete, $db_handle) {
             echo '<div class="product">';
             echo '<div class="col">';
             echo '<h2 class="row auto">' . htmlspecialchars($row["titre"]) . '</h2>';
+            echo '<h2 class="row auto">id: '. htmlspecialchars($row["id"]) . '</h2>';
             echo '<p class="price row auto">Prix: ' . htmlspecialchars($row["prix"]) . '€</p>';
             echo '<p class="row auto">Description: ' . htmlspecialchars($row["description"]) . '</p>';
             echo '</div>';
