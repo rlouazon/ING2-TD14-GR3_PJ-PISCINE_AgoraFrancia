@@ -1,9 +1,16 @@
 <?php include("blocs/header.php"); ?>
 <link href="CSS/index.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/index.css" rel="stylesheet">
+    <title>Agora Francia</title>
+</head>
 <body>
-    <?php include("blocs/header.php"); ?>
 
-    <div class="personnal-info" id="une">
+    <div class="personnal-info" id = "une"> 
         <div class="titreMain">A la une !</div>
     </div>
     
