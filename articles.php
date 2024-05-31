@@ -48,8 +48,6 @@ while ($data = mysqli_fetch_assoc($result)) {
 }
 
 
-
-
 # Si :
 #  - Pas dans la bdd ou plusieurs (bug)
 #  - Si pas de type indiqué (empeche de gerer le multi type)
