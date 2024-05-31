@@ -68,12 +68,6 @@ if($logged != 0 && $type_compte != 0){
 <form method="post" enctype="multipart/form-data">
 <h1 class="text-center">Ajout de produit</h1>
 
-<<<<<<< HEAD
-<div class="form-group">
-    <h4>Informations du produit :</h4>
-    <label for="titre">Titre* :</label>
-    <input type="text" class="form-control" name="titre" maxlength="256" required>
-=======
                 <div class="form-group">
                     <h4>Informations du produit :</h4>
                     <label for="titre">Titre* :</label>
@@ -146,7 +140,6 @@ if($logged != 0 && $type_compte != 0){
 
         <button type="submit" name="ajout_du_produit" class="btn">Ajouter le produit</button>
     </form>
->>>>>>> 065a8468f8ae063817f73476bc7ff021b667b9b9
 </div>
 
 <div class="form-group">
