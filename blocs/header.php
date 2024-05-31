@@ -46,7 +46,7 @@
 <body>
     <div class = "header">
 >
-            <img src="CSS/images/logo.png" alt="logo" class="logo">
+            <a href="index.php"><img src="CSS/images/logo.png" alt="logo" class="logo"></a>
             <h2>AGORA FRANCIA</h2>
 
         <div class = "menu">
@@ -57,7 +57,7 @@
             <button><a href ="mon_compte.php">Votre Compte</a></button>
         </div>
         <div class = "droite">
-        <img src="CSS/images/panier.png" alt="panier" class="panier">
+        <a href="panier.php"><img src="CSS/images/panier.png" alt="panier" class="panier"></a>
         </div>
 
 
