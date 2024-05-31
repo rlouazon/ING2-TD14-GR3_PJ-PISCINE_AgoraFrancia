@@ -1,0 +1,20 @@
+
+.footer{
+    width: 100%;
+    
+}
+.footer2 {
+    height: 80px;
+    text-align: center; /* Centrer le texte */
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    justify-content: center;
+    background-color: #e9d8ca;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin:0;
+}
