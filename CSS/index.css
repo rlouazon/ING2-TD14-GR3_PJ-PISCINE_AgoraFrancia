@@ -115,11 +115,13 @@ strong {
     margin: 20px;
     margin-bottom: 40px;
     border-radius: 25px;
-    background-color: #e1cdbdf1;
+    background-color: #e1cdbd85;
     margin-top: 20px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 95%;
 }
 
