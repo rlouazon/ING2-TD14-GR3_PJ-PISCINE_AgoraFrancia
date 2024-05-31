@@ -63,8 +63,8 @@ if($logged != 0 && $type_compte != 0){
                 <h1 class="text-center">Ajout de produit</h1>
 
                 <div class="form-group">
-                    <h4>Informations du produit* :</h4>
-                    <label for="titre">Titre :</label>
+                    <h4>Informations du produit :</h4>
+                    <label for="titre">Titre* :</label>
                     <input type="text" class="form-control" name="titre" maxlength="256" required>
                 </div>
                 <div class="form-group">
@@ -76,9 +76,10 @@ if($logged != 0 && $type_compte != 0){
                 </select>
             </div>
         <div class="form-group">
-            <label for="limite_de_temps">Limite de temps* :</label>
-            <input type="number" class="form-control" name="limite_de_temps" maxlength="256" required>
+            <label for="limite_de_temps">Limite de temps :</label>
+            <input type="day" class="form-control" name="limite_de_temps" min="2024-01" required>
         </div>
+        
         <div class="form-group">
             <label for="prix">Prix* :</label>
             <input type="number" class="form-control" name="prix" required>
