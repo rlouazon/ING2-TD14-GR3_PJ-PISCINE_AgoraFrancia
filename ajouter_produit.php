@@ -68,12 +68,6 @@ if($logged != 0 && $type_compte != 0){
 <h1 class="text-center">Ajout de produit</h1>
 
 <div class="form-group">
-    <h4>Informations du produit :</h4>
-    <label for="titre">Titre* :</label>
-    <input type="text" class="form-control" name="titre" maxlength="256" required>
-</div>
-
-<div class="form-group">
     <label for="type_de_vente">Type de vente* :</label>
     <select class="form-control" name="type_de_vente" id="type_de_vente" required>
         <option value="vd">Vente directe</option>
@@ -95,66 +89,6 @@ if($logged != 0 && $type_compte != 0){
 <div class="form-group">
     <label for="description">Description* :</label>
     <textarea class="form-control" name="description" maxlength="2560" required></textarea>
-</div>
-<div class="form-group">
-    <h4>Informations du produit :</h4>
-    <label for="titre">Titre* :</label>
-    <input type="text" class="form-control" name="titre" maxlength="256" required>
-</div>
-
-<div class="form-group">
-    <label for="type_de_vente">Type de vente* :</label>
-    <select class="form-control" name="type_de_vente" id="type_de_vente" required>
-        <option value="vd">Vente directe</option>
-        <option value="enchere">Enchère</option>
-        <option value="nego">Vente négociation</option>
-    </select>
-</div>
-
-<div class="form-group hidden" id="limite_de_temps_div">
-    <label for="limite_de_temps">Limite de temps :</label>
-    <input type="number" class="form-control" name="limite_de_temps" id="limite_de_temps">
-</div>
-
-<div class="form-group">
-    <label for="prix">Prix* :</label>
-    <input type="number" class="form-control" name="prix" required>
-</div>
-
-<div class="form-group">
-    <label for="description">Description* :</label>
-    <textarea class="form-control" name="description" maxlength="2560" required></textarea>
-</div>
-
-<div class="form-group">
-    <h4>Images du produit :</h4>
-    <label for="image1">Image 1* :</label>
-    <input type="file" class="form-control" name="image1" required>
-</div>
-<div class="form-group">
-    <label for="image2">Image 2 :</label>
-    <input type="file" class="form-control" name="image2">
-</div>
-<div class="form-group">
-    <label for="image3">Image 3 :</label>
-    <input type="file" class="form-control" name="image3">
-</div>
-<div class="form-group">
-    <label for="image4">Image 4 :</label>
-    <input type="file" class="form-control" name="image4">
-</div>
-<div class="form-group">
-    <label for="image5">Image 5 :</label>
-    <input type="file" class="form-control" name="image5">
-</div>
-
-<div class="form-group">
-    <label for="categorie">Catégorie* :</label>
-    <select class="form-control" name="categorie" required>
-        <option value="1">Articles hautes de gamme</option>
-        <option value="2">Articles réguliers</option>
-        <option value="0">Articles rares</option>
-    </select>
 </div>
 
 <div class="form-group">
@@ -286,7 +220,6 @@ if(isset($_POST['ajout_du_produit'])){
         . "'" . mysqli_real_escape_string($db_handle, $_POST['etat_du_produit']) . "',"
         . 0 . ")";
     $result = mysqli_query($db_handle, $requete);
-    echo $requete;
     if ($result) {
         $alert = "Produit ajouté avec succès";
         $success = 1;
