@@ -235,7 +235,7 @@ button.prev:active, button.next:active {
     margin-top: 20px; /* Ajouté pour un espacement vertical entre les lignes d'éléments */
     background-color:#e1cdbd;
     border-radius: 25px;
-    width: 30%; /* Ajusté pour donner plus d'espace aux éléments */
+    width: 80%; /* Ajusté pour donner plus d'espace aux éléments */
     padding: 20px;
     margin-left: 10px;
     margin-right: 10px;

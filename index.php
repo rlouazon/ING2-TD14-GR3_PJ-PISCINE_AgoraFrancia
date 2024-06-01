@@ -18,39 +18,43 @@
     <div class="selection">
         
         <div class="titreSelection">Découvrez nos catégories</div>
-        
-        <div class="choix">
+        <a href="parcourir.php?categorie=3&type_achat=vente_directe" style="width=200px">
+        <div class="choix"style="width=80%">
         Mode achat immédiat
-        </div>
-        <div class="choix">
+        </div></a>
+        <a href="parcourir.php?categorie=3&type_achat=negociation" style="width=200px">
+        <div class="choix"style="width=80%">
             Mode négociation
-        </div>
-        <div class="choix">
+        </div></a>
+        <a href="parcourir.php?categorie=3&type_achat=enchere" style="width=200px">
+        <div class="choix"style="width=80%">
             Mode enchère
         </div>
+        </a>
     </div>
 
 
     <?php
     $sql = "SELECT * FROM (SELECT * FROM articles ORDER BY id DESC LIMIT 3) AS latest_articles";
     $result = mysqli_query($db_handle, $sql);
-    $products = []; // Initialisation du tableau
     
+    // Initialize the array
+    $products = []; 
+    
+    // Check if the query was successful
     if ($result) {
-        // Compter le nombre de lignes et traiter les résultats
-        $num_rows = mysqli_num_rows($result);
-    
-        if ($num_rows > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                // Utiliser l'ID de l'article comme clé unique
-                $products[$row['id']] = [
-                    "image" => $row["img1"],
-                    "name" => htmlspecialchars($row["titre"]), // Assurez-vous que le nom de la colonne est correct
-                    "price" => htmlspecialchars($row["prix"]),
-                    "description" => htmlspecialchars($row["description"])
-                ];
-            }
+        // Fetch the rows and process the results
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = [
+                "id" => $row['id'],
+                "image" => $row["img1"],
+                "name" => htmlspecialchars($row["titre"]),
+                "price" => htmlspecialchars($row["prix"]),
+                "description" => htmlspecialchars($row["description"])
+            ];
         }
+    } else {
+        echo "Error: " . mysqli_error($db_handle);
     }
     
     ?>
