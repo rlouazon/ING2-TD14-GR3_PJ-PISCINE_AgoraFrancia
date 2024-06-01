@@ -178,9 +178,9 @@ if(isset($_POST['ajout_du_produit'])){
         move_uploaded_file($_FILES['image5']['tmp_name'], $path5);
     }
 
-    $vd="";
-    $nego="";
-    $enchere="";
+    $vd=0;
+    $nego=0;
+    $enchere=0;
     $type_de_vente=$_POST['type_de_vente'];
     if($type_de_vente=="vd"){
         $vd=1;
