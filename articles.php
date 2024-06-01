@@ -134,8 +134,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
         }, interval);
     </script>s
 
-
-
+<div class="col">
 <?php
 
     $condition = 0;
@@ -161,7 +160,6 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             $condition = 2;
         }
     }
-    echo $condition;
     if($condition == 0){
         ?>
             <form method="post">
@@ -173,6 +171,48 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 
         if($type_article == 0){
             
+        }
+        else if($type_article == 1){
+            # Detection du prix max
+            $requete = "SELECT * FROM articles WHERE id = " . $article . " AND type_nego = " . $type_article;
+            $result = mysqli_query($db_handle, $requete);
+            $occ = 0;
+            $borne_max = 0;
+            while ($data = mysqli_fetch_assoc($result)) {
+                $borne_max = intval($data['prix']);
+                $occ += 1;
+            }
+            if($occ == 1){
+                
+                # 6 de 0 à 5
+                $requete = "SELECT * FROM op_nego WHERE article = " . $article . " AND acheteur = " . $logged ." ORDER BY nb_op ASC";
+                $result = mysqli_query($db_handle, $requete);
+                $occ = 0;
+                $fin_nego = 0;
+                echo "<p>";
+                while ($data = mysqli_fetch_assoc($result)) {
+                    $occ += 1;
+                    echo ($occ%2 == 1) ? "Acheteur : " : "Vendeur : ";
+                    echo $data['prix'] . "€";
+                    $fin_nego = intval($data['fin']);
+                    if($fin_nego){echo " (Validé)";}
+                    echo "<br>";
+                }
+                echo "</p>";
+                if($occ >= 5){
+                    $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $logged . " AND nb_op = 5";
+                    $result = mysqli_query($db_handle, $requete);
+                    $fin_nego = 1;
+                }
+                ?>
+                    <form method="post">
+                        <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Accepter</button>
+                        <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
+                        <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>> 
+                        <button type="submit" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Refuser (proposer une contre offre)</button>
+                    </form>
+                <?php
+            }
         }
         else if($type_article == 2){
             $borne_min = -1;
@@ -257,7 +297,52 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 
     }
     else if($condition == 2){
-        if($type_article == 2){
+        if($type_article == 0){
+            
+        }
+        else if($type_article == 1){
+            # Detection du prix max
+            $requete = "SELECT * FROM articles WHERE id = " . $article . " AND type_nego = " . $type_article;
+            $result = mysqli_query($db_handle, $requete);
+            $occ = 0;
+            $borne_max = 0;
+            while ($data = mysqli_fetch_assoc($result)) {
+                $borne_max = intval($data['prix']);
+                $occ += 1;
+            }
+            if($occ == 1){
+                
+                # 6 de 0 à 5
+                $requete = "SELECT * FROM op_nego WHERE article = " . $article . " ORDER BY nb_op ASC";
+                $result = mysqli_query($db_handle, $requete);
+                $occ = 0;
+                $fin_nego = 0;
+                echo "<p>";
+                while ($data = mysqli_fetch_assoc($result)) {
+                    $occ += 1;
+                    echo ($occ%2 == 1) ? "Acheteur : " : "Vendeur : ";
+                    echo $data['prix'] . "€";
+                    $fin_nego = intval($data['fin']);
+                    if($fin_nego){echo " (Validé)";}
+                    echo "<br>";
+                }
+                echo "</p>";
+                if($occ >= 5){
+                    $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $logged . " AND nb_op = 5";
+                    $result = mysqli_query($db_handle, $requete);
+                    $fin_nego = 1;
+                }
+                ?>
+                    <form method="post">
+                        <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>Accepter</button>
+                        <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
+                        <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>> 
+                        <button type="submit" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>Refuser (proposer une contre offre)</button>
+                    </form>
+                <?php
+            }
+        }
+        else if($type_article == 2){
             $str = "";
             $requete = "SELECT * FROM op_enchere WHERE article = " . $article;
             $result = mysqli_query($db_handle, $requete);
@@ -276,9 +361,11 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 
 
 ?>
+</div>
 
 
 <?php
+
 
     if(isset($_POST['AjouterPanier'])){
         if($logged != 0){
@@ -295,6 +382,56 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             echo "<script>setTimeout(() => window.location.replace(\"connexion.php?redir=".base64_encode($_SERVER['REQUEST_URI'])."\"), 0);</script>";
         }
     }
+
+
+    if(isset($_POST['AccepterNego'])){
+        $requete = "UPDATE articles SET fin = 1 WHERE id = " . $article . " AND type_nego = " . $type_article;
+        #$result = mysqli_query($db_handle, $requete);
+
+        $id_acheteur = 0;
+        if(intval($_POST['occ'])%2 == 0){
+            $id_acheteur = $logged;
+        }
+        else{
+            $requete = "SELECT * FROM op_nego WHERE article = " . $article . " AND nb_op = " . (intval($_POST['occ']) - 1);
+            $result = mysqli_query($db_handle, $requete);
+            while ($data = mysqli_fetch_assoc($result)) {
+                $id_acheteur = intval($data['acheteur']);
+            }
+        }
+        
+        if(intval($_POST['occ']) > -1){
+            $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $id_acheteur . " AND nb_op = " . (intval($_POST['occ'] - 1));
+            echo $requete;
+            $result = mysqli_query($db_handle, $requete);
+        }
+        echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+    }
+    if(isset($_POST['RefuserNego'])){
+        $id_acheteur = 0;
+        if(intval($_POST['occ'])%2 == 0){
+            $id_acheteur = $logged;
+        }
+        else{
+            $requete = "SELECT * FROM op_nego WHERE article = " . $article . " AND nb_op = " . (intval($_POST['occ']) - 1);
+            $result = mysqli_query($db_handle, $requete);
+            while ($data = mysqli_fetch_assoc($result)) {
+                $id_acheteur = intval($data['acheteur']);
+            }
+        }
+        $requete = "INSERT INTO op_nego VALUES ("
+        . "'',"
+        . $article . ","
+        . $id_acheteur . ","
+        . intval($_POST['occ']) . ","
+        . intval($_POST['prix']) . ","
+        . "0"
+        . ")"; 
+        echo $requete;
+        $result = mysqli_query($db_handle, $requete);
+        echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+    }
+
 
     if(isset($_POST['Encherir'])){
         if($logged != 0){
