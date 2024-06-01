@@ -29,23 +29,25 @@
     }
 
     /*NOTIFICATION*/
-    $occ=0;
-    $requete = "SELECT notification FROM utilisateurs WHERE id = " . $logged;
-    $result_nego = mysqli_query($db_handle, $requete);
+    $requete = "SELECT * FROM utilisateurs WHERE id = " . $logged;
+    $result = mysqli_query($db_handle, $requete);
     $str = "";
-    while ($data = mysqli_fetch_assoc($result_nego)) {
+    while ($data = mysqli_fetch_assoc($result)) {
         $str = $data['notification'];
     }
-    $result_nego = base64_decode($str);
-    $array = explode("'", $result_nego);
-    $array[1]=base64_decode($array[1]);
-    $result_nego=$array[0]."(".$array[1].")".$array[2];
-    $array2 = explode("titre = ", $result_nego);
-    $array3 = explode(" AND (categorie",$array2[1]);
-    $result_nego=$array2[0]."titre LIKE '%". $array3[0]. "%' AND (categorie".$array3[1].")";
-    $fin_nego = mysqli_query($db_handle, $result_nego);
-    while ($data = mysqli_fetch_assoc($fin_nego)) {
-        $occ += 1;
+    $result = base64_decode($str);
+    $array = explode("'", $result);
+    if(count($array) >= 2){
+        $occ = 0;
+        $array[1]=base64_decode($array[1]);
+        $result=$array[0]."(".$array[1].")".$array[2];
+        $array2 = explode("titre = ", $result);
+        $array3 = explode(" AND (categorie",$array2[1]);
+        $result=$array2[0]."titre LIKE '%". $array3[0]. "%' AND (categorie".$array3[1].")";
+        $fin_nego = mysqli_query($db_handle, $result);
+        while ($data = mysqli_fetch_assoc($fin_nego)) {
+            $occ += 1;
+        }
     }
     
 
