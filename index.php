@@ -35,26 +35,20 @@
 
 
     <?php
-    $sql = "SELECT * FROM (SELECT * FROM articles ORDER BY id DESC LIMIT 3) AS latest_articles";
-    $result = mysqli_query($db_handle, $sql);
+
+
+    $products = []; // Initialisation du tableau
     
-    // Initialize the array
-    $products = []; 
-    
-    // Check if the query was successful
-    if ($result) {
-        // Fetch the rows and process the results
-        while ($row = mysqli_fetch_assoc($result)) {
-            $products[] = [
-                "id" => $row['id'],
-                "image" => $row["img1"],
-                "name" => htmlspecialchars($row["titre"]),
-                "price" => htmlspecialchars($row["prix"]),
-                "description" => htmlspecialchars($row["description"])
-            ];
-        }
-    } else {
-        echo "Error: " . mysqli_error($db_handle);
+    $requete = "SELECT * FROM articles ORDER BY id DESC LIMIT 3";
+    $result = mysqli_query($db_handle, $requete);
+    while ($row = mysqli_fetch_assoc($result)) {
+        // Utiliser l'ID de l'article comme clé unique
+        $products[] = [
+            "image" => $row["img1"],
+            "name" => htmlspecialchars($row["titre"]), // Assurez-vous que le nom de la colonne est correct
+            "price" => htmlspecialchars($row["prix"]),
+            "description" => htmlspecialchars($row["description"])
+        ];
     }
     
     ?>
