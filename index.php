@@ -18,16 +18,19 @@
     <div class="selection">
         
         <div class="titreSelection">Découvrez nos catégories</div>
-        
-        <div class="choix">
+        <a href="parcourir.php?categorie=3&type_achat=vente_directe" style="width=200px">
+        <div class="choix"style="width=80%">
         Mode achat immédiat
-        </div>
-        <div class="choix">
+        </div></a>
+        <a href="parcourir.php?categorie=3&type_achat=negociation" style="width=200px">
+        <div class="choix"style="width=80%">
             Mode négociation
-        </div>
-        <div class="choix">
+        </div></a>
+        <a href="parcourir.php?categorie=3&type_achat=enchere" style="width=200px">
+        <div class="choix"style="width=80%">
             Mode enchère
         </div>
+        </a>
     </div>
 
 
