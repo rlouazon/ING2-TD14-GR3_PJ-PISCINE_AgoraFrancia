@@ -74,7 +74,7 @@
 
         <div class = "menu">
             <button><a href ="index.php">Accueil</a> </button>
-            <button><a href ="parcourir.php">Parcourir</a></button>
+            <button><a href ="parcourir.php?categorie=3&type_achat=tout ">Parcourir</a></button>
             <button><a href ="notification.php">Notifications</a></button>
             <button><a href ="panier.php">Panier</a></button>
             <button><a href ="mon_compte.php">Votre Compte</a></button>
