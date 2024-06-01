@@ -33,6 +33,7 @@ h2 {
 }
 
 .nomPrenom {
+    border-bottom: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,6 +145,7 @@ h2 {
 
 .titreMain {
     margin: 0px;
+    font-weight: 500;
 }
 
 
@@ -290,6 +292,7 @@ h2 {
     font-size: 20px;
     margin-bottom: 10px;
     
+    
 }
 
 .article-col p {
@@ -405,3 +408,14 @@ h2 {
     }
 
 }
+
+#infB, #infL{
+    margin-right: 20%;
+    margin-left: 20%;
+    border-bottom: 2px solid #2c3e506b;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+}
+
+
