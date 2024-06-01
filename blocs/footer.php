@@ -27,10 +27,10 @@
         }
 
         $(window).resize(function(e) {
-            positionFooter();
+            //positionFooter();
         });
         $(document).ready(function() {
-            positionFooter();
+            //positionFooter();
         });
     </script>
 

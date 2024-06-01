@@ -208,7 +208,6 @@ if($logged != 0 && $type_compte != 0){
 </div>
 
 <button type="submit" name="ajout_du_produit" class="btn">Ajouter le produit</button>
-<button type="submit" name="ajout_du_produit" class="btn">Ajouter le produit</button>
 
 <script>
 document.getElementById('type_de_vente').addEventListener('change', function () {
