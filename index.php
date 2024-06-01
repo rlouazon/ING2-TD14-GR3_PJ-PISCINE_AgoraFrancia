@@ -14,7 +14,7 @@
 <img src="./CSS/images/bandeau.jpg" alt="Image description" id="banniere">
         <div class="txtBaniere"> Les ventes flash de Noël sont là ! </div>
     </div>-->
-
+    
     <div class="selection">
         
         <div class="titreSelection">Découvrez nos catégories</div>
@@ -28,10 +28,32 @@
         <div class="choix">
             Mode enchère
         </div>
-        </div>
+    </div>
 
 
+    <?php
+    $sql = "SELECT * FROM (SELECT * FROM articles ORDER BY id DESC LIMIT 3) AS latest_articles";
+    $result = mysqli_query($db_handle, $sql);
+    $products = []; // Initialisation du tableau
     
+    if ($result) {
+        // Compter le nombre de lignes et traiter les résultats
+        $num_rows = mysqli_num_rows($result);
+    
+        if ($num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                // Utiliser l'ID de l'article comme clé unique
+                $products[$row['id']] = [
+                    "image" => $row["img1"],
+                    "name" => htmlspecialchars($row["titre"]), // Assurez-vous que le nom de la colonne est correct
+                    "price" => htmlspecialchars($row["prix"]),
+                    "description" => htmlspecialchars($row["description"])
+                ];
+            }
+        }
+    }
+    
+    ?>
     <div class="carousel">
 
     <div class="personnal-info" id = "une"> 
@@ -39,12 +61,6 @@
         </div>
         <div class="carousel-inner">
             <?php
-            $products = [
-                ["image" => "CSS/images/produit3.png", "name" => "Nom du produit 1", "price" => "0000", "description" => "Description du produit 1"],
-                ["image" => "CSS/images/produit2.png", "name" => "Nom du produit 2", "price" => "0000", "description" => "Description du produit 2"],
-                ["image" => "CSS/images/produit.png", "name" => "Nom du produit 3", "price" => "0000", "description" => "Description du produit 3"]
-            ];
-
             foreach ($products as $index => $product) {
                 echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '">';
                 echo '<div class="article-colG col">';

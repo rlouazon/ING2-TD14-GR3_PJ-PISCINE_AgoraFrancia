@@ -188,66 +188,67 @@ if($logged != 0){
         <label class="info"> 0.00€</label>  
     </div>
 
-    <div class="info">
-        <label class="info"> Livraisons :</label>
-    </div>
-    <div class="info">
-        <label class="naming">Frais de livraisons :</label>
-        <label class="info"> 0.00€</label>  
-    </div>
-
-    <h2 class="text-center">Total</h2>
-    <div class="info">
-        <label class="naming">Total de la commande :</label>
-        <label class="info"> 2200.98€</label>  
-    </div>
-
-    <button class="validation-button">Passer à la caisse</button>
-
-    </div>
-
-
-
-    <div class="col colD">
-
-        <h2 class="text-center">Informations Bancaires</h2>
         <div class="info">
-            <label class="naming">Type de carte :</label>
-            <label class="info"> Visa</label>
+            <label class="info"> Livraisons :</label>
         </div>
         <div class="info">
-            <label class="naming">Numéro de carte :</label>
-            <label class="info"> 0123456789012345 </label>
-        </div>
-        <div class="info">
-            <label class="naming">Nom du titulaire :</label>
-            <label class="info"> Greg le mec du meme</label>
-        </div>
-        <div class="info">
-            <label class="naming">Date d'éxpiration :</label>
-            <label class="info"> 09/28</label>
+            <label class="naming">Frais de livraisons :</label>
+            <label class="info"> 0.00€</label>  
         </div>
 
-        <h2 class="text-center">Adresse de livraison</h2>
+        <h2 class="text-center">Total</h2>
         <div class="info">
-            <label class="naming">Adresse 1 :</label>
-            <label class="info"> 32 Chemin du Queric</label>
+            <label class="naming">Total de la commande :</label>
+            <label class="info"> 2200.98€</label>  
         </div>
-        <div class="info">
-            <label class="naming">Adresse 2 :</label>
-            <label class="info"></label>
+
+        <button class="validation-button">Passer à la caisse</button>
+
         </div>
-        <div class="info">
-            <label class="naming">Ville :</label>
-            <label class="info"> La Trinité-sur-Mer</label>
-        </div>
-        <div class="info">
-            <label class="naming">Code Postal :</label>
-            <label class="info"> 56400</label>
-        </div>
-        <div class="info">
-            <label class="naming">Pays :</label>
-            <label class="info"> FRANCE</label>
+
+
+
+        <div class="col colD">
+
+            <h2 class="text-center">Informations Bancaires</h2>
+            <div class="info">
+                <label class="naming">Type de carte :</label>
+                <label class="info"> Visa</label>
+            </div>
+            <div class="info">
+                <label class="naming">Numéro de carte :</label>
+                <label class="info"> 0123456789012345 </label>
+            </div>
+            <div class="info">
+                <label class="naming">Nom du titulaire :</label>
+                <label class="info"> Greg le mec du meme</label>
+            </div>
+            <div class="info">
+                <label class="naming">Date d'éxpiration :</label>
+                <label class="info"> 09/28</label>
+            </div>
+
+            <h2 class="text-center">Adresse de livraison</h2>
+            <div class="info">
+                <label class="naming">Adresse 1 :</label>
+                <label class="info"> 32 Chemin du Queric</label>
+            </div>
+            <div class="info">
+                <label class="naming">Adresse 2 :</label>
+                <label class="info"></label>
+            </div>
+            <div class="info">
+                <label class="naming">Ville :</label>
+                <label class="info"> La Trinité-sur-Mer</label>
+            </div>
+            <div class="info">
+                <label class="naming">Code Postal :</label>
+                <label class="info"> 56400</label>
+            </div>
+            <div class="info">
+                <label class="naming">Pays :</label>
+                <label class="info"> FRANCE</label>
+            </div>
         </div>
     </div>
 </div>

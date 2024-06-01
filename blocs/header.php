@@ -28,6 +28,28 @@
         }
     }
 
+    /*NOTIFICATION*/
+    $occ=0;
+    $requete = "SELECT notification FROM utilisateurs WHERE id = " . $logged;
+    $result_nego = mysqli_query($db_handle, $requete);
+    $str = "";
+    while ($data = mysqli_fetch_assoc($result_nego)) {
+        $str = $data['notification'];
+    }
+    $result_nego = base64_decode($str);
+    $array = explode("'", $result_nego);
+    $array[1]=base64_decode($array[1]);
+    $result_nego=$array[0]."(".$array[1].")".$array[2];
+    $array2 = explode("titre = ", $result_nego);
+    $array3 = explode(" AND (categorie",$array2[1]);
+    $result_nego=$array2[0]."titre LIKE '%". $array3[0]. "%' AND (categorie".$array3[1].")";
+    $fin_nego = mysqli_query($db_handle, $result_nego);
+    while ($data = mysqli_fetch_assoc($fin_nego)) {
+        $occ += 1;
+    }
+    
+
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +67,6 @@
 
 <body>
     <div class = "header">
->
             <a href="index.php"><img src="CSS/images/logo.png" alt="logo" class="logo"></a>
             <h2>AGORA FRANCIA</h2>
 
@@ -56,6 +77,7 @@
             <button><a href ="panier.php">Panier</a></button>
             <button><a href ="mon_compte.php">Votre Compte</a></button>
         </div>
+        <a href="afficher_notif.php"><div class="notif" width=160 style="font-size: 15px;"><?php echo " nombre notification :" . $occ;?></div></a>
         <div class = "droite">
         <a href="panier.php"><img src="CSS/images/panier.png" alt="panier" class="panier"></a>
         </div>
