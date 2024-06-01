@@ -185,10 +185,11 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             if($occ == 1){
                 
                 # 6 de 0 à 5
-                $requete = "SELECT * FROM op_nego WHERE article = " . $article . " AND acheteur = " . $logged ." ORDER BY nb_op ASC";
+                $requete = "SELECT * FROM op_nego WHERE article = " . $article . " ORDER BY nb_op ASC";
                 $result = mysqli_query($db_handle, $requete);
                 $occ = 0;
                 $fin_nego = 0;
+                $user_nego = -1;
                 echo "<p>";
                 while ($data = mysqli_fetch_assoc($result)) {
                     $occ += 1;
@@ -196,16 +197,20 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                     echo $data['prix'] . "€";
                     $fin_nego = intval($data['fin']);
                     if($fin_nego){echo " (Validé)";}
+                    $user_nego = intval($data['acheteur']);
                     echo "<br>";
                 }
+                echo "<strong>" . ($occ) . "/" . 5 . "</strong>";
+                if(!($user_nego == -1 || $user_nego == $logged)){$fin_nego = 1;}
                 echo "</p>";
-                if($occ >= 5){
+                if($occ >= 6){
                     $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $logged . " AND nb_op = 5";
                     $result = mysqli_query($db_handle, $requete);
                     $fin_nego = 1;
                 }
                 ?>
                     <form method="post">
+
                         <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Accepter</button>
                         <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
                         <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>> 
@@ -317,6 +322,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 $result = mysqli_query($db_handle, $requete);
                 $occ = 0;
                 $fin_nego = 0;
+                $user_nego = -1;
                 echo "<p>";
                 while ($data = mysqli_fetch_assoc($result)) {
                     $occ += 1;
@@ -324,11 +330,13 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                     echo $data['prix'] . "€";
                     $fin_nego = intval($data['fin']);
                     if($fin_nego){echo " (Validé)";}
+                    $user_nego = intval($data['acheteur']);
                     echo "<br>";
                 }
                 echo "</p>";
-                if($occ >= 5){
-                    $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $logged . " AND nb_op = 5";
+                echo "<strong>" . ($occ) . "/" . 5 . "</strong>";
+                if($occ >= 6){
+                    $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $user_nego . " AND nb_op = 5";
                     $result = mysqli_query($db_handle, $requete);
                     $fin_nego = 1;
                 }
