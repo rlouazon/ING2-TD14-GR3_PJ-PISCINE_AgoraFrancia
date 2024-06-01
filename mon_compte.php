@@ -91,7 +91,7 @@ body::before {
     </div>
     
     <div class="col colD">
-        <h2 class="text-center">Informations Bancaires</h2>
+        <h2 class="text-center" id="infB">Informations Bancaires</h2>
         <div class="info">
             <label class="naming">Type de carte :</label>
             
@@ -110,7 +110,7 @@ body::before {
             <label class="info"><?php echo $bank_date; ?></label>
         </div>
 
-        <h2 class="text-center">Adresse de livraison</h2>
+        <h2 class="text-center" id="infL">Adresse de livraison</h2>
         <div class="info">
             <label class="naming">Adresse 1 :</label>
             <label class="info"><?php echo $addr1; ?></label>

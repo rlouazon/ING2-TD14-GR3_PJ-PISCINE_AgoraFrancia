@@ -77,8 +77,8 @@ strong {
 
 
 .imgProd {
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 500px !important;
+    max-height: 400px;
     border-radius: 25px;
     margin-bottom: 10px;
     margin-left: auto;
@@ -200,4 +200,8 @@ h6{
 
 #une {
     margin-top: 80px;
+}
+
+#achat{
+    width: 50%;
 }

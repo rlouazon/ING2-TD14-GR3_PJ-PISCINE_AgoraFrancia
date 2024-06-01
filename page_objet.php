@@ -44,7 +44,7 @@
         <button class="next" onclick="moveCarousel(1)">></button>
     </div>
 
-    <div class="col">
+    <div class="col" id="achat">
        dq
     </div>
 
