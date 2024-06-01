@@ -62,8 +62,7 @@ if($logged != 0 && $type_compte != 0){
     display: none;
 }
 </style>
-</head>
-<body>
+
 <div class="centre">
 <form method="post" enctype="multipart/form-data">
 <h1 class="text-center">Ajout de produit</h1>
@@ -303,5 +302,9 @@ include("blocs/redir.php");
 
 
 ?>
+
+
+</form>
+</div>
 
 <?php include("blocs/footer.php"); ?>
