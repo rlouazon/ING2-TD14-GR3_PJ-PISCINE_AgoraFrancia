@@ -191,7 +191,7 @@ if(isset($_POST['ajout_du_produit'])){
         $enchere=1;
     }
     $limite_tps=0;
-    if(isset($_POST['limite_de_temps'])){
+    if($_POST['limite_de_temps'] != ""){
         $limite_tps=$_POST['limite_de_temps'];
     }
     

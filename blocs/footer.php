@@ -26,11 +26,18 @@
             }
         }
 
+        function positionFooter2(){
+            var footer = $('.footer');
+            footer.css({
+                });
+            $('body').css('margin-bottom', 50 + 'px');
+        }
+
         $(window).resize(function(e) {
-            //positionFooter();
+            positionFooter2();
         });
         $(document).ready(function() {
-            //positionFooter();
+            positionFooter2();
         });
     </script>
 

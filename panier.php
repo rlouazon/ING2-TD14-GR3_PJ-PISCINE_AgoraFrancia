@@ -55,7 +55,6 @@ if($logged != 0){
 
         #INFOS
         $titre =            $data_base['titre'];
-        echo $titre;
         $prix =             $data_base['prix'];
         $description =      $data_base['description'];
         $categorie =        $data_base['categorie'];
@@ -101,7 +100,6 @@ if($logged != 0){
             $retirer_panier = 0;
             $prix_temporaire = 1;
             $requete = "SELECT * FROM op_nego WHERE article = " . $id_article . " AND acheteur = " . $logged . " ORDER BY nb_op ASC";
-            echo $requete;
             $result = mysqli_query($db_handle, $requete);
             $prix_detecte = 0;
             while ($data = mysqli_fetch_assoc($result)) {
@@ -162,7 +160,6 @@ if($logged != 0){
 
     }
 
-    print_r($articles);
 ?>
 
 <div class="container">
@@ -276,7 +273,7 @@ if($logged != 0){
 
 
 
-
+<br>
     <?php  
         for($i = 0; $i < count($articles); $i++){
     ?>
@@ -285,19 +282,26 @@ if($logged != 0){
                 <img src="<?php echo $articles[$i]['image']; ?>" alt="Image produit" class="imgProd">
                 <h2><a href="articles.php?article=<?php echo $articles[$i]['id'] ?>&type=<?php echo $articles[$i]['type']?>"><?php echo $articles[$i]['titre']; ?></a></h2>
             </div>
-            <div class="infoProd">
+            <form class="infoProd" method="post">
                 <h2>Prix: <?php echo $articles[$i]['prix']; ?>€<?php if($articles[$i]['prix_temporaire'] == 1){echo " (TEMPORAIRE)";} ?></h2>
                     <div class="Prod">
                         <?php echo $articles[$i]['description']; ?>
                     </div>
-                <button class="delete-button" <?php echo ($articles[$i]['prix_temporaire'] == 1) ? "disabled" : "" ?>>Supprimer l'article</button>
-            </div>
+                    <input type="hidden" name="id" value="<?php echo $articles[$i]['id'] ?>">
+                <button name="SupprimerPanier" class="delete-button" <?php echo ($articles[$i]['retirer_panier'] == 0) ? "disabled" : "" ?> type="submit" >Supprimer l'article</button>
+            </form>
         </div>
     <?php
         }
     ?>
 
-
+<?php
+if(isset($_POST['SupprimerPanier'])){
+    $requete = "DELETE FROM panier WHERE article = " . $_POST['id'] . " AND acheteur = " . $logged;
+    $result = mysqli_query($db_handle, $requete);
+    echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+}
+?>
 
 
 <?php 
