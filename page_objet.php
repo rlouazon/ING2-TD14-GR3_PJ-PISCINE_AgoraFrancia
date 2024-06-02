@@ -242,7 +242,6 @@ if (!$result) {
 ?>
 <?php include("blocs/footer.php"); ?>
 */ 
-
 <?php
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -280,7 +279,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $negosql=1;
     }
 
-
     $titre = mysqli_real_escape_string($db_handle, $titre);
     $rare = mysqli_real_escape_string($db_handle, $rare);
     $haut_de_gamme = mysqli_real_escape_string($db_handle, $haut_de_gamme);
@@ -301,7 +299,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$result) {
         die("Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle));
     }
-
 }
 ?>
 
@@ -340,7 +337,6 @@ if($type_compte == 2){
         $back =         $data['back'];
 
             ?>
-            
                 <form class="article-colD col" method="post">
                     <div class="prodG">
                         <img src="<?php echo $photo; ?>" alt="Image client" class="imgClient">
@@ -353,7 +349,7 @@ if($type_compte == 2){
     }
     ?> </div>
 
-    
+
     <script>
         let currentIndex = 0;
         const items = document.querySelectorAll('.carousel-item');
