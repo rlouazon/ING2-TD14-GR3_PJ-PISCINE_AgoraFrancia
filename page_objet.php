@@ -242,7 +242,7 @@ if (!$result) {
 <?php include("blocs/footer.php"); ?>
 */ 
 
-
+/*
 if($type_compte == 2){
 
     ?> <div class="colonneDroite"> <?php
@@ -288,8 +288,8 @@ if($type_compte == 2){
             <?php
         }
     }
-    ?> </div>
-
+    ?> </div>   
+    */
 
     <script>
         let currentIndex = 0;
