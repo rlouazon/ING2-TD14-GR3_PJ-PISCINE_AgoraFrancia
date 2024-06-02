@@ -145,10 +145,10 @@ document.getElementById('type_de_vente').addEventListener('change', function () 
     var limiteDeTempsinput = document.getElementById('limite_de_temps');
     if (this.value === 'enchere') {
         limiteDeTempsDiv.classList.remove('hidden');
-        limiteDeTempsinput.add('required');
+        limiteDeTempsinput.setAttribute('required', 'required');
     } else {
         limiteDeTempsDiv.classList.add('hidden');
-        limiteDeTempsinput.remove('required', 'required');
+        limiteDeTempsinput.removeAttribute('required', 'required');
     }
 });
 </script>
