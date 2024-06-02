@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prix_haut = $_POST["prix_haut"];
 
     // Afficher les valeurs récupérées
+    /*
     echo "Titre : " . $titre . "<br>";
     echo "Rareté - Articles rares : " . $rare . "<br>";
     echo "Rareté - Articles haut de gamme : " . $haut_de_gamme . "<br>";
@@ -78,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Type de vente - Enchère : " . $enchere . "<br>";
     echo "Type de vente - Vente négociation : " . $nego . "<br>";
     echo "Prix bas : " . $prix_bas . "<br>";
-    echo "Prix haut : " . $prix_haut . "<br>";
+    echo "Prix haut : " . $prix_haut . "<br>";*/
     $vdsql=0;
     $encheresql=0;
     $negosql=0;
