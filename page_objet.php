@@ -351,9 +351,9 @@ if($type_compte == 2){
             <?php
         }
     }
-    ?> </div> <?php
+    ?> </div>
 
-?>
+    
     <script>
         let currentIndex = 0;
         const items = document.querySelectorAll('.carousel-item');
