@@ -218,6 +218,7 @@ button.prev:active, button.next:active {
     flex-direction: row; 
     flex-wrap: wrap; 
     display: flex;
+    margin-top: 100px;
 }
 
 .titreSelection{

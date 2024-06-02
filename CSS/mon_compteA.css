@@ -1,6 +1,7 @@
 /* CSS existant */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
 
+
 * {
     color: #3F4A54;
 }
@@ -424,4 +425,12 @@ h2 {
 #flou{
     border-radius: 25px;
     background-color: #e1cdbd85;
+}
+
+.delete-button[disabled],
+.delete-button:disabled
+ {
+    background-color: rgba(136, 135, 135, 0.647);
+    color: rgba(0, 0, 0, 0.629);
+    cursor: not-allowed;
 }

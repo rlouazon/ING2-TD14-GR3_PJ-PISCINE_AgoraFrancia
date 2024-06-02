@@ -203,6 +203,14 @@ h2 {
     background-color: #CC4E44;
 }
 
+.delete-button[disabled],
+.delete-button:disabled
+ {
+    background-color: black;
+    color: white;
+    cursor: not-allowed;
+}
+
 .bouttonRole {
     background-color: #3f4a5400;
     color: rgb(0, 0, 0);
