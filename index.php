@@ -1,17 +1,34 @@
 <?php include("blocs/header.php"); ?>
-<link href="CSS/index.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/index.css" rel="stylesheet">
+    <?php 
+
+        $requete = "SELECT * FROM theme";
+        $result = mysqli_query($db_handle, $requete);
+
+        $theme = "";
+        while ($row = mysqli_fetch_assoc($result)) {
+            if($row['active'] == "1"){$theme = $row['nom'];}
+        }
+
+        if($theme == ""){
+            ?> <link href="CSS/index.css" rel="stylesheet"> <?php
+        }
+        else if($theme == "noel"){
+            ?> <link href="CSS/index2.css" rel="stylesheet"> <?php
+        }
+
+    ?>
+    
     <title>Agora Francia</title>
 </head>
 <body>
 
 <div class="bandeau"> 
-<img src="./CSS/images/bandeau.jpg" alt="Image description" id="banniere">
+    <img src="./CSS/images/bandeau.jpg" alt="Image description" id="banniere">
         <div class="txtBaniere"> Les ventes flash de Noël sont là ! </div>
     </div>
     
