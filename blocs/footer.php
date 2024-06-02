@@ -1,54 +1,36 @@
 </div>
 
-    <script>
-
-        function positionFooter() {
-            // Get footer element
-            var footer = $('.footer');
-
-            if (footer.length > 0) {
-                // Get footer height
-                var footerHeight = footer.outerHeight();
-                $('body').css('min-height', window.innerHeight - footerHeight + 'px');
-
-                if($('body').outerHeight() <= window.innerHeight){
-                    $('body').css('height', window.innerHeight - footerHeight + 'px');
-                }
-
-                // Position footer absolutely at bottom
-                footer.css({
-                    position: 'absolute',
-                    //top: (document.body.getBoundingClientRect().y + document.body.getBoundingClientRect().height).toString + ('px')
-                    top: document.body.getBoundingClientRect().y + document.body.getBoundingClientRect().height + ('px')
-                });
-            } else {
-            console.log("No elements found with class .footer");
-            }
-        }
-
-        function positionFooter2(){
-            var footer = $('.footer');
-            footer.css({
-                });
-            $('body').css('margin-bottom', 50 + 'px');
-        }
-
-        $(window).resize(function(e) {
-            positionFooter2();
-        });
-        $(document).ready(function() {
-            positionFooter2();
-        });
-    </script>
-
 <footer class="footer text-white">
     <div class="footer2 text-center ">
-    <h2 style="margin-bottom: 0px">AGORIA  FRANCIA</h2>
+    <h2 style="margin-bottom: 0px">AGORA  FRANCIA</h2>
     <p>Mail : contact@agorafrancia.fr | Tel. : +33600000000 | Addr. : 00 rue du petit pont, Paris 75015, France</p>
     </div>
 </footer>
 
+<script>
 
+        function positionFooter() {
+            // Get footer element
+            var footer = $('.footer');
+            var contenu = $('.contenu');
+
+            
+
+            // Position footer absolutely at bottom
+            contenu.css({
+                marginBottom: 50 +"px",
+                minHeight: window.innerHeight - 50 - 250 - footer.outerHeight()+"px"
+            });
+
+        }
+
+        $(window).resize(function(e) {
+            positionFooter();
+        });
+        $(document).ready(function() {
+            positionFooter();
+        });
+</script>
 
     </body>
 </html>

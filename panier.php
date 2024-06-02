@@ -165,55 +165,57 @@ if($logged != 0){
 <div class="container">
     <div class="col colG">
         <form method="post">
-        <h2 class="text-center">Résumé de commande</h2>
-        <div class="info">
-            <label class="info">Sous total :</label>
-        </div>
+            <h2 class="text-center">Résumé de commande</h2>
+            <div class="info">
+                <label class="info">Sous total :</label>
+            </div>
 
-        <?php
-            for($i = 0; $i < count($articles); $i++){
-                ?>
-                    <div class="info">
-                        <label class="naming"><?php echo $articles[$i]['titre']; ?></label>
-                        <label class="info"><?php echo $articles[$i]['prix']; ?>€ <?php if($articles[$i]['prix_temporaire'] == 1){echo " (TEMPORAIRE)";} ?></label>  
-                    </div>
-                <?php 
-            }
-        ?>
-        
-    <div class="info">
-        <label class="info"> Promotion :</label>
-    </div>
-    <div class="info">
-        <label class="naming">Promotion :</label>
-        <label class="info"> 0.00€</label>  
-    </div>
-
-        <div class="info">
-            <label class="info"> Livraisons :</label>
-        </div>
-        <div class="info">
-            <label class="naming">Frais de livraisons :</label>
-            <label class="info"> 0.00€</label>  
-        </div>
-
-        <h2 class="text-center">Total</h2>
-        <div class="info">
-            <label class="naming">Total de la commande :</label>
-            <?php 
-                $total = 0;
-                $lock = 0;
+            <?php
                 for($i = 0; $i < count($articles); $i++){
-                    $total += $articles[$i]['prix'];
-                    $lock = ($articles[$i]['prix_temporaire'] == 1) ? 1 : $lock;
+                    ?>
+                        <div class="info">
+                            <label class="naming"><?php echo $articles[$i]['titre']; ?></label>
+                            <label class="info"><?php echo $articles[$i]['prix']; ?>€ <?php if($articles[$i]['prix_temporaire'] == 1){echo " (TEMPORAIRE)";} ?></label>  
+                        </div>
+                    <?php 
                 }
             ?>
-            <label class="info"><?php echo $total; ?>€</label>  
-        </div>
+        
+            <div class="info">
+                <label class="info"> Promotion :</label>
+            </div>
+            <div class="info">
+                <label class="naming">Promotion :</label>
+                <label class="info"> 0.00€</label>  
+            </div>
 
-        <button class="validation-button" <?php echo ($lock == 1) ? "disabled" : ""; ?>>Passer à la caisse</button>
+            <div class="info">
+                <label class="info"> Livraisons :</label>
+            </div>
+            <div class="info">
+                <label class="naming">Frais de livraisons :</label>
+                <label class="info"> 0.00€</label>  
+            </div>
 
-        </div>
+            <h2 class="text-center">Total</h2>
+            <div class="info">
+                <label class="naming">Total de la commande :</label>
+                <?php 
+                    $total = 0;
+                    $lock = 0;
+                    for($i = 0; $i < count($articles); $i++){
+                        $total += $articles[$i]['prix'];
+                        $lock = ($articles[$i]['prix_temporaire'] == 1) ? 1 : $lock;
+                    }
+                ?>
+                <label class="info"><?php echo $total; ?>€</label>  
+            </div>
+
+            <button class="validation-button" <?php echo ($lock == 1) ? "disabled" : ""; ?>>Passer à la caisse</button>
+
+            </div>
+        
+        </form>
 
 
 
@@ -262,9 +264,9 @@ if($logged != 0){
     </div>
 </div>
         
-    <div class="personnal-info"> 
-        <div class="titreMain">Mes articles</div>
-    </div>  
+<div class="personnal-info"> 
+    <div class="titreMain">Mes articles</div>
+</div>  
 
 
 

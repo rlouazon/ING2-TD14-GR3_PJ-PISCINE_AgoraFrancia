@@ -47,7 +47,7 @@ body::before {
 </style>
 
 <form method="post" class="personnal-info"> 
-    <div class="titreMain">Informations Personnelles    </div>
+    <div class="titreMain">Informations Personnelles</div>
     <button type="submit" name="Deconnexion" class="btn">Deconnexion    <img src="CSS/images/deconnexion.png" alt="logo" class="imgInscription"></button>
 </form>
 <?php
