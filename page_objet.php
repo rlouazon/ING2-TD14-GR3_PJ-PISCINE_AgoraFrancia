@@ -50,12 +50,6 @@
         Proin accumsan libero risus, eleifend ultrices nibh fermentum eu. Nulla ac maximus felis. Nunc efficitur tristique faucibus. 
         In at tristique turpis, in volutpat eros. Nam iaculis, ipsum ut sollicitudin sodales, nibh orci tincidunt ligula, a tempor sapien 
         quam sed risus. Curabitur cursus eget dolor sed mattis.
-        Morbi aliquet dignissim eros, et faucibus tellus faucibus sed. Nulla facilisi. Sed pulvinar ex sit amet ipsum consequat tempus. 
-        Nam lorem neque, porta nec posuere vitae, fermentum eget arcu. Sed hendrerit tristique viverra. Cras ut enim urna. Donec urna diam, 
-        hendrerit ut tempus eu, luctus quis purus. Phasellus quis arcu a metus lacinia finibus sit amet non magna. Vestibulum in arcu ultrices,
-         mattis lacus eu, lobortis ligula. Integer vel gravida ante. Praesent condimentum magna maximus ullamcorper mollis. 
-         Praesent laoreet arcu vitae massa pharetra, sed congue orci feugiat. Nulla venenatis turpis a hendrerit elementum. Sed eu sodales augue. 
-         Phasellus bibendum nisi nec hendrerit egestas. Nam volutpat lacinia nisl id semper.
     </p>
     
 <?php
@@ -185,11 +179,6 @@ $result = mysqli_query($db_handle, $sql);
 if (!$result) {
     die("Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle));
 }
-
-
-
-
-
 
 }
 ?>
