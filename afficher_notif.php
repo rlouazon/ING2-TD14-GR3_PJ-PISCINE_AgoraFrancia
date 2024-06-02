@@ -6,10 +6,10 @@
     // Requête pour récupérer les produits filtrés par etat
 $param = "1";
 
-
+if ($occ>=1){
 
 // Execute the query
-$result = mysqli_query($db_handle, $result_nego);
+$result = mysqli_query($db_handle, $result);
 $occ = 0;
 
 // Check if query execution was successful
@@ -25,13 +25,15 @@ if ($result) {
             // Determine the type of article
             $type_article = -1;
             if ((intval($row["type_vd"])) == 1) {
-                $type_article = 0;
+                $type_acha="Vente directe";
             }
             if ((intval($row["type_nego"])) == 1) {
                 $type_article = 1;
+                $type_acha="Negociation";
             }
             if ((intval($row["type_enchere"])) == 1) {
                 $type_article = 2;
+                $type_acha="Enchere";
             }
 
             // Display the article
@@ -43,7 +45,7 @@ if ($result) {
             echo '<div class="col">';
             echo '<h2 class="row auto">' . htmlspecialchars($row["titre"]) . '</h2>';
             echo '<h2 class="row auto">id: ' . htmlspecialchars($row["id"]) . '</h2>';
-            echo '<h2 class="row auto">type de payement : ' . $row["id"] . '</h2>';
+            echo '<h2 class="row auto">type achat : ' . $type_acha . '</h2>';
             echo '<p class="price row auto">Prix: ' . htmlspecialchars($row["prix"]) . '€</p>';
             echo '<p class="row auto">Description: ' . htmlspecialchars($row["description"]) . '</p>';
             echo '</div>';
@@ -53,4 +55,5 @@ if ($result) {
     } 
 } else {
     echo "Error: " . mysqli_error($db_handle);
+}
 }
