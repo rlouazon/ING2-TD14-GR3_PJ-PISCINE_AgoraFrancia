@@ -29,24 +29,27 @@
     }
 
     /*NOTIFICATION*/
-    $requete = "SELECT * FROM utilisateurs WHERE id = " . $logged;
-    $result = mysqli_query($db_handle, $requete);
-    $str = "";
-    while ($data = mysqli_fetch_assoc($result)) {
-        $str = $data['notification'];
-    }
-    $result = base64_decode($str);
-    $array = explode("'", $result);
-    if(count($array) >= 2){
-        $occ = 0;
-        $array[1]=base64_decode($array[1]);
-        $result=$array[0]."(".$array[1].")".$array[2];
-        $array2 = explode("titre = ", $result);
-        $array3 = explode(" AND (categorie",$array2[1]);
-        $result=$array2[0]."titre LIKE '%". $array3[0]. "%' AND (categorie".$array3[1].")";
-        $fin_nego = mysqli_query($db_handle, $result);
-        while ($data = mysqli_fetch_assoc($fin_nego)) {
-            $occ += 1;
+    $occ = 0;
+    if($logged != 0){
+        $requete = "SELECT * FROM utilisateurs WHERE id = " . $logged;
+        $result = mysqli_query($db_handle, $requete);
+        $str = "";
+        while ($data = mysqli_fetch_assoc($result)) {
+            $str = $data['notification'];
+        }
+        $result = base64_decode($str);
+        $array = explode("'", $result);
+        if(count($array) >= 2){
+            $occ = 0;
+            $array[1]=base64_decode($array[1]);
+            $result=$array[0]."(".$array[1].")".$array[2];
+            $array2 = explode("titre = ", $result);
+            $array3 = explode(" AND (categorie",$array2[1]);
+            $result=$array2[0]."titre LIKE '%". $array3[0]. "%' AND (categorie".$array3[1].")";
+            $fin_nego = mysqli_query($db_handle, $result);
+            while ($data = mysqli_fetch_assoc($fin_nego)) {
+                $occ += 1;
+            }
         }
     }
     
@@ -79,7 +82,7 @@
             <button><a href ="panier.php">Panier</a></button>
             <button><a href ="mon_compte.php">Votre Compte</a></button>
         </div>
-        <a href="afficher_notif.php"><div class="notif" width=160 style="font-size: 15px;"><?php echo " nombre notification :" . $occ;?></div></a>
+        <a href="afficher_notif.php"><div class="notif" width=160 style="font-size: 15px;"><?php if($logged != 0){echo " nombre notification :" . $occ;}?></div></a>
         <div class = "droite">
         <a href="panier.php"><img src="CSS/images/panier.png" alt="panier" class="panier"></a>
         </div>

@@ -36,14 +36,20 @@
 
     <?php
 
-
     $products = []; // Initialisation du tableau
     
     $requete = "SELECT * FROM articles ORDER BY id DESC LIMIT 3";
     $result = mysqli_query($db_handle, $requete);
     while ($row = mysqli_fetch_assoc($result)) {
         // Utiliser l'ID de l'article comme clé unique
+        $type = -1;
+        $types = [$row["type_vd"], $row["type_nego"], $row["type_enchere"]];
+        for($i = 0; $i < count($types); $i++){
+            $type = (intval($types[$i] == 1)) ? $i : $type;
+        }
         $products[] = [
+            "id" => $row["id"],
+            "type" => $type,
             "image" => $row["img1"],
             "name" => htmlspecialchars($row["titre"]), // Assurez-vous que le nom de la colonne est correct
             "price" => htmlspecialchars($row["prix"]),
@@ -61,7 +67,7 @@
             <?php
             foreach ($products as $index => $product) {
                 echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '">';
-                echo '<div class="article-colG col">';
+                echo '<a class="article-colG col" href="articles.php?article='.$product["id"].'&type='.$product["type"].'">';
                 echo '    <div class="prodG">';
                 echo '        <img src="' . $product["image"] . '" alt="Image produit" class="imgProd">';
                 echo '    </div>';
@@ -71,7 +77,7 @@
                 echo '        <div class="Prod">' . $product["description"] . '</div>';
                 echo '        <button class="validation-button">Ajouter au panier l\'article</button>';
                 echo '    </div>';
-                echo '</div>';
+                echo '</a>';
                 echo '</div>';
             }
             ?>

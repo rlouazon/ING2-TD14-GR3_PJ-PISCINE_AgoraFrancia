@@ -39,11 +39,14 @@ if($logged != 0){
         #IMAGES
         $photo =        $data['photo'];
         $back =         $data['back'];
+
+        $bank_type_disp = "";
+        $bank_types = ["VISA", "Mastercard", "American Express", "Paypal"]; 
+        $bank_type_disp = $bank_types[intval($bank_type)];
     }
 
     $articles = [];
     $requete = "SELECT * FROM articles AS A, (SELECT article, type FROM panier WHERE acheteur = " . $logged . ") AS P WHERE A.id = P.article";
-    echo $requete;
     $result_base = mysqli_query($db_handle, $requete);
     while ($data_base = mysqli_fetch_assoc($result_base)) {
         #ID VENDEUR
@@ -87,8 +90,6 @@ if($logged != 0){
         $categorie_disp = "";
         $categorie_string = ["Rare", "Haut de Gamme", "Régulier"]; 
         $categorie_disp = $categorie_string[$categorie];
-        
-        echo " TYPE : " . $type;
 
         $prix_temporaire = 0;   #Afficher si le prix est temporaire
         $retirer_panier = 1;    #Produit retirable du panier
@@ -100,6 +101,7 @@ if($logged != 0){
             $retirer_panier = 0;
             $prix_temporaire = 1;
             $requete = "SELECT * FROM op_nego WHERE article = " . $id_article . " AND acheteur = " . $logged . " ORDER BY nb_op ASC";
+            echo $requete;
             $result = mysqli_query($db_handle, $requete);
             $prix_detecte = 0;
             while ($data = mysqli_fetch_assoc($result)) {
@@ -121,7 +123,8 @@ if($logged != 0){
                 $prix_temporaire = 1;
             }
             else{
-                $requete = "SELECT * FROM op_enchere WHERE article = " . $id_article . " ORDER BY prix ASC";
+                $requete = "SELECT * FROM op_enchere WHERE article = " . $id_article . " ORDER BY prix DESC";
+                #echo $requete;
                 $result = mysqli_query($db_handle, $requete);
                 $win = 0;
                 $prix_temp = 0;
@@ -144,7 +147,7 @@ if($logged != 0){
 
 
         $articles[] = [
-            "id" => $id,
+            "id" => $id_article,
             "type" => $type,
             "titre" => $titre,
             "description" => $description,
@@ -200,10 +203,18 @@ if($logged != 0){
         <h2 class="text-center">Total</h2>
         <div class="info">
             <label class="naming">Total de la commande :</label>
-            <label class="info"> 2200.98€</label>  
+            <?php 
+                $total = 0;
+                $lock = 0;
+                for($i = 0; $i < count($articles); $i++){
+                    $total += $articles[$i]['prix'];
+                    $lock = ($articles[$i]['prix_temporaire'] == 1) ? 1 : $lock;
+                }
+            ?>
+            <label class="info"><?php echo $total; ?>€</label>  
         </div>
 
-        <button class="validation-button">Passer à la caisse</button>
+        <button class="validation-button" <?php echo ($lock == 1) ? "disabled" : ""; ?>>Passer à la caisse</button>
 
         </div>
 
@@ -214,41 +225,41 @@ if($logged != 0){
             <h2 class="text-center">Informations Bancaires</h2>
             <div class="info">
                 <label class="naming">Type de carte :</label>
-                <label class="info"> Visa</label>
+                <label class="info"><?php echo $bank_type_disp; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Numéro de carte :</label>
-                <label class="info"> 0123456789012345 </label>
+                <label class="info"><?php echo $bank_carte; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Nom du titulaire :</label>
-                <label class="info"> Greg le mec du meme</label>
+                <label class="info"><?php echo $bank_nom; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Date d'éxpiration :</label>
-                <label class="info"> 09/28</label>
+                <label class="info"><?php echo $bank_date; ?></label>
             </div>
 
             <h2 class="text-center">Adresse de livraison</h2>
             <div class="info">
                 <label class="naming">Adresse 1 :</label>
-                <label class="info"> 32 Chemin du Queric</label>
+                <label class="info"><?php echo $addr1; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Adresse 2 :</label>
-                <label class="info"></label>
+                <label class="info"><?php echo $addr2; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Ville :</label>
-                <label class="info"> La Trinité-sur-Mer</label>
+                <label class="info"><?php echo $ville; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Code Postal :</label>
-                <label class="info"> 56400</label>
+                <label class="info"><?php echo $codepostal; ?></label>
             </div>
             <div class="info">
                 <label class="naming">Pays :</label>
-                <label class="info"> FRANCE</label>
+                <label class="info"><?php echo $pays; ?></label>
             </div>
         </div>
     </div>
@@ -272,14 +283,14 @@ if($logged != 0){
         <div class="article-colG col">
             <div class="prodG">
                 <img src="<?php echo $articles[$i]['image']; ?>" alt="Image produit" class="imgProd">
-                <h2><?php echo $articles[$i]['titre']; ?></h2>
+                <h2><a href="articles.php?article=<?php echo $articles[$i]['id'] ?>&type=<?php echo $articles[$i]['type']?>"><?php echo $articles[$i]['titre']; ?></a></h2>
             </div>
             <div class="infoProd">
-                <h2>Prix: <?php echo $articles[$i]['prix']; ?>€</h2>
+                <h2>Prix: <?php echo $articles[$i]['prix']; ?>€<?php if($articles[$i]['prix_temporaire'] == 1){echo " (TEMPORAIRE)";} ?></h2>
                     <div class="Prod">
                         <?php echo $articles[$i]['description']; ?>
                     </div>
-                <button class="delete-button">Supprimer l'article</button>
+                <button class="delete-button" <?php echo ($articles[$i]['prix_temporaire'] == 1) ? "disabled" : "" ?>>Supprimer l'article</button>
             </div>
         </div>
     <?php

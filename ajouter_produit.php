@@ -68,6 +68,11 @@ if($logged != 0 && $type_compte != 0){
 <h1 class="text-center">Ajout de produit</h1>
 
 <div class="form-group">
+    <label for="description">Titre* :</label>
+    <input class="form-control" name="titre" maxlength="256" required></input>
+</div>
+
+<div class="form-group">
     <label for="type_de_vente">Type de vente* :</label>
     <select class="form-control" name="type_de_vente" id="type_de_vente" required>
         <option value="vd">Vente directe</option>
@@ -83,7 +88,7 @@ if($logged != 0 && $type_compte != 0){
 
 <div class="form-group">
     <label for="prix">Prix* :</label>
-    <input type="number" class="form-control" name="prix" required>
+    <input type="number" min="0" class="form-control" name="prix" required>
 </div>
 
 <div class="form-group">
@@ -91,14 +96,6 @@ if($logged != 0 && $type_compte != 0){
     <textarea class="form-control" name="description" maxlength="2560" required></textarea>
 </div>
 
-<div class="form-group">
-    <label for="etat_du_produit">État du produit* :</label>
-    <select class="form-control" name="etat_du_produit" required>
-        <option value="n">Neuf</option>
-        <option value="cn">Comme neuf</option>
-        <option value="be">Bon etat</option>
-        <option value="abe">Assez bon etat</option>
-    </select>
 <div class="form-group">
     <h4>Images du produit :</h4>
     <label for="image1">Image 1* :</label>
@@ -193,21 +190,19 @@ if(isset($_POST['ajout_du_produit'])){
     }else{
         $enchere=1;
     }
-    $limite_tps=$_POST['limite_de_temps'];
-    if($limite_tps == ""){
-        $limite_tps=0;
+    $limite_tps=0;
+    if(isset($_POST['limite_de_temps'])){
+        $limite_tps=$_POST['limite_de_temps'];
     }
-    $limite_tps=$_POST['limite_de_temps'];
-    if($limite_tps == ""){
-        $limite_tps=0;
-    }
-    $requete = "INSERT INTO articles (vendeur,titre, type_vd,type_nego,type_enchere, limite_tps, prix, description, img1, img2, img3, img4, img5, categorie, etat,fin) VALUES ("
+    
+    $requete = "INSERT INTO articles VALUES ("
+        . "'" . "',"  
         . "'" . $logged . "',"  
         . "'" . mysqli_real_escape_string($db_handle, $_POST['titre']) . "',"
         . "'" . $vd . "',"  
         . "'" . $nego . "',"  
         . "'" . $enchere . "',"  
-        . "" . "DATE_ADD(CURDATE(), INTERVAL ". $limite_tps ." DAY)" . ","
+        . "'0" . "',"  
         . "" . "DATE_ADD(CURDATE(), INTERVAL ". $limite_tps ." DAY)" . ","
         . "'" . mysqli_real_escape_string($db_handle, $_POST['prix']) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $_POST['description']) . "',"
@@ -219,6 +214,7 @@ if(isset($_POST['ajout_du_produit'])){
         . "'" . mysqli_real_escape_string($db_handle, $_POST['categorie']) . "',"
         . "'" . mysqli_real_escape_string($db_handle, $_POST['etat_du_produit']) . "',"
         . 0 . ")";
+        echo $requete;
     $result = mysqli_query($db_handle, $requete);
     if ($result) {
         $alert = "Produit ajouté avec succès";

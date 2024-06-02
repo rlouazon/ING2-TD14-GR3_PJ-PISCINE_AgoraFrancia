@@ -165,7 +165,8 @@
                 ."\"".$path1."\","
                 ."\"".$path2."\","
                 ."\"".sha1($_POST['password'])."\","
-                ."\"0\""
+                ."\"0\","
+                ."\"\""
                 .")";
             $result = mysqli_query($db_handle, $requete);
             $alert = "Compte créé";
