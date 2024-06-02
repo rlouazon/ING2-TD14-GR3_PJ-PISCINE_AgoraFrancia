@@ -114,11 +114,6 @@ if (!$result) {
     die("Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle));
 }
 
-
-
-
-
-
 }
 ?>
 <?php include("blocs/footer.php"); ?>
