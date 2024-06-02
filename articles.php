@@ -163,7 +163,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
     if($condition == 0){
         ?>
             <form method="post">
-                <button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier</button>
+                <h1><button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier</button></h1>
             </form>
         <?php
     }
@@ -210,7 +210,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 }
                 ?>
                     <form method="post">
-
+                    <h1>
                         <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Accepter</button>
                         <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
                         <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>> 
@@ -291,9 +291,11 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             }
             ?>
                 <form method="post">
+                <h1>
                     <p class="pl-5"><?php echo ($condition == 1) ? "Recommandation : " .  ($borne_average + 1) . "€" : "" ?></p>
                     <input type="number" name="prix" <?php echo "min=\"". $borne_min . "\"" ?><?php if($condition == 0){echo "disabled";} ?>> 
                     <button type="submit" name="Encherir" class="btn" <?php if($condition == 0){echo "disabled";} ?>><?php echo $message ?></button>
+                </h1>
                 </form>
             <?php 
             
@@ -342,6 +344,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 }
                 ?>
                     <form method="post">
+                    <h1>
                         <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>Accepter</button>
                         <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
                         <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>> 
@@ -360,8 +363,10 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             }
             ?>
                 <form method="post">
+                <h1>
                     <input type="text" name="prix" readonly value="<?php echo $str; ?>">
                     <button type="submit" name="Encherir" class="btn" disabled ?>Encheres effectuées</button>
+                </h1>
                 </form>
             <?php 
         }

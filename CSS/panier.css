@@ -1,4 +1,4 @@
-/* CSS existant */
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
 
 * {
@@ -10,16 +10,16 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    background: url('./images/fond.png'); /* Utilisez un chemin relatif */
-    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la page */
-    filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
-    z-index: -1; /* Placez l'image de fond floue derrière le contenu */
+    background: url('./images/fond.png');
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
 }
 
 body {
     font-family: 'Lexend', Arial, sans-serif;
     margin: 0;
-    padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+    padding-top: 90px;
     position: relative;
 }
 
@@ -88,13 +88,13 @@ h2 {
     margin-left: 10px;
     margin-right: 10px;
     box-sizing: border-box;
-    overflow: hidden; /* Pour s'assurer que le contenu ne dépasse pas les bords arrondis */
+    overflow: hidden;
 }
 
 .article-colG {
     margin-left: 50px;
     display: flex;
-    float: left; /* Utilisez flexbox pour aligner l'image et le contenu sur la même ligne */
+    float: left;
 }
 
 .article-colD {
@@ -122,7 +122,7 @@ h2 {
     padding: 10px;
     text-align: center;
     margin: 20px auto;
-    width: 50%; /* Centré en fonction du contenu */
+    width: 50%;
     font-size: 200%;
 
 }
@@ -140,29 +140,26 @@ h2 {
 .prodG {
     min-width: 30%;
     max-width: 50%;
-    display: flex; /* Utilisez flexbox pour aligner les éléments en colonne */
-    flex-direction: column; /* Placez les éléments en colonne */
-    justify-content: center; /* Centrez horizontalement les éléments enfants */
-    align-items: center; /* Centrez verticalement les éléments enfants */
-    padding: 20px; /* Ajoutez un peu d'espace autour des éléments */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     padding-bottom: 0px;
-    border-radius: 25px; /* Ajoutez des coins arrondis */
+    border-radius: 25px;
 }
 
 .imgProd {
     width: 100%;
     border-radius: 25px;
-    margin-bottom: 10px; /* Ajoutez un peu d'espace en bas de l'image */
+    margin-bottom: 10px; 
 }
 
 .article-col h2, .article-col p {
-    /* Nouveaux styles */
-    margin: 5px 0; /* Ajoutez un peu d'espace autour du texte */
+    margin: 5px 0;
 }
 
 .infoProd {
-    /* Nouveaux styles */
-
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
@@ -189,41 +186,39 @@ h2 {
 }
 
 .delete-button {
-    background-color: #ff634767; /* Couleur de fond rouge */
-    color: #3F4A54; /* Couleur du texte blanc */
-    padding: 8px 16px; /* Réduisez légèrement le rembourrage */
-    border: none; /* Supprimez la bordure */
-    border-radius: 5px; /* Ajoutez des coins arrondis */
-    cursor: pointer; /* Changez le curseur au survol */
-    transition: background-color 0.3s ease; /* Ajoutez une transition en douceur */
-    font-size: 14px; /* Réduisez la taille de la police */
-    margin-top: 30px; /* Ajoutez un espacement au-dessus du bouton */
+    background-color: #ff634767;
+    color: #3F4A54;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    margin-top: 30px; 
     margin-left: auto;
     margin-right: auto;
 }
 
 .delete-button:hover {
-    /* Styles existants */
-    background-color: #CC4E44; /* Assombrissez légèrement la couleur de fond */
+    background-color: #CC4E44;
 }
 
 .bouttonRole {
-    background-color: #3f4a5400; /* Couleur de fond rouge */
-    color: rgb(0, 0, 0); /* Couleur du texte blanc */
+    background-color: #3f4a5400;
+    color: rgb(0, 0, 0);
     margin-bottom: 5px;
-    padding: 8px 16px; /* Réduisez légèrement le rembourrage */
-    border: none; /* Supprimez la bordure */
-    border-radius: 25px; /* Ajoutez des coins arrondis */
-    cursor: pointer; /* Changez le curseur au survol */
-    transition: background-color 0.3s ease; /* Ajoutez une transition en douceur */
-    font-size: 11px; /* Réduisez la taille de la police */
+    padding: 8px 16px; 
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    font-size: 11px; 
     
 }
 
 .bouttonRole:hover {
-    /* Styles existants */
     font-size: 15px;
-    background-color: #3f4a549d; /* Assombrissez légèrement la couleur de fond */
+    background-color: #3f4a549d;
 }
 
 
@@ -252,14 +247,14 @@ h2 {
 
 .actions {
     display: flex;
-    flex-direction: row; /* Aligne les éléments en ligne */
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 10px; /* Espace au-dessus des actions */
+    margin-top: 10px;
 }
 
 .choice {
-    margin-bottom: 40px; /* Espace à droite du menu déroulant */
+    margin-bottom: 40px;
 }
 
 
@@ -274,9 +269,9 @@ h2 {
 }
 
 .h2 {
-    white-space: nowrap; /* Empêche les retours à la ligne */
-    overflow: hidden; /* Cache le débordement du texte */
-    text-overflow: ellipsis; /* Ajoute des points de suspension pour indiquer du texte caché */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .colonneDroite {
@@ -332,7 +327,7 @@ h2 {
 
 @media (max-width: 1100px) {
     .container {
-        flex-direction: column; /* Change la direction de la disposition en colonne */
+        flex-direction: column; 
         align-items: center;
     }
     .col {
@@ -341,7 +336,7 @@ h2 {
     }
     .colonneDroite,
     .colonneGauche {
-        width: 100%; /* Prend toute la largeur lorsqu'en colonne */
+        width: 100%;
     }
 
 }

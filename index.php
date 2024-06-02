@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<!--<div class="bandeau"> 
+<div class="bandeau"> 
 <img src="./CSS/images/bandeau.jpg" alt="Image description" id="banniere">
         <div class="txtBaniere"> Les ventes flash de Noël sont là ! </div>
-    </div>-->
+    </div>
     
     <div class="selection">
         
@@ -89,7 +89,9 @@
     <div class="personnal-info" id="about-section">
         <div class="titreMain">Qui sommes-nous ?</div>
     </div>
+    <p>
 
+    </p>
     <div class="article-colG col">
         <div class="presentation">
             <h1>Bienvenue sur Agora Francia !</h1>

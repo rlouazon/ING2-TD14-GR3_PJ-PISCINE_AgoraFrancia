@@ -10,16 +10,16 @@ body::before {
     top: 0;
     left: 0;
     /*background: url('./images/fond.png') no-repeat center center fixed; /* Utilisez un chemin relatif */
-    background-size: cover; /* Ajustez la taille de l'image pour couvrir toute la fenêtre */
-    filter: blur(4px); /* Ajustez le niveau de flou selon vos besoins */
-    z-index: -1; /* Placez l'image de fond floue derrière le contenu */
+    background-size: cover; 
+    filter: blur(4px);
+    z-index: -1;
 
 }
 
 body {
     font-family: 'Lexend', Arial, sans-serif;
     margin: 0;
-    padding-top: 90px; /* Ajoutez un padding-top pour éviter que le contenu ne soit caché sous le header fixe */
+    padding-top: 90px;
     position: relative;
 }
 
