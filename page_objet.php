@@ -57,7 +57,150 @@
          Praesent laoreet arcu vitae massa pharetra, sed congue orci feugiat. Nulla venenatis turpis a hendrerit elementum. Sed eu sodales augue. 
          Phasellus bibendum nisi nec hendrerit egestas. Nam volutpat lacinia nisl id semper.
     </p>
+    
+<?php
 
+if($type_compte == 1 || $type_compte == 2){
+
+    if($type_compte == 2){
+        ?> <div class="colonneGauche"> <?php ;
+        $requete = "SELECT * FROM articles";
+    }
+    else{
+        $requete = "SELECT * FROM articles WHERE vendeur = " . intval($id);
+    }
+    $result = mysqli_query($db_handle, $requete);
+    while ($data = mysqli_fetch_assoc($result)) {
+        #ID VENDEUR
+        $id_article =       $data['id'];
+        $vendeur =          $data['vendeur'];
+
+        #INFOS
+        $titre =            $data['titre'];
+        $prix =             $data['prix'];
+        $description =      $data['description'];
+        $categorie =        $data['categorie'];
+        $etat =             $data['etat'];
+
+        #TYPES
+        $type_vd =          $data['type_vd'];
+        $type_nego =        $data['type_nego'];
+        $type_enchere =     $data['type_enchere'];
+
+        #IMG
+        $img1 =             $data['img1'];
+        $img2 =             $data['img2'];
+        $img3 =             $data['img3'];
+        $img4 =             $data['img4'];
+        $img5 =             $data['img5'];
+
+        #FIN
+        $fin =              $data['fin'];
+
+        $types = [$type_vd, $type_nego, $type_enchere];
+        $types_string = ["Vente directe", "Negociation", "Enchere"];
+
+        for($i = 0; $i < count($types); $i++){
+            if(intval($types[$i]) == 1){
+                ?>
+            
+                    <form class="article-colG col" method="post">
+                        <div class="prodG">
+                            <img src="<?php echo $img1 ?>" alt="Image produit" class="imgProd">
+                            <h2><a href="<?php echo 'articles.php?article='.$id_article.'&type='.$i;?>"><?php echo $titre . "<br>" . " (" . $types_string[$i] . ")" ?></a></h2>
+                        </div>
+                        <div class="infoProd">
+                            <h2>Prix : <?php echo $prix ?>€</h2>
+                                <div class="Prod">
+                                    <?php echo $description ?>
+                                </div>
+                            <input type="hidden" name="id-type_article" value="<?php echo $id_article."-".$i; ?>" />
+                            <button type="submit" name="Suppression_article" class="delete-button">Supprimer l'article</button>
+                        </div>
+                    </form>
+                                   
+                <?php
+            }
+        }
+    }
+    if($type_compte == 2){?> </div> <?php ;}
+
+}
+
+
+if($type_compte == 2){
+
+    ?> <div class="colonneDroite"> <?php
+    $requete = "SELECT * FROM utilisateurs";
+    $result = mysqli_query($db_handle, $requete);
+    while ($data = mysqli_fetch_assoc($result)) {
+        #ID
+        $id =           $data['id'];
+        $type =         $data['type'];
+
+        #INFO PERSO
+        $pseudo =       $data['pseudo'];
+        $nom =          $data['nom'];
+        $prenom =       $data['prenom'];
+        $mail =         $data['mail'];
+        $tel =          $data['tel'];
+
+        #BANQUE
+        $bank_type =    $data['bank_type'];
+        $bank_carte =   $data['bank_carte'];
+        $bank_nom =     $data['bank_nom'];
+        $bank_date =    $data['bank_date'];
+
+        #ADDRESSE
+        $addr1 =        $data['addr1'];
+        $addr2 =        $data['addr2'];
+        $ville =        $data['ville'];
+        $codepostal =   $data['codepostal'];
+        $pays =         $data['pays'];
+
+        #IMAGES
+        $photo =        $data['photo'];
+        $back =         $data['back'];
+
+            ?>
+            
+                <form class="article-colD col" method="post">
+                    <div class="prodG">
+                        <img src="<?php echo $photo; ?>" alt="Image client" class="imgClient">
+                        <h2><?php echo $prenom . " " . $nom; ?></h2>
+                    </div>
+                    
+                    <div class="infoClient-actions">
+
+                        <div class="infoClient">
+                            <label class="namingC">Pseudonyme :</label>
+                            <label class="infoC"><?php echo $pseudo; ?></label>
+
+                            <label class="namingC">Adresse mail :</label>
+                            <label class="infoC"><?php echo $mail; ?></label>
+
+                            <label class="namingC">Téléphone :</label>
+                            <label class="infoC"><?php echo $tel; ?></label>
+                        </div>
+                        <input type="hidden" name="id_utilisateur" value="<?php echo $id; ?>" />
+                        <div class = "role">
+                            <select name="perms_utilisateur">
+                                <option value="0" <?php if($type == 0){echo "selected";} ?>>Acheteur</option>
+                                <option value="1" <?php if($type == 1){echo "selected";} ?>>Vendeur</option>
+                                <option value="2" <?php if($type == 2){echo "selected";} ?>>Administrateur</option>
+                            </select>
+                            <button type="submit" name="Modifier_utilisateur" class="bouttonRole"><label class="namingC">Modifier le rôle</label></button>
+                        </div>
+                        <button type="submit" name="Supprimer_utilisateur" class="delete-button">Supprimer l'utilisateur</button>
+                    </div>
+                </form>
+            
+            <?php
+        }
+    }
+    ?> </div> <?php
+
+?>
     <script>
         let currentIndex = 0;
         const items = document.querySelectorAll('.carousel-item');
