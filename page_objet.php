@@ -241,65 +241,7 @@ if (!$result) {
 ?>
 <?php include("blocs/footer.php"); ?>
 */ 
-<?php
-// Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les valeurs du formulaire
-    $titre = $_POST["titre"];
-    $rare = isset($_POST["0"]) ? $_POST["0"] : 0;
-    $haut_de_gamme = isset($_POST["1"]) ? $_POST["1"] : 0;
-    $reguliers = isset($_POST["2"]) ? $_POST["2"] : 0;
-    $vd = isset($_POST["vd"]) ? $_POST["vd"] : 0;
-    $enchere = isset($_POST["enchere"]) ? $_POST["enchere"] : 0;
-    $nego = isset($_POST["nego"]) ? $_POST["nego"] : 0;
-    $prix_bas = $_POST["prix_bas"];
-    $prix_haut = $_POST["prix_haut"];
 
-    // Afficher les valeurs récupérées
-    echo "Titre : " . $titre . "<br>";
-    echo "Rareté - Articles rares : " . $rare . "<br>";
-    echo "Rareté - Articles haut de gamme : " . $haut_de_gamme . "<br>";
-    echo "Rareté - Articles réguliers : " . $reguliers . "<br>";
-    echo "Type de vente - Vente directe : " . $vd . "<br>";
-    echo "Type de vente - Enchère : " . $enchere . "<br>";
-    echo "Type de vente - Vente négociation : " . $nego . "<br>";
-    echo "Prix bas : " . $prix_bas . "<br>";
-    echo "Prix haut : " . $prix_haut . "<br>";
-    $vdsql=0;
-    $encheresql=0;
-    $negosql=0;
-    if ($vd =="vd"){
-        $vdsql=1;
-    }
-    if ($enchere =="enchere"){
-        $encheresql=1;
-    }
-    if ($nego =="nego"){
-        $negosql=1;
-    }
-
-    $titre = mysqli_real_escape_string($db_handle, $titre);
-    $rare = mysqli_real_escape_string($db_handle, $rare);
-    $haut_de_gamme = mysqli_real_escape_string($db_handle, $haut_de_gamme);
-    $reguliers = mysqli_real_escape_string($db_handle, $reguliers);
-    $vd = mysqli_real_escape_string($db_handle, $vd);
-    $nego = mysqli_real_escape_string($db_handle, $nego);
-    $enchere = mysqli_real_escape_string($db_handle, $enchere);
-    $prix_bas = mysqli_real_escape_string($db_handle, $prix_bas);
-    $prix_haut = mysqli_real_escape_string($db_handle, $prix_haut);
-    $logged = mysqli_real_escape_string($db_handle, $logged);
-    
-    $sql = "UPDATE utilisateurs SET notification = '" . base64_encode("SELECT * FROM '" .base64_encode("SELECT * FROM articles ORDER BY id DESC LIMIT 5")."' AS latest_articles WHERE titre = " . $titre. " AND (categorie = " .$rare. " OR categorie = " .$haut_de_gamme. " OR categorie = " . $reguliers. ") AND (type_vd = ". $vdsql. " OR type_nego = " . $negosql . " OR type_enchere = " . $encheresql. ") AND (prix > " . $prix_bas. " AND prix < " .$prix_haut) . "' WHERE id = " . $logged;
-    //echo $sql;
-// Exécution de la requête
-    $result = mysqli_query($db_handle, $sql);
-
-// Vérification des erreurs
-    if (!$result) {
-        die("Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle));
-    }
-}
-?>
 
 if($type_compte == 2){
 
