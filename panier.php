@@ -210,8 +210,8 @@ if($logged != 0){
                 ?>
                 <label class="info"><?php echo $total; ?>€</label>  
             </div>
-
-            <button class="validation-button" <?php echo ($lock == 1) ? "disabled" : ""; ?>>Passer à la caisse</button>
+            <input type="hidden" name="prix" value="<?php echo $total; ?>">
+            <button class="validation-button" name="Payer" <?php echo ($lock == 1) ? "disabled" : ""; ?>>Passer à la caisse</button>
 
             </div>
         
@@ -301,6 +301,25 @@ if($logged != 0){
 if(isset($_POST['SupprimerPanier'])){
     $requete = "DELETE FROM panier WHERE article = " . $_POST['id'] . " AND acheteur = " . $logged;
     $result = mysqli_query($db_handle, $requete);
+    echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+}
+if(isset($_POST['Payer'])){
+    $prix = intval($_POST['prix']);
+    $solde = intval($_POST['prix']) + rand(rand(-1000, 0), rand(0, 1000));
+    $condition = ($prix <= $solde) ? 1 : 0;
+    if($condition == 1){
+        $alert = "PAIEMENT ACCEPTE : Vous avez été débité de " . $prix . "€. (Solde : " . $solde . "€ -> " . ($solde-$prix) . "€)";
+        $requete = "SELECT * FROM articles AS A, (SELECT article, type FROM panier WHERE acheteur = " . $logged . ") AS P WHERE A.id = P.article";
+        $result = mysqli_query($db_handle, $requete);
+        while ($data = mysqli_fetch_assoc($result)) {
+            $requete2 = "DELETE FROM articles WHERE id = " . $data['id'];
+            $result2 = mysqli_query($db_handle, $requete2);
+        }
+    }
+    else{
+        $alert = "PAIEMENT REFUSE : Solde insuffisant (" . $solde . "€), vous n'avez pas été débité. (Solde minimum requis : " . $prix . "€)";
+    }
+    
     echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
 }
 ?>
