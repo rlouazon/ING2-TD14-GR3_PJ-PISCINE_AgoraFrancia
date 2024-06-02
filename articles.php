@@ -173,7 +173,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
     else if($condition == 1){
 
         if($type_article == 0){
-            ?> <p>Produit déjà ajouté au panier <a href="panier.php">(Voir mon panier)</a></p> <?php
+            ?> <p class="textPanier">Produit déjà ajouté au panier <a class="textPanier" href="panier.php" id="voirPanier">(Voir mon panier)</a></p> <?php
         }
         else if($type_article == 1){
             # Detection du prix max
@@ -197,7 +197,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 while ($data = mysqli_fetch_assoc($result)) {
                     echo "<p class=\"nego-offre\">";
                     $occ += 1;
-                    echo ($occ%2 == 1) ? "Acheteur : " : "Vendeur : ";
+                    echo ($occ%2 == 1) ?  "Acheteur : " : "Vendeur : ";
                     echo $data['prix'] . "€";
                     $fin_nego = intval($data['fin']);
                     if($fin_nego){echo " (Validé)";}
@@ -215,11 +215,13 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 }
                 ?>
                     <form method="post">
-                    <h1>
+                    
+                    <div class="choixNego">
                         <button type="submit" class="nego-refuser" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Proposer une contre offre</button>
                         <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
                         <input type="number" class="nego-input" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>> 
                         <button type="submit" class="nego-accepter" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Accepter (Mettre fin a la négociation)</button>
+                    </div>
                     </form>
                 <?php
             }
@@ -350,13 +352,14 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                     $fin_nego = 1;
                 }
                 ?>
-                    <form method="post">
-                    <h1>
-                        <button type="submit" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>Proposer une contre offre</button>
-                        <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
-                        <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>
-                        <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>Accepter (Mettre fin a la négociation)</button>
-                    </form>
+
+                    <div class="choixNego">
+                        <button type="submit" id="RefuserNego" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>aaaaaaaaaaProposer une contre offre</button>
+                        <input type="hidden" id="occ" name="occ" value="<?php echo ($occ); ?>"> 
+                        <input type="number" id="prix" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>
+                        <button type="submit" id="AccepterNego" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 0){echo "disabled";} ?>>Accepter (Mettre fin a la négociation)</button>
+                    </div>
+
                 <?php
             }
         }
