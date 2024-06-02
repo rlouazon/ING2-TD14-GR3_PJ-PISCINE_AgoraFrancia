@@ -31,8 +31,8 @@
             ?>
             <div class = "descriptionProd">
                 <h1>Titre du produit</h1>
-                <h3>Description : blablablablablablablablablablabla bla naldqd</h3>
-                <h5>Prix : 0000 €</h5>
+                <h3>Description : Voici une belle description ! Q'ils sont jolis ces mots ! </h3>
+                <h5>Prix : 22,22 €</h5>
                 <h5>Limite de temps : 3j3h6min.</h5>
                 <h6> Vendeur : Greg </h6>
                 <h6> Etat : Très bon état </h6>
@@ -47,7 +47,9 @@
     <div class="col" id="achat">
        dq
     </div>
-
+    <p>
+        
+    </p>
 
     <script>
         let currentIndex = 0;
