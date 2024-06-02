@@ -6,10 +6,10 @@
     // Requête pour récupérer les produits filtrés par etat
 $param = "1";
 
-
+if ($occ>=1){
 
 // Execute the query
-$result = mysqli_query($db_handle, $result_nego);
+$result = mysqli_query($db_handle, $result);
 $occ = 0;
 
 // Check if query execution was successful
@@ -53,4 +53,5 @@ if ($result) {
     } 
 } else {
     echo "Error: " . mysqli_error($db_handle);
+}
 }
