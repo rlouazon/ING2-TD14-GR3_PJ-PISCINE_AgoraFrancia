@@ -295,12 +295,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE utilisateurs SET notification = '" . base64_encode("SELECT * FROM '" .base64_encode("SELECT * FROM articles ORDER BY id DESC LIMIT 5")."' AS latest_articles WHERE titre = " . $titre. " AND (categorie = " .$rare. " OR categorie = " .$haut_de_gamme. " OR categorie = " . $reguliers. ") AND (type_vd = ". $vdsql. " OR type_nego = " . $negosql . " OR type_enchere = " . $encheresql. ") AND (prix > " . $prix_bas. " AND prix < " .$prix_haut) . "' WHERE id = " . $logged;
     //echo $sql;
 // Exécution de la requête
-$result = mysqli_query($db_handle, $sql);
+    $result = mysqli_query($db_handle, $sql);
 
 // Vérification des erreurs
-if (!$result) {
-    die("Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle));
-}
+    if (!$result) {
+        die("Erreur lors de l'exécution de la requête : " . mysqli_error($db_handle));
+    }
 
 }
 ?>
