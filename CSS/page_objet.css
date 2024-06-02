@@ -353,7 +353,8 @@ h6{
     background-color: #6d0f12b2;
 }
 
-.enchere-prix{
+.enchere-prix,
+.enchere-liste{
     border: 2px solid #2c3e50;
     border-radius: 5px;
     padding: 10px;
@@ -363,7 +364,8 @@ h6{
     resize: none;
 }
 
-.enchere-prix:focus {
+.enchere-prix:focus,
+.enchere-liste:focus {
     border: 4px solid #11203e;
     transform: scale(1.1);
 }
@@ -373,4 +375,32 @@ h6{
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 700;
+}
+
+.enchere-effectue,
+.enchere-liste{
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    justify-content: center;
+    color: #2c3e50;    
+    font-size: 23px;
+    text-align: center;
+}
+
+.enchere-effectue{
+    background-color: #03d11484;
+    color: #3F4A54;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
 }
