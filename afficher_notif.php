@@ -25,7 +25,7 @@ if ($result) {
             // Determine the type of article
             $type_article = -1;
             if ((intval($row["type_vd"])) == 1) {
-                $type_article = 0;
+                $type_acha="vente directe";
             }
             if ((intval($row["type_nego"])) == 1) {
                 $type_article = 1;
