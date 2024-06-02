@@ -135,7 +135,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
         setInterval(() => {
             moveCarousel(1);
         }, interval);
-    </script>s
+    </script>
 
 <div class="col">
 <?php
