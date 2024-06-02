@@ -104,17 +104,20 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             ?>
             <div class = "descriptionProd">
                 <h1><?php echo $titre ?></h1>
-                <h3>Description : <?php echo $description ?></h3>
-                <h5>Prix : <?php echo $prix ?>€</h5>
+                <h3><div class="naming">Description : </div> <?php echo $description ?></h3>
+                <div class="prix">Prix : <?php echo $prix ?>€</div>
                 <?php if($type_enchere == 1){ ?> <h5>Date limite : <?php echo $limite_tps ?></h5> <?php ;} ?>
-                <h6>Etat : <?php echo $etat_article ?> </h6>
-                <h6>Catégorie : <?php echo $categorie_article ?> </h6>
-                <h6>Type de vente : <?php echo $type_affichage_article ?> </h6>
+                <div class="sousCategorie">
+                    <h6>Etat : <?php echo $etat_article ?> </h6>
+                    <h6>Catégorie : <?php echo $categorie_article ?> </h6>
+                    <h6>Type de vente : <?php echo $type_affichage_article ?> </h6>
+                <div>
             </div>
         </div>
         <button class="prev" onclick="moveCarousel(-1)"><</button>
         <button class="next" onclick="moveCarousel(1)">></button>
     </div>
+</div>
 
 
     <script>
