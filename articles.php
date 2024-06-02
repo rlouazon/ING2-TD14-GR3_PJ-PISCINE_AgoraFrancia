@@ -166,14 +166,14 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
     if($condition == 0){
         ?>
             <form method="post">
-                <h1><button type="submit" name="AjouterPanier" class="btn">Ajouter au Panier</button></h1>
+                <h1><button type="submit" class="panier-ajouter" name="AjouterPanier" class="btn">Ajouter au Panier</button></h1>
             </form>
         <?php
     }
     else if($condition == 1){
 
         if($type_article == 0){
-            
+            ?> <p>Produit déjà ajouté au panier <a href="panier.php">(Voir mon panier)</a></p> <?php
         }
         else if($type_article == 1){
             # Detection du prix max
@@ -193,17 +193,19 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 $occ = 0;
                 $fin_nego = 0;
                 $user_nego = -1;
-                echo "<p>";
+                echo "<div class=\"nego-offres\">";
                 while ($data = mysqli_fetch_assoc($result)) {
+                    echo "<p class=\"nego-offre\">";
                     $occ += 1;
                     echo ($occ%2 == 1) ? "Acheteur : " : "Vendeur : ";
                     echo $data['prix'] . "€";
                     $fin_nego = intval($data['fin']);
                     if($fin_nego){echo " (Validé)";}
                     $user_nego = intval($data['acheteur']);
-                    echo "<br>";
+                    echo "</p>";
                 }
-                echo "<strong>" . ($occ) . "/" . 5 . "</strong>";
+                echo "</div>";
+                echo "<div class=\"nego-compteur\">Négociation : " . ($occ) . "/" . 5 . "</div>";
                 if(!($user_nego == -1 || $user_nego == $logged)){$fin_nego = 1;}
                 echo "</p>";
                 if($occ >= 6){
@@ -214,10 +216,10 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 ?>
                     <form method="post">
                     <h1>
-                        <button type="submit" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Proposer une contre offre</button>
+                        <button type="submit" class="nego-refuser" name="RefuserNego" class="btn"            <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Proposer une contre offre</button>
                         <input type="hidden" name="occ" value="<?php echo ($occ); ?>"> 
-                        <input type="number" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>> 
-                        <button type="submit" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Accepter (Mettre fin a la négociation)</button>
+                        <input type="number" class="nego-input" name="prix" max="<?php echo $borne_max ?>" <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>> 
+                        <button type="submit" class="nego-accepter" name="AccepterNego" class="btn"           <?php if($fin_nego == 1 || $occ%2 == 1){echo "disabled";} ?>>Accepter (Mettre fin a la négociation)</button>
                     </form>
                 <?php
             }
@@ -295,9 +297,9 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             ?>
                 <form method="post">
                 <h1>
-                    <p class="pl-5"><?php echo ($condition == 1) ? "Recommandation : " .  ($borne_average + 1) . "€" : "" ?></p>
-                    <input type="number" name="prix" <?php echo "min=\"". $borne_min . "\"" ?><?php if($condition == 0){echo "disabled";} ?>> 
-                    <button type="submit" name="Encherir" class="btn" <?php if($condition == 0){echo "disabled";} ?>><?php echo $message ?></button>
+                    <p class="enchere-reco"><?php echo ($condition == 1) ? "Recommandation : " .  ($borne_average + 1) . "€" : "" ?></p>
+                    <input type="number" class="enchere-prix" name="prix" <?php echo "min=\"". $borne_min . "\"" ?><?php if($condition == 0){echo "disabled";} ?>> 
+                    <button class="enchere-envoyer" type="submit" name="Encherir" class="btn" <?php if($condition == 0){echo "disabled";} ?>><?php echo $message ?></button>
                 </h1>
                 </form>
             <?php 
@@ -307,6 +309,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
 
     }
     else if($condition == 2){
+        ?> <p class="info-proprio">Vous êtes propriétaire de l'offre</p> <?php
         if($type_article == 0){
             
         }
@@ -328,17 +331,18 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
                 $occ = 0;
                 $fin_nego = 0;
                 $user_nego = -1;
-                echo "<p>";
+                echo "<div>";
                 while ($data = mysqli_fetch_assoc($result)) {
+                    echo "<p>";
                     $occ += 1;
                     echo ($occ%2 == 1) ? "Acheteur : " : "Vendeur : ";
                     echo $data['prix'] . "€";
                     $fin_nego = intval($data['fin']);
                     if($fin_nego){echo " (Validé)";}
                     $user_nego = intval($data['acheteur']);
-                    echo "<br>";
+                    echo "</p>";
                 }
-                echo "</p>";
+                echo "</div>";
                 echo "<strong>" . ($occ) . "/" . 5 . "</strong>";
                 if($occ >= 6){
                     $requete = "UPDATE op_nego SET fin = 1 WHERE article = " . $article . " AND acheteur = " . $user_nego . " AND nb_op = 5";
@@ -362,13 +366,13 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             $result = mysqli_query($db_handle, $requete);
             $prix = 0;
             while ($data = mysqli_fetch_assoc($result)) {
-                echo $str = $str . $data["prix"].", \r\n";
+                $str = $str . $data["prix"].", \r\n";
             }
             ?>
                 <form method="post">
                 <h1>
-                    <input type="text" name="prix" readonly value="<?php echo $str; ?>">
-                    <button type="submit" name="Encherir" class="btn" disabled ?>Encheres effectuées</button>
+                    <button type="submit" class="enchere-effectue" name="Encherir" class="btn" disabled ?>Encheres effectuées</button>
+                    <input type="text" class="enchere-liste" name="prix" readonly value="<?php echo $str; ?>">
                 </h1>
                 </form>
             <?php 
