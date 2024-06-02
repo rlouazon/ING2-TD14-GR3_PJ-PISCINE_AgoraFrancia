@@ -169,30 +169,6 @@ if($type_compte == 2){
                         <img src="<?php echo $photo; ?>" alt="Image client" class="imgClient">
                         <h2><?php echo $prenom . " " . $nom; ?></h2>
                     </div>
-                    
-                    <div class="infoClient-actions">
-
-                        <div class="infoClient">
-                            <label class="namingC">Pseudonyme :</label>
-                            <label class="infoC"><?php echo $pseudo; ?></label>
-
-                            <label class="namingC">Adresse mail :</label>
-                            <label class="infoC"><?php echo $mail; ?></label>
-
-                            <label class="namingC">Téléphone :</label>
-                            <label class="infoC"><?php echo $tel; ?></label>
-                        </div>
-                        <input type="hidden" name="id_utilisateur" value="<?php echo $id; ?>" />
-                        <div class = "role">
-                            <select name="perms_utilisateur">
-                                <option value="0" <?php if($type == 0){echo "selected";} ?>>Acheteur</option>
-                                <option value="1" <?php if($type == 1){echo "selected";} ?>>Vendeur</option>
-                                <option value="2" <?php if($type == 2){echo "selected";} ?>>Administrateur</option>
-                            </select>
-                            <button type="submit" name="Modifier_utilisateur" class="bouttonRole"><label class="namingC">Modifier le rôle</label></button>
-                        </div>
-                        <button type="submit" name="Supprimer_utilisateur" class="delete-button">Supprimer l'utilisateur</button>
-                    </div>
                 </form>
             
             <?php
