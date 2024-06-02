@@ -1,6 +1,7 @@
 /* CSS existant */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
 
+
 * {
     color: #3F4A54;
 }
@@ -48,12 +49,11 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75%;
-    height: 75%;
-    
-    border-radius: 50%;
     object-fit: cover;
     overflow: hidden;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
 
 }
 
@@ -141,7 +141,8 @@ h2 {
 }
 
 .imgClient {
-
+    overflow: hidden;
+    object-fit: cover;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -424,4 +425,12 @@ h2 {
 #flou{
     border-radius: 25px;
     background-color: #e1cdbd85;
+}
+
+.delete-button[disabled],
+.delete-button:disabled
+ {
+    background-color: rgba(136, 135, 135, 0.647);
+    color: rgba(0, 0, 0, 0.629);
+    cursor: not-allowed;
 }

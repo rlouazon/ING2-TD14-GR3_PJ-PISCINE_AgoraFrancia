@@ -192,7 +192,7 @@ body::before {
                                         <?php echo $description ?>
                                     </div>
                                 <input type="hidden" name="id-type_article" value="<?php echo $id_article."-".$i; ?>" />
-                                <button type="submit" name="Suppression_article" class="delete-button">Supprimer l'article</button>
+                                <button type="submit" name="Suppression_article" class="delete-button">Supprimer l'annonce</button>
                             </div>
                         </form>
                                        
@@ -268,7 +268,7 @@ body::before {
                                 </select>
                                 <button type="submit" name="Modifier_utilisateur" class="bouttonRole"><label class="namingC">Modifier le rôle</label></button>
                             </div>
-                            <button type="submit" name="Supprimer_utilisateur" class="delete-button">Supprimer l'utilisateur</button>
+                            <button type="submit" name="Supprimer_utilisateur" class="delete-button">Bannir l'utilisateur</button>
                         </div>
                     </form>
                 
