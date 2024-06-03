@@ -463,6 +463,7 @@ if($occ != 1   ||   $type_article == -1   ||   ((($type_article == 0) == intval(
             "" . $_POST['prix'] . "" . 
             ")";
             $result = mysqli_query($db_handle, $requete);
+            
             echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
         }
         else{

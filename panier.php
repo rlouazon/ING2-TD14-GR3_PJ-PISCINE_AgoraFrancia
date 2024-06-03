@@ -6,6 +6,28 @@
 </div>
 
 
+<?php 
+
+        $requete = "SELECT * FROM theme";
+        $result = mysqli_query($db_handle, $requete);
+
+        $theme = "";
+        $reduction = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            if($row['active'] != "0"){$theme = $row['nom'];}
+            $reduction = intval($row['active']);
+        }
+
+        if($theme == ""){
+            ?> <link href="CSS/index.css" rel="stylesheet"> <?php
+        }
+        else if($theme == "noel"){
+            ?> <link href="CSS/index2.css" rel="stylesheet"> <?php
+        }
+
+    ?>
+
+
 <?php
 if($logged != 0){
     # Infos utilisateur
@@ -186,14 +208,14 @@ if($logged != 0){
             </div>
             <div class="info">
                 <label class="naming">Promotion :</label>
-                <label class="info"> 0.00€</label>  
+                <label class="info">-<?php $reduction ?>€ (<?php $theme ?>)</label>  
             </div>
 
             <div class="info">
-                <label class="info"> Livraisons :</label>
+                <label class="info"> Livraison :</label>
             </div>
             <div class="info">
-                <label class="naming">Frais de livraisons :</label>
+                <label class="naming">Frais de livraison :</label>
                 <label class="info"> 0.00€</label>  
             </div>
 
@@ -208,9 +230,9 @@ if($logged != 0){
                         $lock = ($articles[$i]['prix_temporaire'] == 1) ? 1 : $lock;
                     }
                 ?>
-                <label class="info"><?php echo $total; ?>€</label>  
+                <label class="info"><?php echo ($total-$reduction); ?>€</label>  
             </div>
-            <input type="hidden" name="prix" value="<?php echo $total; ?>">
+            <input type="hidden" name="prix" value="<?php echo ($total-$reduction); ?>">
             <button class="validation-button" name="Payer" <?php echo ($lock == 1) ? "disabled" : ""; ?>>Passer à la caisse</button>
 
             </div>
@@ -315,12 +337,59 @@ if(isset($_POST['Payer'])){
             $requete2 = "DELETE FROM articles WHERE id = " . $data['id'];
             $result2 = mysqli_query($db_handle, $requete2);
         }
+
+        $to = $mail;
+
+
+        $today = new DateTime('now');
+        // Ajouter 3 jours à la date du jour
+        $threeDays = $today->add(new DateInterval('P3D'));
+        // Formater la date dans le format souhaité
+        $formattedDate = $threeDays->format('Y-m-d');
+        $minHour = 8;
+        $maxHour = 19;
+        // Generate random hour within the range
+        $randomHour = rand($minHour, $maxHour);
+        // Generate random minutes between 0 and 59
+        $randomMinute = rand(0, 59);
+        // Format the time string
+        $randomTime = $randomHour . ':' . $randomMinute;
+
+
+
+            ini_set('SMTP','smtp.gmail.com');
+            ini_set('smtp_port', '465');
+            ini_set('sendmail_from','agorafranciaece@gmail.com'); # works ok: from and to email addresses handled correctly
+            #ini_set('sendmail_from','rogerkeeling@f2s.com'); #appears to work (no error reported) but no email arrives
+            
+            // Multiple recipients
+            $to = $mail . ', '; // note the comma
+
+            // Subject
+            $subject = 'Agora Francia - Votre Commande';
+
+            // Message
+            $message = "<p>" . "Bonjour, \n\nMerci pour votre commande\n\nVotre commande effectuée sur notre site aujourd'hui vient d'être soldée (Prix : " . $prix . "€).\n\nVotre colis sera emballé et mis en livraison sous 3 jours ouvrés.\n\nEstimation de livraison : le " . $formattedDate . " à " . $randomTime . ".\n\nMerci et bonne journée." . '<p>' ;
+
+
+            // To send HTML mail, the Content-type header must be set
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+            // Additional headers
+            $headers[] = 'To: ' . $pseudo . " <" . $mail . ">, " ;
+            $headers[] = 'From: ' . "Agora Francia " . '<agorafranciaece@gmail.com>';
+            $ok=mail($to,$subject,$message,"");
+            echo ("rwk1".$ok."rwk2");
+            // Mail it
+            if(mail($to, $subject, $message, implode("\r\n", $headers))){echo "sgehkbqegkjbgkjzbgkjzg";};
+
     }
     else{
         $alert = "PAIEMENT REFUSE : Solde insuffisant (" . $solde . "€), vous n'avez pas été débité. (Solde minimum requis : " . $prix . "€)";
     }
     
-    echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
+    #echo "<script>setTimeout(() => window.location.replace(\"\"), 0);</script>";
 }
 ?>
 

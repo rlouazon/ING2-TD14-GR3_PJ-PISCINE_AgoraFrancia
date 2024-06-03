@@ -15,7 +15,7 @@
     if(isset($_SESSION['id'])){
         if($_SESSION['id'] != 0){
             $logged = $_SESSION['id'];
-            echo "LOG CONFIRME : ".$_SESSION['id'];
+            #echo "LOG CONFIRME : ".$_SESSION['id'];
             $requete = "SELECT * FROM utilisateurs WHERE id = " . $logged;
             $result = mysqli_query($db_handle, $requete);
             $occ = 0;
