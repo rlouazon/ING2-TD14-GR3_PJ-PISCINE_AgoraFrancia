@@ -11,7 +11,7 @@
 
         $theme = "";
         while ($row = mysqli_fetch_assoc($result)) {
-            if($row['active'] == "1"){$theme = $row['nom'];}
+            if($row['active'] != "0"){$theme = $row['nom'];}
         }
 
         if($theme == ""){
