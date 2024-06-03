@@ -197,11 +197,11 @@ if($logged != 0){
             ?>
         
             <div class="info">
-                <label class="info"> Promotion :</label>
+                <label class="info"> Promotions :</label>
             </div>
             <div class="info">
-                <label class="naming">Promotion :</label>
-                <label class="info">-<?php $reduction ?>€ (<?php $theme ?>)</label>  
+                <label class="naming"><?php echo $theme ?> :</label>
+                <label class="info">-<?php echo $reduction ?>€</label>  
             </div>
 
             <div class="info">
