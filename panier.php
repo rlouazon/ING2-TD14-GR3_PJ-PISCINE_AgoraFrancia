@@ -14,16 +14,9 @@
         $theme = "";
         $reduction = 0;
         while ($row = mysqli_fetch_assoc($result)) {
-            if($row['active'] != "0"){$theme = $row['nom'];}
-            $reduction = intval($row['active']);
+            if($row['active'] != "0"){$theme = $row['nom']; $reduction = intval($row['active']);}
         }
 
-        if($theme == ""){
-            ?> <link href="CSS/index.css" rel="stylesheet"> <?php
-        }
-        else if($theme == "noel"){
-            ?> <link href="CSS/index2.css" rel="stylesheet"> <?php
-        }
 
     ?>
 
